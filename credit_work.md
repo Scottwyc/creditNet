@@ -483,3 +483,14 @@ P: 有人说，计划投资支出的比例c，刚开始的比例太小了，可�
 - 新增 `README.md`，说明主文档、源码、脚本、报告和结果的跟踪边界；
 - 计划将 `src/`、`scripts/`、`docs/`、`project.md`、Word 导出、关键 summary/metadata/figures 纳入 Git；
 - 逐事件原始数据如 `avalanche_events.csv`、`avalanche_waves.csv` 和逐期 history 文件继续保留在本地磁盘，但默认不进入 Git 历史。
+
+## 2026-06-08 18:07:45 CST：GitHub 远端发布完成
+
+已将本地 Git 仓库发布到 GitHub：
+
+- 远端：`git@github.com:Scottwyc/creditNet.git`
+- 分支：`main`
+- 初始提交：`c1f07e1 Initialize creditNet project repository`
+- 本地 `main` 已设置跟踪 `origin/main`
+
+发布口径沿用建仓规则：GitHub 仓库只包含核心代码、核心报告、主文档和精选结果摘要/图表；大体量逐事件流与逐期历史文件仍保留本地并由 `.gitignore` 默认排除。
