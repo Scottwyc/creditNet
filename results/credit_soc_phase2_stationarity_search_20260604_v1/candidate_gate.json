@@ -1,0 +1,16 @@
+{
+  "minimum_late_events": 60,
+  "minimum_late_occupancy": 0.001,
+  "late_occupancy_note": "high occupancy is reported as event-dependence/batch-trigger risk, not a standalone rejection",
+  "late_wait1_note": "P(wait=1) is descriptive and not a standalone rejection",
+  "maximum_absolute_late_size_lag1": 0.3,
+  "maximum_early_late_occupancy_difference": "max(0.02, 0.25 * max(early, late))",
+  "maximum_relative_mean_size_drift": 0.25,
+  "maximum_relative_active_credit_drift": 0.2,
+  "maximum_absolute_gini_drift": 0.05,
+  "maximum_absolute_propagation_share_drift": 0.1,
+  "maximum_late_repeated_default_share": 0.8,
+  "minimum_late_single_initial_default_fraction": 0.5,
+  "minimum_late_propagated_default_share": 0.1,
+  "breadth": "late p99 size >= 0.05*N and at least one late event >= 0.10*N"
+}

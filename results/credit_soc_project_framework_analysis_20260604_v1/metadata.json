@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-06-04 10:43:35 CST",
+  "fixed_k_sweep_dir": "results/credit_soc_fixedK_sweep_20260604_v1",
+  "income_c_sweep_dir": "results/credit_soc_income_c_sweep_20260604_v1",
+  "income_rule_dir": "results/credit_soc_continue_income_c005_20260604_v1",
+  "focus_dir": "results/credit_soc_continue_income_c020_random_focus_20260604_v1",
+  "output_dir": "results/credit_soc_project_framework_analysis_20260604_v1"
+}

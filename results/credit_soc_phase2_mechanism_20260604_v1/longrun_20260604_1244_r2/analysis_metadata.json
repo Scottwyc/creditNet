@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-06-04 12:55:21 CST",
+  "result_dir": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2",
+  "run_count": 264,
+  "event_count": 537387,
+  "thresholds": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "outputs": {
+    "scenario_summary": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/scenario_summary.csv",
+    "threshold_sensitivity": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/threshold_sensitivity.csv",
+    "tail_screen": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/tail_screen.csv",
+    "temporal_diagnostics": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/temporal_diagnostics.csv",
+    "temporal_quartiles": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/temporal_quartiles.csv",
+    "posthoc_audit": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/posthoc_audit.json",
+    "analysis_summary": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/analysis_summary.md"
+  }
+}

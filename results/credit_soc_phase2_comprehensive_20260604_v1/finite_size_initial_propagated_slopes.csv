@@ -1,0 +1,7 @@
+family,metric,log_log_slope
+finite_fixed,mean_total_size,0.9722531096573035
+finite_fixed,mean_initial_defaults,0.9700542877973742
+finite_fixed,mean_propagated_defaults,0.9849163135480212
+finite_income,mean_total_size,0.9834657291561023
+finite_income,mean_initial_defaults,0.9805708689214565
+finite_income,mean_propagated_defaults,1.0037505600893182

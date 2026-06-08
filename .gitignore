@@ -1,0 +1,25 @@
+# Python/runtime cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Local Codex worker state and transient logs
+.codex/tmux-workers/
+logs/
+*.log
+
+# Generated/transient office render artifacts
+results/project_md_word_render_*/
+results/tmp*/
+
+# Experiment outputs are ignored by default. Curated summaries, figures,
+# metadata and reports are force-added when they are part of the evidence set.
+results/**
+!results/
+
+# OS/editor noise
+.DS_Store
+*.swp
+*.tmp

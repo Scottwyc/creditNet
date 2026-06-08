@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-06-05 18:52:40 CST",
+  "new_result_dir": "results/credit_soc_phase2_income_c010_c080_20260605_v1",
+  "old_result_dir": "results/credit_soc_phase2_strict_soc_20260604_v1",
+  "output_dir": "results/credit_soc_high_c_rescan_analysis_20260605_v1",
+  "min_tail": 100,
+  "bootstrap": 40,
+  "new_runs": 960,
+  "new_events": 271044,
+  "old_income_runs": 600,
+  "old_income_events": 153702,
+  "artifacts": {
+    "scenario_summary": "results/credit_soc_high_c_rescan_analysis_20260605_v1/scenario_comparison_summary.csv",
+    "band_summary": "results/credit_soc_high_c_rescan_analysis_20260605_v1/high_c_band_summary.csv",
+    "c020_comparison": "results/credit_soc_high_c_rescan_analysis_20260605_v1/c020_replication_comparison.csv",
+    "trends": "results/credit_soc_high_c_rescan_analysis_20260605_v1/high_c_spearman_trends.csv",
+    "tail_fits": "results/credit_soc_high_c_rescan_analysis_20260605_v1/high_c_tail_fits.csv",
+    "report": "results/credit_soc_high_c_rescan_analysis_20260605_v1/credit_soc_high_c_rescan_report_20260605_v1.md"
+  }
+}

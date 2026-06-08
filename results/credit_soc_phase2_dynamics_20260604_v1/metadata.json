@@ -1,0 +1,1598 @@
+{
+  "created_at": "2026-06-04 12:47:54 CST",
+  "command_args": {
+    "output_dir": "results/credit_soc_phase2_dynamics_20260604_v1",
+    "runs_per_scenario": 20,
+    "max_periods": 240,
+    "long_runs_per_scenario": 5,
+    "long_max_periods": 1000,
+    "seed_base": 2026061400,
+    "validation_seeds": 3,
+    "progress_every": 10
+  },
+  "protocol": {
+    "money_distribution": "lognormal",
+    "income_distribution_rule": "biased",
+    "growth_rule": "random",
+    "avalanche_protocol": "continue_after_avalanche",
+    "default_check_mode": "period_end",
+    "validate_accounting": true,
+    "common_parameters": {
+      "mean_initial_money": 20.0,
+      "consumption_wealth_propensity": 0.02,
+      "consumption_income_propensity": 0.2,
+      "initial_income_per_capita": 5.0,
+      "income_bias_floor": 1.0,
+      "collapse_threshold_fraction": 0.1,
+      "default_threshold": 0.0,
+      "wipe_defaulted_assets": true,
+      "max_time_steps": 0
+    },
+    "family_execution": {
+      "transition_and_size_scaling": {
+        "runs_per_scenario": 20,
+        "max_periods": 240
+      },
+      "long_run_attractor": {
+        "runs_per_scenario": 5,
+        "max_periods": 1000
+      }
+    },
+    "generation_definition": "earliest FIFO queue-discovery generation under exact baseline sequential clearing; generation 0 is the initial negative-net-worth set",
+    "duration_definition": "number of discovery generations including generation 0; baseline cascade_steps is not used as duration because it counts processed defaulted nodes"
+  },
+  "scenario_count": 17,
+  "run_count": 280,
+  "event_count": 80353,
+  "wave_count": 158737,
+  "validation_row_count": 6,
+  "validation_all_matched": true,
+  "scenarios": [
+    {
+      "family": "fixed_k_transition",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 18,
+      "c": 0.18,
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18"
+    },
+    {
+      "family": "fixed_k_transition",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20"
+    },
+    {
+      "family": "fixed_k_transition",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 22,
+      "c": 0.18,
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22"
+    },
+    {
+      "family": "fixed_k_transition",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 24,
+      "c": 0.18,
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24"
+    },
+    {
+      "family": "fixed_k_transition",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 26,
+      "c": 0.18,
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26"
+    },
+    {
+      "family": "fixed_k_transition",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 28,
+      "c": 0.18,
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28"
+    },
+    {
+      "family": "income_c_transition",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.14,
+      "scenario_id": "income_c_transition__N-200__income-c-0.14"
+    },
+    {
+      "family": "income_c_transition",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.16,
+      "scenario_id": "income_c_transition__N-200__income-c-0.16"
+    },
+    {
+      "family": "income_c_transition",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "income_c_transition__N-200__income-c-0.18"
+    },
+    {
+      "family": "income_c_transition",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.2,
+      "scenario_id": "income_c_transition__N-200__income-c-0.20"
+    },
+    {
+      "family": "size_scaling_income_c018",
+      "n_nodes": 100,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18"
+    },
+    {
+      "family": "size_scaling_income_c018",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18"
+    },
+    {
+      "family": "size_scaling_income_c018",
+      "n_nodes": 500,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18"
+    },
+    {
+      "family": "long_run_attractor",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "long_run_attractor__N-200__fixed-K-20"
+    },
+    {
+      "family": "long_run_attractor",
+      "n_nodes": 200,
+      "period_length_rule": "fixed",
+      "fixed_k": 30,
+      "c": 0.18,
+      "scenario_id": "long_run_attractor__N-200__fixed-K-30"
+    },
+    {
+      "family": "long_run_attractor",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.18,
+      "scenario_id": "long_run_attractor__N-200__income-c-0.18"
+    },
+    {
+      "family": "long_run_attractor",
+      "n_nodes": 200,
+      "period_length_rule": "income",
+      "fixed_k": 20,
+      "c": 0.2,
+      "scenario_id": "long_run_attractor__N-200__income-c-0.20"
+    }
+  ],
+  "seeds": [
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 0,
+      "seed": 2026061400
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 1,
+      "seed": 2026061401
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 2,
+      "seed": 2026061402
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 3,
+      "seed": 2026061403
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 4,
+      "seed": 2026061404
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 5,
+      "seed": 2026061405
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 6,
+      "seed": 2026061406
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 7,
+      "seed": 2026061407
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 8,
+      "seed": 2026061408
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 9,
+      "seed": 2026061409
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 10,
+      "seed": 2026061410
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 11,
+      "seed": 2026061411
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 12,
+      "seed": 2026061412
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 13,
+      "seed": 2026061413
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 14,
+      "seed": 2026061414
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 15,
+      "seed": 2026061415
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 16,
+      "seed": 2026061416
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 17,
+      "seed": 2026061417
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 18,
+      "seed": 2026061418
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-18",
+      "run_index": 19,
+      "seed": 2026061419
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 0,
+      "seed": 2026071400
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 1,
+      "seed": 2026071401
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 2,
+      "seed": 2026071402
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 3,
+      "seed": 2026071403
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 4,
+      "seed": 2026071404
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 5,
+      "seed": 2026071405
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 6,
+      "seed": 2026071406
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 7,
+      "seed": 2026071407
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 8,
+      "seed": 2026071408
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 9,
+      "seed": 2026071409
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 10,
+      "seed": 2026071410
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 11,
+      "seed": 2026071411
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 12,
+      "seed": 2026071412
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 13,
+      "seed": 2026071413
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 14,
+      "seed": 2026071414
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 15,
+      "seed": 2026071415
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 16,
+      "seed": 2026071416
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 17,
+      "seed": 2026071417
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 18,
+      "seed": 2026071418
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-20",
+      "run_index": 19,
+      "seed": 2026071419
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 0,
+      "seed": 2026081400
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 1,
+      "seed": 2026081401
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 2,
+      "seed": 2026081402
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 3,
+      "seed": 2026081403
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 4,
+      "seed": 2026081404
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 5,
+      "seed": 2026081405
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 6,
+      "seed": 2026081406
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 7,
+      "seed": 2026081407
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 8,
+      "seed": 2026081408
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 9,
+      "seed": 2026081409
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 10,
+      "seed": 2026081410
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 11,
+      "seed": 2026081411
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 12,
+      "seed": 2026081412
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 13,
+      "seed": 2026081413
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 14,
+      "seed": 2026081414
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 15,
+      "seed": 2026081415
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 16,
+      "seed": 2026081416
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 17,
+      "seed": 2026081417
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 18,
+      "seed": 2026081418
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-22",
+      "run_index": 19,
+      "seed": 2026081419
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 0,
+      "seed": 2026091400
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 1,
+      "seed": 2026091401
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 2,
+      "seed": 2026091402
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 3,
+      "seed": 2026091403
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 4,
+      "seed": 2026091404
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 5,
+      "seed": 2026091405
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 6,
+      "seed": 2026091406
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 7,
+      "seed": 2026091407
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 8,
+      "seed": 2026091408
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 9,
+      "seed": 2026091409
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 10,
+      "seed": 2026091410
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 11,
+      "seed": 2026091411
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 12,
+      "seed": 2026091412
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 13,
+      "seed": 2026091413
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 14,
+      "seed": 2026091414
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 15,
+      "seed": 2026091415
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 16,
+      "seed": 2026091416
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 17,
+      "seed": 2026091417
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 18,
+      "seed": 2026091418
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-24",
+      "run_index": 19,
+      "seed": 2026091419
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 0,
+      "seed": 2026101400
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 1,
+      "seed": 2026101401
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 2,
+      "seed": 2026101402
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 3,
+      "seed": 2026101403
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 4,
+      "seed": 2026101404
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 5,
+      "seed": 2026101405
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 6,
+      "seed": 2026101406
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 7,
+      "seed": 2026101407
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 8,
+      "seed": 2026101408
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 9,
+      "seed": 2026101409
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 10,
+      "seed": 2026101410
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 11,
+      "seed": 2026101411
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 12,
+      "seed": 2026101412
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 13,
+      "seed": 2026101413
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 14,
+      "seed": 2026101414
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 15,
+      "seed": 2026101415
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 16,
+      "seed": 2026101416
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 17,
+      "seed": 2026101417
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 18,
+      "seed": 2026101418
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-26",
+      "run_index": 19,
+      "seed": 2026101419
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 0,
+      "seed": 2026111400
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 1,
+      "seed": 2026111401
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 2,
+      "seed": 2026111402
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 3,
+      "seed": 2026111403
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 4,
+      "seed": 2026111404
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 5,
+      "seed": 2026111405
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 6,
+      "seed": 2026111406
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 7,
+      "seed": 2026111407
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 8,
+      "seed": 2026111408
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 9,
+      "seed": 2026111409
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 10,
+      "seed": 2026111410
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 11,
+      "seed": 2026111411
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 12,
+      "seed": 2026111412
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 13,
+      "seed": 2026111413
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 14,
+      "seed": 2026111414
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 15,
+      "seed": 2026111415
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 16,
+      "seed": 2026111416
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 17,
+      "seed": 2026111417
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 18,
+      "seed": 2026111418
+    },
+    {
+      "scenario_id": "fixed_k_transition__N-200__fixed-K-28",
+      "run_index": 19,
+      "seed": 2026111419
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 0,
+      "seed": 2026121400
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 1,
+      "seed": 2026121401
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 2,
+      "seed": 2026121402
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 3,
+      "seed": 2026121403
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 4,
+      "seed": 2026121404
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 5,
+      "seed": 2026121405
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 6,
+      "seed": 2026121406
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 7,
+      "seed": 2026121407
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 8,
+      "seed": 2026121408
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 9,
+      "seed": 2026121409
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 10,
+      "seed": 2026121410
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 11,
+      "seed": 2026121411
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 12,
+      "seed": 2026121412
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 13,
+      "seed": 2026121413
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 14,
+      "seed": 2026121414
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 15,
+      "seed": 2026121415
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 16,
+      "seed": 2026121416
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 17,
+      "seed": 2026121417
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 18,
+      "seed": 2026121418
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.14",
+      "run_index": 19,
+      "seed": 2026121419
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 0,
+      "seed": 2026131400
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 1,
+      "seed": 2026131401
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 2,
+      "seed": 2026131402
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 3,
+      "seed": 2026131403
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 4,
+      "seed": 2026131404
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 5,
+      "seed": 2026131405
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 6,
+      "seed": 2026131406
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 7,
+      "seed": 2026131407
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 8,
+      "seed": 2026131408
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 9,
+      "seed": 2026131409
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 10,
+      "seed": 2026131410
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 11,
+      "seed": 2026131411
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 12,
+      "seed": 2026131412
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 13,
+      "seed": 2026131413
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 14,
+      "seed": 2026131414
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 15,
+      "seed": 2026131415
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 16,
+      "seed": 2026131416
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 17,
+      "seed": 2026131417
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 18,
+      "seed": 2026131418
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.16",
+      "run_index": 19,
+      "seed": 2026131419
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 0,
+      "seed": 2026141400
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 1,
+      "seed": 2026141401
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 2,
+      "seed": 2026141402
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 3,
+      "seed": 2026141403
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 4,
+      "seed": 2026141404
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 5,
+      "seed": 2026141405
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 6,
+      "seed": 2026141406
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 7,
+      "seed": 2026141407
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 8,
+      "seed": 2026141408
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 9,
+      "seed": 2026141409
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 10,
+      "seed": 2026141410
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 11,
+      "seed": 2026141411
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 12,
+      "seed": 2026141412
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 13,
+      "seed": 2026141413
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 14,
+      "seed": 2026141414
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 15,
+      "seed": 2026141415
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 16,
+      "seed": 2026141416
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 17,
+      "seed": 2026141417
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 18,
+      "seed": 2026141418
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.18",
+      "run_index": 19,
+      "seed": 2026141419
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 0,
+      "seed": 2026151400
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 1,
+      "seed": 2026151401
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 2,
+      "seed": 2026151402
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 3,
+      "seed": 2026151403
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 4,
+      "seed": 2026151404
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 5,
+      "seed": 2026151405
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 6,
+      "seed": 2026151406
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 7,
+      "seed": 2026151407
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 8,
+      "seed": 2026151408
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 9,
+      "seed": 2026151409
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 10,
+      "seed": 2026151410
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 11,
+      "seed": 2026151411
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 12,
+      "seed": 2026151412
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 13,
+      "seed": 2026151413
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 14,
+      "seed": 2026151414
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 15,
+      "seed": 2026151415
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 16,
+      "seed": 2026151416
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 17,
+      "seed": 2026151417
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 18,
+      "seed": 2026151418
+    },
+    {
+      "scenario_id": "income_c_transition__N-200__income-c-0.20",
+      "run_index": 19,
+      "seed": 2026151419
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 0,
+      "seed": 2026161400
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 1,
+      "seed": 2026161401
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 2,
+      "seed": 2026161402
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 3,
+      "seed": 2026161403
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 4,
+      "seed": 2026161404
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 5,
+      "seed": 2026161405
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 6,
+      "seed": 2026161406
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 7,
+      "seed": 2026161407
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 8,
+      "seed": 2026161408
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 9,
+      "seed": 2026161409
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 10,
+      "seed": 2026161410
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 11,
+      "seed": 2026161411
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 12,
+      "seed": 2026161412
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 13,
+      "seed": 2026161413
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 14,
+      "seed": 2026161414
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 15,
+      "seed": 2026161415
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 16,
+      "seed": 2026161416
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 17,
+      "seed": 2026161417
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 18,
+      "seed": 2026161418
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-100__income-c-0.18",
+      "run_index": 19,
+      "seed": 2026161419
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 0,
+      "seed": 2026171400
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 1,
+      "seed": 2026171401
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 2,
+      "seed": 2026171402
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 3,
+      "seed": 2026171403
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 4,
+      "seed": 2026171404
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 5,
+      "seed": 2026171405
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 6,
+      "seed": 2026171406
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 7,
+      "seed": 2026171407
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 8,
+      "seed": 2026171408
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 9,
+      "seed": 2026171409
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 10,
+      "seed": 2026171410
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 11,
+      "seed": 2026171411
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 12,
+      "seed": 2026171412
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 13,
+      "seed": 2026171413
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 14,
+      "seed": 2026171414
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 15,
+      "seed": 2026171415
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 16,
+      "seed": 2026171416
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 17,
+      "seed": 2026171417
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 18,
+      "seed": 2026171418
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-200__income-c-0.18",
+      "run_index": 19,
+      "seed": 2026171419
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 0,
+      "seed": 2026181400
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 1,
+      "seed": 2026181401
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 2,
+      "seed": 2026181402
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 3,
+      "seed": 2026181403
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 4,
+      "seed": 2026181404
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 5,
+      "seed": 2026181405
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 6,
+      "seed": 2026181406
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 7,
+      "seed": 2026181407
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 8,
+      "seed": 2026181408
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 9,
+      "seed": 2026181409
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 10,
+      "seed": 2026181410
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 11,
+      "seed": 2026181411
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 12,
+      "seed": 2026181412
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 13,
+      "seed": 2026181413
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 14,
+      "seed": 2026181414
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 15,
+      "seed": 2026181415
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 16,
+      "seed": 2026181416
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 17,
+      "seed": 2026181417
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 18,
+      "seed": 2026181418
+    },
+    {
+      "scenario_id": "size_scaling_income_c018__N-500__income-c-0.18",
+      "run_index": 19,
+      "seed": 2026181419
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-20",
+      "run_index": 0,
+      "seed": 2026191400
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-20",
+      "run_index": 1,
+      "seed": 2026191401
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-20",
+      "run_index": 2,
+      "seed": 2026191402
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-20",
+      "run_index": 3,
+      "seed": 2026191403
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-20",
+      "run_index": 4,
+      "seed": 2026191404
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-30",
+      "run_index": 0,
+      "seed": 2026201400
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-30",
+      "run_index": 1,
+      "seed": 2026201401
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-30",
+      "run_index": 2,
+      "seed": 2026201402
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-30",
+      "run_index": 3,
+      "seed": 2026201403
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__fixed-K-30",
+      "run_index": 4,
+      "seed": 2026201404
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.18",
+      "run_index": 0,
+      "seed": 2026211400
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.18",
+      "run_index": 1,
+      "seed": 2026211401
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.18",
+      "run_index": 2,
+      "seed": 2026211402
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.18",
+      "run_index": 3,
+      "seed": 2026211403
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.18",
+      "run_index": 4,
+      "seed": 2026211404
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.20",
+      "run_index": 0,
+      "seed": 2026221400
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.20",
+      "run_index": 1,
+      "seed": 2026221401
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.20",
+      "run_index": 2,
+      "seed": 2026221402
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.20",
+      "run_index": 3,
+      "seed": 2026221403
+    },
+    {
+      "scenario_id": "long_run_attractor__N-200__income-c-0.20",
+      "run_index": 4,
+      "seed": 2026221404
+    }
+  ],
+  "outputs": {
+    "baseline_equivalence.csv": "results/credit_soc_phase2_dynamics_20260604_v1/baseline_equivalence.csv",
+    "run_summary.csv": "results/credit_soc_phase2_dynamics_20260604_v1/run_summary.csv",
+    "avalanche_events.csv": "results/credit_soc_phase2_dynamics_20260604_v1/avalanche_events.csv",
+    "avalanche_waves.csv": "results/credit_soc_phase2_dynamics_20260604_v1/avalanche_waves.csv",
+    "scenario_summary.csv": "results/credit_soc_phase2_dynamics_20260604_v1/scenario_summary.csv",
+    "first_run_period_histories.json": "results/credit_soc_phase2_dynamics_20260604_v1/first_run_period_histories.json"
+  }
+}

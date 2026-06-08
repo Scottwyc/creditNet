@@ -1,0 +1,5 @@
+income_distribution_rule,growth_rule,runs,default_run_rate,mean_avalanche_count_per_run,avalanche_events_per_100_periods,mean_event_size,p90_event_size,max_event_size,mean_final_net_worth_gini,mean_first_cascade_credit_scale
+biased,preferential_debt,60,1.0,70.55,17.6375,1.1958421922986062,2.0,7,0.4965267327177726,131.55
+uniform,preferential_debt,60,0.4,0.5333333333333333,0.13333333333333333,1.0625,1.0,2,0.11455835714662993,1375.6666666666667
+biased,random,60,1.0,120.16666666666667,30.041666666666668,1.3054091539528432,2.0,8,0.5755560319871739,199.5
+uniform,random,60,0.26666666666666666,0.35,0.0875,1.2380952380952381,2.0,4,0.10767879934863205,1640.0666666666666

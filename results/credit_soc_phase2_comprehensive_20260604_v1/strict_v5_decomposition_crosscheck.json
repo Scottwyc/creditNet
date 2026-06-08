@@ -1,0 +1,23 @@
+{
+  "checked_at_cst": "2026-06-04 13:27:08 CST",
+  "strict_analysis_dir": "/data/WYC/class/creditNet/results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5",
+  "max_absolute_differences": {
+    "transition:events": 0.0,
+    "transition:p_initial_default_count_eq_1": 9.020562075079397e-17,
+    "transition:mean_initial_defaults": 1.7763568394002505e-15,
+    "transition:mean_propagated_defaults": 1.1102230246251565e-16,
+    "transition:mean_total_size": 1.7763568394002505e-15,
+    "transition:propagated_share_of_total_size": 6.938893903907228e-17,
+    "finite:events": 0.0,
+    "finite:p_initial_default_count_eq_1": 8.933825901280557e-17,
+    "finite:mean_total_size": 3.552713678800501e-15,
+    "finite:mean_initial_defaults": 3.552713678800501e-15,
+    "finite:mean_propagated_defaults": 0.0,
+    "finite:propagated_share_of_total_size": 8.326672684688674e-17,
+    "finite:mean_total_fraction_of_N": 9.71445146547012e-17,
+    "finite:mean_initial_fraction_of_N": 8.326672684688674e-17,
+    "finite:mean_propagated_fraction_of_N": 9.974659986866641e-17
+  },
+  "tolerance": 1e-12,
+  "passed": true
+}

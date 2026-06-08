@@ -1,0 +1,14 @@
+result_dir,runs,scenarios,events,seed_min,seed_max,max_event_size
+/data/WYC/class/creditNet/results/credit_soc_continue_fixedK10_20260604_v1,120,6,22799,2026072000,2026072119,11
+/data/WYC/class/creditNet/results/credit_soc_continue_fixedK20_20260604_v1,120,6,33902,2026082000,2026082119,24
+/data/WYC/class/creditNet/results/credit_soc_continue_fixedK30_20260604_v1,120,6,38786,2026092000,2026092119,35
+/data/WYC/class/creditNet/results/credit_soc_continue_fixedK50_20260604_v1,180,6,65719,2026061400,2026061579,54
+/data/WYC/class/creditNet/results/credit_soc_continue_fixedK5_20260604_v1,120,6,10383,2026067000,2026067119,6
+/data/WYC/class/creditNet/results/credit_soc_continue_income_c002_20260604_v1,240,12,3371,2026065000,2026065239,3
+/data/WYC/class/creditNet/results/credit_soc_continue_income_c005_20260604_v1,240,12,11496,2026068000,2026068239,8
+/data/WYC/class/creditNet/results/credit_soc_continue_income_c010_biased_20260604_v1,120,6,26243,2026071000,2026071119,15
+/data/WYC/class/creditNet/results/credit_soc_continue_income_c020_biased_20260604_v1,60,6,9227,2026075000,2026075059,28
+/data/WYC/class/creditNet/results/credit_soc_continue_income_c020_random_focus_20260604_v1,180,3,32826,2026078000,2026078179,30
+/data/WYC/class/creditNet/results/credit_soc_phase2_dynamics_20260604_v1,280,17,80353,2026061400,2026221404,55
+/data/WYC/class/creditNet/results/credit_soc_phase2_factors_topology_20260604_v1,248,31,51401,2026060400,2026060647,23
+/data/WYC/class/creditNet/results/credit_soc_phase2_strict_soc_20260604_v1,1440,28,368042,2026120000,2028820029,114

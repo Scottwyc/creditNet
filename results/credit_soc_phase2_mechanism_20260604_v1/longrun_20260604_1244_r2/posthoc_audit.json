@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-06-04 12:55:14 CST",
+  "negative_control": {
+    "high_risk_income_c020": {
+      "paired_runs": 12,
+      "mismatches": {
+        "total_credit_issued": 0,
+        "avalanche_count": 0,
+        "max_collapse_size": 0,
+        "total_collapse_size": 0,
+        "unique_default_nodes": 0,
+        "repeat_default_occurrences": 0,
+        "final_active_credit": 0,
+        "final_cash_total": 0,
+        "final_net_worth_gini": 0
+      }
+    },
+    "boundary_fixed_k20": {
+      "paired_runs": 12,
+      "mismatches": {
+        "total_credit_issued": 0,
+        "avalanche_count": 0,
+        "max_collapse_size": 0,
+        "total_collapse_size": 0,
+        "unique_default_nodes": 0,
+        "repeat_default_occurrences": 0,
+        "final_active_credit": 0,
+        "final_cash_total": 0,
+        "final_net_worth_gini": 0
+      }
+    }
+  },
+  "accounting_residuals": {
+    "max_abs_nonreset_cash_residual": 9.094947017729282e-13,
+    "max_abs_reset_cash_identity_residual": 0.0
+  },
+  "nonzero_drive_cap_usage": [
+    {
+      "protocol_id": "high_risk_income_c020",
+      "mechanism_id": "reset_to_initial_cash",
+      "capped_macro_periods": 2002,
+      "max_capped_macro_periods_per_run": 221
+    }
+  ]
+}

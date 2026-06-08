@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-06-05 23:02:03 CST",
+  "rescan_analysis_dir": "results/credit_soc_high_c_rescan_analysis_20260605_v1",
+  "finite_dir": "results/credit_soc_high_c_finite_size_20260605_v1",
+  "stationarity_dir": "results/credit_soc_high_c_stationarity_20260605_v1/income",
+  "output_dir": "results/credit_soc_high_c_soc_validation_20260605_v1",
+  "finite_runs": 432,
+  "finite_events": 102094,
+  "stationarity_runs": 48,
+  "stationarity_events": 57418,
+  "strict_soc_supported": false,
+  "artifacts": {
+    "stationarity_window_summary": "results/credit_soc_high_c_soc_validation_20260605_v1/stationarity_window_summary.csv",
+    "stationarity_pair_summary": "results/credit_soc_high_c_soc_validation_20260605_v1/stationarity_pair_summary.csv",
+    "soc_evidence_gates": "results/credit_soc_high_c_soc_validation_20260605_v1/soc_evidence_gates.csv",
+    "report": "results/credit_soc_high_c_soc_validation_20260605_v1/credit_soc_high_c_soc_validation_report_20260605_v1.md"
+  }
+}

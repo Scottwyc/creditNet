@@ -1,0 +1,12 @@
+check,passed,detail
+required_run_count_from_metadata,True,runs=504 expected=504
+all_runs_match_requested_periods,True,requested=[2000] min=2000 max=2000
+all_cash_residuals_zero,True,max_abs=0
+event_rows_match_run_counts,True,mismatches=0
+event_sizes_match_run_totals,True,mismatches=0
+initial_plus_propagated_match_event_sizes,True,mismatches=0
+event_unique_counts_match_runs,True,mismatches=0
+event_repeated_counts_match_runs,True,mismatches=0
+early_late_window_periods_complete,True,expected=400 min=400 max=400
+metadata_accounting_pass,True,True;True
+metadata_baseline_equivalence_pass,True,True;True

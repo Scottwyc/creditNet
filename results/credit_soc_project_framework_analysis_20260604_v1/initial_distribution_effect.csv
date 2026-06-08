@@ -1,0 +1,4 @@
+money_distribution,runs,mean_initial_gini,mean_final_net_worth_gini,run_critical_rate,avalanche_events,critical_events,event_critical_rate,critical_events_per_100_periods,mean_event_size,p90_event_size,p99_event_size,max_event_size,median_first_cascade_period,median_first_cascade_time_steps,median_first_cascade_credit_scale
+pareto,60,0.3343381192975832,0.8510672284284335,0.36666666666666664,9189,63,0.0068560235063663075,0.525,6.544890630101208,13.0,19.0,27,24.0,923.5,923.5
+uniform,60,0.339917238434181,0.6821565194504481,0.0,11739,0,0.0,0.0,5.6220291336570405,10.0,13.0,19,1.0,200.0,200.0
+lognormal,60,0.5193151552173644,0.8845640681648076,0.75,11898,364,0.030593377038157673,3.033333333333333,9.60590015128593,16.0,22.0,30,1.0,200.0,200.0

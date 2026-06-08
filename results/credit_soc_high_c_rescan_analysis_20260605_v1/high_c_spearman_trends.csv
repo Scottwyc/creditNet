@@ -1,0 +1,15 @@
+money_distribution,metric,spearman_r,p_value
+lognormal,mean_events_per_run,0.8728715609439694,0.004659214943993945
+lognormal,event_large_event_rate,1.0,0.0
+lognormal,mean_event_size,1.0,0.0
+lognormal,p99_event_size,1.0,0.0
+lognormal,propagated_share_of_total_size,1.0,0.0
+lognormal,wait_equal_1_fraction,0.8728715609439694,0.004659214943993945
+lognormal,late_over_early_event_rate,-0.8728715609439694,0.004659214943993945
+pareto,mean_events_per_run,1.0,0.0
+pareto,event_large_event_rate,1.0,0.0
+pareto,mean_event_size,1.0,0.0
+pareto,p99_event_size,1.0,0.0
+pareto,propagated_share_of_total_size,1.0,0.0
+pareto,wait_equal_1_fraction,0.9759000729485332,3.436402807612141e-05
+pareto,late_over_early_event_rate,-1.0,0.0

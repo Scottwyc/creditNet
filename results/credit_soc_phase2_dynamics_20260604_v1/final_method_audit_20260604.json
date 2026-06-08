@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-06-04 13:01:32 CST",
+  "scope": "Final independent method audit requested by the coordinator",
+  "result": "pass_with_methodological_clarifications",
+  "corrections": {
+    "numerical_or_denominator_errors_found": false,
+    "wording_clarified": [
+      "wave/generation is an earliest FIFO queue-discovery label under sequential sticky-queue clearing, not a synchronous wave or physical time",
+      "period waiting is the difference between event-detection period indices",
+      "time-step waiting is the difference in cumulative executed credit-attempt steps at event-detection period ends",
+      "lag-1 is pooled adjacent-avalanche-event correlation within runs, not adjacent-period correlation or a mean of per-run correlations",
+      "quartile size/duration/branching/credit statistics are pooled event means; quartile occupancy uses pooled period denominators"
+    ]
+  },
+  "baseline_equivalence_audit": {
+    "formal_pre_sweep_seed_rows": 6,
+    "formal_pre_sweep_all_matched": true,
+    "independent_random_cascade_states": 502,
+    "random_state_final_array_or_default_set_mismatches": 0,
+    "generation_invariant_failures": 0,
+    "independent_full_run_cases": 16,
+    "full_run_mismatches": 0,
+    "enhanced_validator_post_edit_rows": 6,
+    "enhanced_validator_post_edit_mismatches": 0,
+    "full_run_protocols": [
+      "fixed and income-endogenous period length",
+      "continue_after_avalanche and stop_on_first_default"
+    ]
+  },
+  "raw_event_clock_audit": {
+    "event_runs": 280,
+    "duplicate_event_keys": 0,
+    "runs_with_more_than_one_event_in_a_period": 0,
+    "runs_with_incorrect_event_index_sequence": 0,
+    "runs_with_incorrect_period_waiting_time": 0,
+    "runs_with_incorrect_time_step_waiting_time": 0,
+    "first_period_wait_null_count": 280,
+    "first_time_step_wait_null_count": 280
+  },
+  "independent_recomputation_max_absolute_difference": {
+    "run_avalanche_count": 0.0,
+    "run_occupancy": 1.1102230246251565e-16,
+    "scenario_events": 0.0,
+    "scenario_periods": 0.0,
+    "scenario_occupancy": 1.1102230246251565e-16,
+    "one_period_wait_fraction": 1.1102230246251565e-16,
+    "pooled_event_lag1_correlation": 5.551115123125783e-17,
+    "event_quartile_label": 0.0,
+    "event_post_burn_label": 0.0,
+    "quartile_period_count": 0.0,
+    "quartile_event_count": 0.0,
+    "quartile_occupancy": 1.1102230246251565e-16,
+    "quartile_mean_size": 3.552713678800501e-15,
+    "quartile_large_event_rate": 9.280770596475918e-17,
+    "quartile_mean_duration": 4.440892098500626e-16,
+    "quartile_mean_branching": 8.326672684688674e-17,
+    "quartile_mean_credit_before": 1.1368683772161603e-13,
+    "quartile_mean_credit_after": 4.547473508864641e-13
+  },
+  "long_run_design_audit": {
+    "protocol_count": 4,
+    "runs_per_protocol": 5,
+    "periods_per_run": 1000,
+    "quartiles": "run-relative Q1-Q4",
+    "post_burn_in": "remove each run's first 25% of periods"
+  },
+  "interpretation_boundary": {
+    "generation": "algorithmic earliest FIFO queue-discovery generation; baseline queue membership is sticky and clearing is sequential",
+    "waiting": "between-event model-clock separation, not within-avalanche duration",
+    "occupancy": "event periods divided by pooled observed periods; valid because period_end records at most one event per period",
+    "lag1": "pooled Pearson correlation of adjacent avalanche-event sizes within runs; pairs do not cross runs and need not be adjacent periods",
+    "quartile": "pooled event means and pooled period occupancy; a drift diagnostic, not a formal stationarity test"
+  },
+  "audit_procedure": {
+    "resolver": "Generate accounting-consistent random exposure/cash states, run baseline resolve_cascade and resolve_cascade_waves on copies, and compare default sets plus final exposure/assets/debt/cash arrays.",
+    "full_run": "Run baseline and dynamics simulations with identical seeds and compare all shared run/event fields under fixed/income and continue/stop protocols.",
+    "temporal_metrics": "Reconstruct adjacent-event waits, pooled occupancy, pooled within-run event-lag1 pairs, run-relative quartile labels, burn-in labels, denominators, and every time-window aggregate directly from run_summary.csv and avalanche_events.csv."
+  }
+}

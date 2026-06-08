@@ -1,0 +1,7 @@
+seed,matched,mismatches,baseline_event_count,dynamics_event_count,baseline_total_collapse_size,dynamics_total_collapse_size,validation_scenario,n_nodes,period_length_rule,drive_value
+2035061400,True,,198,198,2912,2912,validation_fixed__N-100__fixed-K-28,100,fixed,28.0
+2035061401,True,,200,200,2723,2723,validation_fixed__N-100__fixed-K-28,100,fixed,28.0
+2035061402,True,,200,200,3029,3029,validation_fixed__N-100__fixed-K-28,100,fixed,28.0
+2035071400,True,,188,188,843,843,validation_income__N-100__income-c-0.20,100,income,0.2
+2035071401,True,,186,186,974,974,validation_income__N-100__income-c-0.20,100,income,0.2
+2035071402,True,,192,192,872,872,validation_income__N-100__income-c-0.20,100,income,0.2

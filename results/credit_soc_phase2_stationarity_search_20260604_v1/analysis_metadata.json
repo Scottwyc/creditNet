@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-06-04T13:23:43.030953+08:00",
+  "shards": [
+    "income",
+    "fixed"
+  ],
+  "runs": 504,
+  "scenarios": 42,
+  "events": 773242,
+  "periods": 1008000,
+  "candidate_count": 0,
+  "classification_counts": {
+    "drift_or_persistent_failure": 36,
+    "sparse_but_nonstationary": 6
+  },
+  "all_audits_pass": true,
+  "report": "docs/credit_soc_phase2_stationarity_search_report_20260604_v1.md",
+  "figures": [
+    "results/credit_soc_phase2_stationarity_search_20260604_v1/early_late_stationarity.png",
+    "results/credit_soc_phase2_stationarity_search_20260604_v1/time_bin_drift.png",
+    "results/credit_soc_phase2_stationarity_search_20260604_v1/independence_repetition.png"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-06-04 12:43:25 CST",
+  "checks": [
+    {
+      "check": "unit_credit_preserves_counterparty_net_worth",
+      "passed": true,
+      "detail": "One issued unit changes cash/assets/debt but not node net worth."
+    },
+    {
+      "check": "check_only_split_matches_period_end_state",
+      "passed": true,
+      "detail": "Five no-flow checks reproduce the one-settlement reference for the same seed."
+    },
+    {
+      "check": "cash_capped_recovery_conserves_cash",
+      "passed": true,
+      "detail": "events=49, actual_recovery=54.185"
+    },
+    {
+      "check": "reset_external_cash_flow_is_explicit",
+      "passed": true,
+      "detail": "events=49, external_flow=508.000"
+    }
+  ]
+}

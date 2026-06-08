@@ -1,0 +1,3 @@
+scenario_id,seed,periods_completed,time_steps_completed,total_credit_issued,failed_credit_events,avalanche_count,max_collapse_size,total_collapse_size,final_active_credit,final_cash_total,final_net_worth_gini,event_sequence_sha256,all_match
+income__N200__c0p30__lognormal__biased__random,2026900000,True,True,True,True,True,True,True,True,True,True,True,True
+income__N200__c0p30__lognormal__biased__random,2026900001,True,True,True,True,True,True,True,True,True,True,True,True

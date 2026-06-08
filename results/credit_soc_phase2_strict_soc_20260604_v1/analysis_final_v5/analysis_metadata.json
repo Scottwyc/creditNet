@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-06-04 13:14:55 CST",
+  "command_args": {
+    "result_dir": "results/credit_soc_phase2_strict_soc_20260604_v1",
+    "output_dir": "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5",
+    "existing_c020_dir": "/data/WYC/class/creditNet/results/credit_soc_continue_income_c020_random_focus_20260604_v1",
+    "existing_fixed_dir": "/data/WYC/class/creditNet/results/credit_soc_fixedK_sweep_20260604_v1",
+    "min_tail": 100,
+    "bootstrap": 200,
+    "bootstrap_seed": 2026130000,
+    "max_xmin_candidates": 10000,
+    "per_seed_min_tail": 30,
+    "progress_every": 5
+  },
+  "statistical_hypotheses": {
+    "powerlaw": "P(X=x|X>=xmin)=x^-alpha/zeta(alpha,xmin), alpha>1",
+    "bounded_powerlaw": "P(X=x|xmin<=X<=N) proportional to x^-alpha",
+    "exponential": "shifted geometric on X-xmin",
+    "lognormal": "rounded continuous lognormal conditioned on X>=xmin",
+    "bootstrap": "semiparametric body resampling plus fitted power-law tail; xmin reselected",
+    "robustness": "per-seed fits and within-run quartile drift; pooled-event tests are diagnostic"
+  },
+  "series_count": 39,
+  "new_event_count": 368042,
+  "new_run_count": 1440,
+  "artifacts": [
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/existing_result_audit.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/strict_tail_fits.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/per_seed_tail_fits.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/seed_robustness_summary.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/finite_size_summary.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/finite_size_scaling_slopes.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/event_trigger_decomposition.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/finite_size_initial_vs_propagated.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/temporal_separation_summary.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/time_window_summary.csv",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/transition_fine_scan.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/strict_fit_comparison.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/strict_powerlaw_gof.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/finite_size_scaling.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/initial_vs_propagated_decomposition.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/temporal_separation.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/time_window_drift.png",
+    "results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/analysis_note.md"
+  ]
+}

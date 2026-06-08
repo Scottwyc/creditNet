@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../home/wuyangcheng"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

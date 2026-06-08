@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-06-04 12:41:17 CST",
+  "input": "results/credit_soc_phase2_factors_topology_20260604_v1",
+  "run_count": 248,
+  "event_count": 51401,
+  "figures": [
+    "topology_degree_effects.png",
+    "structure_vs_cascade.png",
+    "factor_effects.png",
+    "ab_grid_heatmap.png",
+    "topology_matched_degree_ccdf.png",
+    "critical_credit_by_topology.png"
+  ]
+}

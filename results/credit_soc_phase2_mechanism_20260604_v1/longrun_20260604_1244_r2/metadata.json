@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-06-04 12:50:31 CST",
+  "started_at": "2026-06-04 12:43:25 CST",
+  "completed_at": "2026-06-04 12:50:31 CST",
+  "suite": "full",
+  "command": "scripts/run_phase2_mechanism_ablation.py --output-dir results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2 --suite full --runs 12 --seed-base 2026086000 --high-risk-periods 1000 --boundary-periods 1000 --keep-first-history --progress-every 12",
+  "command_args": {
+    "output_dir": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2",
+    "suite": "full",
+    "runs": 12,
+    "seed_base": 2026086000,
+    "high_risk_periods": 1000,
+    "boundary_periods": 1000,
+    "validate_full_accounting": false,
+    "keep_first_history": true,
+    "progress_every": 12
+  },
+  "runs_per_scenario": 12,
+  "protocol_count": 2,
+  "mechanism_variant_count": 11,
+  "scenario_count": 22,
+  "completed_runs": 264,
+  "event_count": 537387,
+  "seed_rule": "seed_base + protocol_index*100000 + run_index; identical seeds are paired across mechanism variants within each protocol",
+  "identifiability": {
+    "negative_control": "check_only splits the fixed macro credit target but adds no flow settlement; unit credit preserves node net worth, so intermediate checks should add no defaults",
+    "genuine_frequency_intervention": "flow_split_b10_check_q10/q5/q2/q1 hold ten settlement/flow cycles fixed and vary only whether clearing occurs every 10/5/2/1 settlements",
+    "flow_frequency_intervention": "reference_period_end versus flow_split_b10_check_q10 changes one macro settlement into ten prorated flow settlements while checking at the same macro end; this is a flow/income-dynamics intervention, not pure check-frequency isolation"
+  },
+  "temporal_decision_gate": "Analysis must compare active-avalanche macro-period rate, wait-one share, lag-1 event-size correlation, time quartiles, final-20% large-event rate, final Gini, and final active credit to test persistent low-credit/high-inequality failure.",
+  "accounting": {
+    "recovery": "target recovery is paid from the defaulted debtor's existing cash, pro-rata to creditors and cash-capped; it conserves total cash",
+    "asset_wipe": "wipe_defaulted_assets cancels loans held by a defaulted node and releases the corresponding borrower liabilities",
+    "reset": "reset clears the node balance sheet and restores run-specific initial cash; the external reset cash flow is recorded explicitly"
+  },
+  "outputs": {
+    "run_summary": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/run_summary.csv",
+    "avalanche_events": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/avalanche_events.csv",
+    "scenario_manifest": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/scenario_manifest.csv",
+    "accounting_checks": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/accounting_checks.json",
+    "first_run_histories": "results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/first_run_macro_histories.json"
+  }
+}

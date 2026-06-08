@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-06-04 13:01:32 CST",
+  "result_dir": "/data/WYC/class/creditNet/results/credit_soc_phase2_dynamics_20260604_v1",
+  "report_path": "/data/WYC/class/creditNet/docs/credit_soc_phase2_dynamics_report_20260604_v1.md",
+  "run_count": 280,
+  "event_count": 80353,
+  "wave_count": 158737,
+  "classification": "17/17 个场景触发持续活跃/事件依赖标志；事件平均分支比最高为 0.402。动态证据支持从亚临界传播向持续活跃或过载状态的转变，但不能把逐期相关事件当作独立 SOC avalanche，严格 SOC 在当前协议下不可识别。",
+  "method_audit": "/data/WYC/class/creditNet/results/credit_soc_phase2_dynamics_20260604_v1/final_method_audit_20260604.json",
+  "figures": [
+    "size_duration_relation.png",
+    "branching_vs_drive.png",
+    "waiting_time_distribution.png",
+    "dynamic_scaling.png",
+    "independence_diagnostics.png",
+    "long_run_time_windows.png"
+  ]
+}
