@@ -165,6 +165,9 @@ P: /goal 现在进行持续自主项目推进，根据目前总结文档里面�
 P: 给我建立一个creditNet项目的git仓库，要跟踪核心代码和核心结果、核心报告
 
 
+P: 你解释一下你的级联失效是怎么定义的，你认为的SOC要满足什么条件？请在相关文档中补充详细解释
+
+
 
 ### 改进建议
 
@@ -494,3 +497,15 @@ P: 有人说，计划投资支出的比例c，刚开始的比例太小了，可�
 - 本地 `main` 已设置跟踪 `origin/main`
 
 发布口径沿用建仓规则：GitHub 仓库只包含核心代码、核心报告、主文档和精选结果摘要/图表；大体量逐事件流与逐期历史文件仍保留本地并由 `.gitignore` 默认排除。
+
+## 2026-06-08 21:42:53 CST：补充级联失效与 SOC 判定定义
+
+根据“级联失效如何定义、SOC 要满足什么条件”的追问，完成文档口径补充：
+
+- `project.md` 前置补充当前实现中的级联定义：`period_end` 流量结算后识别 `W_i < default_threshold` 的初始违约，沿信贷暴露清算传播，队列为空时记录一次 avalanche；
+- 明确 `collapse_size` 是单次事件中被清算的不同节点数，`critical_event` 只是 `collapse_size/N >= collapse_threshold_fraction` 的人工大级联标签；
+- 明确需要拆分 `initial_default_count`、`propagated_default_count`、`propagation_share`，避免把同步初始违约当成单一微观触发 SOC avalanche；
+- 新增 `docs/credit_soc_cascade_soc_definitions_20260608.md`，系统说明大级联、稳健级联转变、重尾、幂律和严格 SOC 的层级关系；
+- 更新 `docs/credit_soc_key_results_dashboard.md`，加入术语口径入口和结论边界。
+
+本次只更新文档定义，不改变仿真代码、结果数据或既有 SOC 经验判定。
