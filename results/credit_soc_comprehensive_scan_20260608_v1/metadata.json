@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-06-08 23:14:48 CST",
+  "command_args": {
+    "output_dir": "results/credit_soc_comprehensive_scan_20260608_v1",
+    "n_nodes": 120,
+    "runs_per_scenario": 3,
+    "max_periods": 120,
+    "max_time_steps": 0,
+    "seed_base": 2026060800,
+    "topology_seed_base": 2026068800,
+    "workers": 8,
+    "mean_initial_money": 20.0,
+    "initial_income_per_capita": 5.0,
+    "collapse_threshold_fraction": 0.1,
+    "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+    "money_distributions": [
+      "equal",
+      "uniform",
+      "normal",
+      "lognormal",
+      "pareto"
+    ],
+    "income_rules": [
+      "uniform",
+      "biased"
+    ],
+    "growth_rules": [
+      "random",
+      "preferential_debt"
+    ],
+    "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+    "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+    "sw_rewire_probability": 0.1,
+    "avalanche_protocol": "continue_after_avalanche",
+    "no_validate_accounting": false,
+    "progress_every": 500,
+    "max_scenarios": 0
+  },
+  "run_count": 24000,
+  "event_count": 1915216,
+  "scenario_count": 8000,
+  "scenario_base_count": 1000,
+  "run_summary_csv": "results/credit_soc_comprehensive_scan_20260608_v1/run_summary.csv",
+  "avalanche_csv": "results/credit_soc_comprehensive_scan_20260608_v1/avalanche_events.csv",
+  "scenario_summary_csv": "results/credit_soc_comprehensive_scan_20260608_v1/scenario_summary.csv",
+  "note": "Comprehensive factorial screen. It is designed for phase diagrams and candidate selection; strict SOC promotion still requires stationarity and finite-size follow-up."
+}

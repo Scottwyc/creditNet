@@ -1,0 +1,8 @@
+gate,passed_scenarios,pass_rate
+gate_event_count,6736,0.842
+gate_not_saturated,3557,0.444625
+gate_has_transition,1365,0.170625
+gate_propagation,2641,0.330125
+gate_tail_plausible,81,0.010125
+gate_alternative_not_better,1,0.000125
+quick_soc_candidate,0,0.0

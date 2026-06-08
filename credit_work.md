@@ -168,6 +168,10 @@ P: 给我建立一个creditNet项目的git仓库，要跟踪核心代码和核�
 P: 你解释一下你的级联失效是怎么定义的，你认为的SOC要满足什么条件？请在相关文档中补充详细解释
 
 
+P: 我们这个探索其实要考虑很多不同场景条件，不同本金初始化、不同支出机制、不同分配机制、不同网络拓扑结构，那么，请你根据这些不同场景条件进行完备的参数扫描，分析里面的级联失效和SOC，最终得到关于级联失效规模，关于SOC，它们各自的相图；另外，也要有各个场景下，级联失效规模和频率的关系图，方便直接观察是否存在SOC。请你进行完备实验，整理详细分析报告。你可以启动 tmux codex worker并行推进；请尽量快速进行，时间有限。
+
+
+
 
 ### 改进建议
 
@@ -509,3 +513,43 @@ P: 有人说，计划投资支出的比例c，刚开始的比例太小了，可�
 - 更新 `docs/credit_soc_key_results_dashboard.md`，加入术语口径入口和结论边界。
 
 本次只更新文档定义，不改变仿真代码、结果数据或既有 SOC 经验判定。
+
+## 2026-06-08 23:25:56 CST：完备场景扫描与 SOC 相图完成
+
+按“不同本金初始化、不同支出机制、不同收入分配机制、不同网络拓扑结构”的要求完成全因子场景扫描和相图分析。
+
+新增脚本：
+
+- `scripts/run_comprehensive_scenario_scan.py`
+- `scripts/analyze_comprehensive_scenario_scan.py`
+
+实验范围：
+
+- `N=120`、每 scenario 3 个 seed、每 run 120 periods；
+- `c=0.10,0.20,...,0.80`；
+- 5 类本金初始化：equal、uniform、normal、lognormal、pareto；
+- 2 类收入分配：uniform、biased；
+- 2 类增长规则：random、preferential_debt；
+- 5 类支出机制：low、baseline、high_income、high_wealth、high_both；
+- 10 类拓扑：complete、ER/BA/SW 的 `k=6/12/24`；
+- 总计 8000 scenarios、24000 runs、1915216 avalanche events。
+
+核心产物：
+
+- 原始扫描目录：`results/credit_soc_comprehensive_scan_20260608_v1/`
+- 相图分析目录：`results/credit_soc_comprehensive_scan_analysis_20260608_v1/`
+- 报告：`docs/credit_soc_comprehensive_parameter_scan_report_20260608_v1.md`
+- Word：`docs/credit_soc_comprehensive_parameter_scan_report_20260608_v1.docx`，已确认内嵌 17 张图片。
+
+主要结论：
+
+- 级联失效规模相图存在清楚过载转变：全场景平均事件级大级联率从 `c=0.10` 的 0.0001 升至 `c=0.80` 的 0.7576；
+- 事件占用率从 0.1913 升至 0.9749，高 `c` 区域主要是近连续失败/过载状态；
+- biased 收入、高支出机制、重尾/不均匀本金和部分高连接拓扑显著放大级联；
+- SOC 快筛候选数为 0；没有场景同时满足非饱和、转变区、传播占比、尾部可信和替代分布不过强；
+- 因此本轮完备场景扫描支持级联失效和过载转变相图，但不支持存在严格 SOC 相图中的稳定临界带。
+
+跟踪口径：
+
+- `avalanche_events.csv` 约 586MB，为逐事件原始表，保留本地但默认不进入 Git；
+- Git 只跟踪核心报告、脚本、metadata、摘要表和相图/CCDF 图片。
