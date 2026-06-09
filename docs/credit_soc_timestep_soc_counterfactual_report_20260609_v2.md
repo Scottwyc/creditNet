@@ -18,6 +18,47 @@
 
 因此，本报告里的 `event_timestep_rate` 是 avalanche 次数除以实际信贷尝试 time_step 数；`event_period_occupancy` 只是有事件的宏观期占比。SOC 快筛里的非饱和门槛使用 `event_timestep_rate < 0.80`，不再使用 period_end 报告中的 period 占用率。
 
+### 扫描轴与固定参数基线
+
+本轮 timestep 对照保持上一轮 `period_end` 完备扫描的场景轴，但为了在有限时间内完成全景对照，重复数和单 run 长度采用快速筛查设置。
+
+扫描轴为：
+
+| 轴 | 取值 |
+| --- | --- |
+| 收入到信贷尝试转换系数 `c` | `0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80` |
+| 初始本金分布 | `equal, uniform, normal, lognormal, pareto` |
+| 收入分配规则 | `uniform, biased` |
+| 信贷增长规则 | `random, preferential_debt` |
+| 支出机制 `(a,b)` | `low=(0.01,0.10)`、`baseline=(0.02,0.20)`、`high_income=(0.02,0.40)`、`high_wealth=(0.04,0.20)`、`high_both=(0.04,0.40)` |
+| 交易机会拓扑 | `complete`；`er/ba/sw` 的目标平均度 `k=6,12,24` |
+
+除上述扫描轴外，本轮保持以下固定基线：
+
+| 固定项 | 本轮取值与含义 |
+| --- | --- |
+| 节点数 | `N=120` |
+| 独立重复 | 每个 scenario `1` 个 seed/run |
+| 单 run 长度 | 最多 `20 periods`；`max_time_steps=0` 表示不额外限制累计 time_step |
+| 单 period 微步上限 | `max_period_length_steps=500`；理论 `K_t` 仍记录，实际执行 `min(K_t,500)` |
+| 初始本金规模 | `mean_initial_money=20.0`；具体样本由本金分布决定 |
+| 初始参考收入 | `initial_income_per_capita=5.0`，所以初始 `Y_0=120*5=600` |
+| period 长度规则 | 收入内生：`K_t=round(c*Y_(t-1))`；固定 `K` 参数不参与本轮计算 |
+| 单位信贷规模 | 每个成功 credit `time_step` 只新增 `1` 单位有向信贷暴露 |
+| 微结算规则 | 每个 credit `time_step` 后立即做按 `1/K_t` 缩放的投资/消费支出、收入分配、违约检查和完整清算 |
+| 支出顺序 | 先投资支出，再消费支出；二者都受主体现金约束 |
+| 违约阈值 | `default_threshold=0.0`，严格 `W_i<0` 才违约 |
+| 大级联标签阈值 | `collapse_threshold_fraction=0.10`，在 `N=120` 下等价于至少 `12` 个节点 |
+| 清算规则 | `wipe_defaulted_assets=True`；现金不额外扣除，贷款资产/债务负债表内减记 |
+| 违约后节点状态 | `continue_after_avalanche`：清算后节点不永久退出，后续微步/period 仍可参与 |
+| 违约检查粒度 | `timestep_settle_check`：每个 credit 微步后检查，而不是期末批量检查 |
+| 会计校验 | 正式 v2 为加速设置 `validate_accounting=False`；小样本 smoke test 已用校验通过 |
+| biased 基础权重 | `income_bias_floor=1.0` |
+| SW 重连概率 | `sw_rewire_probability=0.10` |
+| 随机种子基线 | 主演化 `seed_base=2026060900`，拓扑 `topology_seed_base=2026069900` |
+
+拓扑变量的含义与 `period_end` 扫描相同：`er/ba/sw` 先生成无向“交易机会图”，它只限制后续每个 credit `time_step` 可以选择哪些节点对作为信贷对手方；初始化时实际信贷暴露矩阵仍为空。后续新增信贷暴露是有向、带权、可重复累积的，方向由当次贷款人/借款人决定。`complete` 表示不施加额外机会边界。
+
 ## 2. 与 period_end 的总体差异
 
 - 同场景平均大级联事件率变化：-0.321
