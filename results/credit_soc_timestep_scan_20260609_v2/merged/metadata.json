@@ -1,0 +1,423 @@
+{
+  "created_at": "2026-06-09 13:17:56 CST",
+  "protocol": "timestep_settle_check",
+  "shards_root": "results/credit_soc_timestep_scan_20260609_v2/shards",
+  "num_shards": 8,
+  "run_count": 8000,
+  "event_count": 4539260,
+  "scenario_count": 8000,
+  "scenario_base_count": 1000,
+  "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/merged/run_summary.csv",
+  "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/merged/avalanche_events.csv",
+  "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/merged/scenario_summary.csv",
+  "shard_metadata": [
+    {
+      "created_at": "2026-06-09 13:10:25 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_0",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 0
+      },
+      "run_count": 1000,
+      "event_count": 581907,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_0/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_0/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_0/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:28 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_1",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 1
+      },
+      "run_count": 1000,
+      "event_count": 570595,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_1/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_1/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_1/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:26 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_2",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 2
+      },
+      "run_count": 1000,
+      "event_count": 558706,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_2/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_2/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_2/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:29 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_3",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 3
+      },
+      "run_count": 1000,
+      "event_count": 547713,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_3/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_3/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_3/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:24 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_4",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 4
+      },
+      "run_count": 1000,
+      "event_count": 604581,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_4/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_4/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_4/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:34 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_5",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 5
+      },
+      "run_count": 1000,
+      "event_count": 603985,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_5/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_5/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_5/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:22 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_6",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 6
+      },
+      "run_count": 1000,
+      "event_count": 538582,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_6/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_6/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_6/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    },
+    {
+      "created_at": "2026-06-09 13:10:29 CST",
+      "protocol": "timestep_settle_check",
+      "command_args": {
+        "output_dir": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_7",
+        "n_nodes": 120,
+        "runs_per_scenario": 1,
+        "max_periods": 20,
+        "max_time_steps": 0,
+        "max_period_length_steps": 500,
+        "seed_base": 2026060900,
+        "topology_seed_base": 2026069900,
+        "workers": 1,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.10,0.20,0.30,0.40,0.50,0.60,0.70,0.80",
+        "money_distributions": [
+          "equal",
+          "uniform",
+          "normal",
+          "lognormal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform",
+          "biased"
+        ],
+        "growth_rules": [
+          "random",
+          "preferential_debt"
+        ],
+        "spending_presets": "low:0.01:0.10,baseline:0.02:0.20,high_income:0.02:0.40,high_wealth:0.04:0.20,high_both:0.04:0.40",
+        "topologies": "complete,er:6,er:12,er:24,ba:6,ba:12,ba:24,sw:6,sw:12,sw:24",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0,
+        "num_shards": 8,
+        "shard_index": 7
+      },
+      "run_count": 1000,
+      "event_count": 533191,
+      "scenario_count": 1000,
+      "scenario_base_count": 125,
+      "run_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_7/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_7/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_timestep_scan_20260609_v2/shards/shard_7/scenario_summary.csv",
+      "note": "Timestep-level counterfactual: each unit credit attempt is followed by scaled flow settlement, default check, and full cascade clearing."
+    }
+  ]
+}

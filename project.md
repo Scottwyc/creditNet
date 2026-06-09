@@ -56,7 +56,12 @@ N个节点，个体初始化货币本金，可以根据一个分布进行初始�
 第三个关注点：不同的分配方式如何影响临界信贷规模
 
 ### 信贷网络的级联失效
-当前实现中，“级联失效”是一次 `period_end` 事件，而不是每个 `time_step` 之后都检查的事件。一个 `period` 先执行本期计划的 `K_t` 个单位信贷尝试，再完成期末投资/消费支出、收入分配和净资产更新；只有在这个期末检查点，才判断是否发生违约和级联。
+当前项目同时保留两种观测协议：
+
+1. **基线 `period_end` 协议**：一级联失效是一次 `period_end` 事件。一个 `period` 先执行本期计划的 `K_t` 个单位信贷尝试，再完成期末投资/消费支出、收入分配和净资产更新；只有在这个期末检查点，才判断是否发生违约和级联。
+2. **timestep 对照 `timestep_settle_check` 协议**：一个宏观 `period` 仍先由 `K_t=round(cY_(t-1))` 给出计划微步数，但该期被拆成 `K_t` 个微观 credit `time_step`。每个 `time_step` 至多新增 1 单位信贷，随后立刻进行一次按 `1/K_t` 缩放的投资/消费支出结算、收入分配、违约检查和完整级联清算。若触发 avalanche，则暂停信贷增长，先把清算队列处理完，再进入下一个 `time_step`。
+
+因此，`period_end` 报告里的 avalanche 是“整期批量结算后的事件”，而 timestep 对照报告里的 avalanche 是“单个 credit 微步之后结算检查出的事件”。两者使用相同的净资产违约条件和清算规则，但事件采样尺度不同，不能把两个协议下的 `event_occupancy` 直接混为同一个统计量。
 
 违约判定使用净资产：
 
@@ -67,7 +72,7 @@ default_i = 1(W_i < default_threshold)
 
 当前基线中 `default_threshold=0`，且是严格小于零才违约，净资产等于零不违约。
 
-一次记录的 avalanche / collapse / 级联失效按以下步骤定义：
+在 `period_end` 协议中，一次记录的 avalanche / collapse / 级联失效按以下步骤定义：
 
 1. `period_end` 流量结算后，同时找出所有已经满足 `W_i < default_threshold` 的节点，记为初始违约集合 `I_0`。
 2. 将 `I_0` 放入违约清算队列。某个债务人 `j` 被清算时，所有指向 `j` 的贷款资产 `E_ij` 被减记，债权人 `i` 的贷款资产下降，`j` 的债务负债同步解除。
@@ -98,9 +103,21 @@ propagated_default_count = collapse_size - initial_default_count
 propagation_share = propagated_default_count / collapse_size
 ```
 
-如果一次事件的规模主要来自 `initial_default_count`，说明它更多是同一个 `period_end` 全系统流量结算后同步出现的多源违约；只有 `propagated_default_count` 才表示信贷网络清算传播新增的违约。即使 `initial_default_count=1`，该节点也不是外部人为施加的微观冲击，而是在期末流量结算后内生出现的初始违约。
+如果一次事件的规模主要来自 `initial_default_count`，说明它更多是同一个结算检查点同步出现的多源违约；只有 `propagated_default_count` 才表示信贷网络清算传播新增的违约。即使 `initial_default_count=1`，该节点也不是外部人为施加的微观冲击，而是在流量结算后内生出现的初始违约。
 
 我们把问题简化为：无论级联波及多少节点，整次清算都在同一个 `period_end` 内完成。它没有新的物理时间跨度；后续动态分析里的传播代数只是清算队列诊断，不是新的 `time_step` 或 `period`。
+
+在 `timestep_settle_check` 协议中，上述清算队列仍是瞬时完成的算法事件，但检查点变为单个 credit `time_step` 后的微结算时刻。此时一次 avalanche 的字段解释为：
+
+```text
+period = 该事件所在的宏观期
+micro_step_in_period = 该宏观期内第几个 credit time_step 后触发
+time_steps_completed = 截至该事件前累计实际尝试过的 credit time_step 数
+event_timestep_rate = avalanche_count / time_steps_completed
+event_period_occupancy = 有 avalanche 的宏观 period 数 / 完成的宏观 period 数
+```
+
+timestep 对照实验中的“高频崩塌”应优先看 `event_timestep_rate`，而不是只看每个宏观期是否至少发生过一次事件。因为在 timestep 协议下，一个宏观期内可以发生多次 avalanche。
 
 ### 信贷网络的自组织临界分析
 本项目中，“自组织临界”不是简单地观察到一次大崩塌，也不是看到崩塌规模频率图在 log-log 坐标下近似直线。我们采用更严格的操作性定义：系统在没有把外部控制参数精细调到狭窄临界点的情况下，通过慢驱动和快速级联清算自行进入一个长期统计稳定状态，并在该状态下产生跨尺度、可重复、有限尺寸标度相容的 avalanche 分布。
@@ -110,9 +127,9 @@ propagation_share = propagated_default_count / collapse_size
 | 条件 | 本项目中的可检验含义 | 不能用什么替代 |
 | --- | --- | --- |
 | 无需精细调参 | 在相邻 `c`、固定 `K`、收入/本金/增长机制等参数邻域内仍可观察到同一类临界统计，而不是只在一个窄点出现 | 只在单个参数点出现大级联 |
-| 慢驱动、快清算 | 信贷增长发生在 avalanche 之前；一旦进入清算，驱动暂停，事件在同一 `period_end` 内完成；长期事件不应退化为几乎每期都失败的持续过载状态 | `c` 很大导致每期都有大事件 |
+| 慢驱动、快清算 | 信贷增长发生在 avalanche 之前；一旦进入清算，驱动暂停，事件在同一检查点内完成。`period_end` 协议检查每期末，timestep 协议检查每个微步后；两者都要求清算期间不继续加载信贷 | `c` 很大导致检查点上高频出现大事件 |
 | 长期统计稳定 | avalanche 规模、活跃信贷、不平等和事件占用率在 early/late 或窗口比较中没有持续漂移 | 把非平稳 pooled events 直接拿去拟合幂律 |
-| 单事件定义可解释 | 事件不应主要由同一 `period_end` 多个同步 initial defaults 或跨期重复违约主导；需拆分 `initial_default_count` 与 `propagated_default_count` | 只看总 `collapse_size` |
+| 单事件定义可解释 | 事件不应主要由同一检查点多个同步 initial defaults 或跨期/跨微步重复违约主导；需拆分 `initial_default_count`、`propagated_default_count` 与重复违约 | 只看总 `collapse_size` |
 | 可信重尾和幂律证据 | 自动选择 `xmin` 的离散/有限支持幂律拟合不过度依赖个别点，替代分布不能系统性更优，指数在 seed 和相邻参数下相对稳健 | 单张 log-log 图、固定 `xmin=2` 的描述性 `alpha`、或 KS 不拒绝 |
 | 有限尺寸标度 | cutoff、矩或分布形状随 `N` 的变化与临界传播相容，并且传播新增部分也有相容标度 | 绝对 `collapse_size` 随 `N` 增长，但主要由初始同步违约贡献 |
 | 机制稳健性 | 对检查频率、清算规则、恢复/退出机制等合理消融不应完全依赖某个实现细节 | 单一机制下的偶然重尾 |
@@ -154,7 +171,7 @@ K_t = round(c * Y_(t-1))
 - 在当前 `period_end` 协议中，它同时改变下一次流量结算和违约检查前积累的信贷批量，因此不能把实验中的“`c` 效应”解释成已经分离出的纯驱动速度效应。
 - 严格按量纲说，`c` 的单位是“计划信贷尝试数/上一期收入单位”；由于模型把 1 个货币单位、1 个信贷单位和 1 次单位尝试统一归一化，实验中可把它作为无量纲比例使用。
 
-单位信贷建立本身保持贷款人与借款人的净资产不变。因此，在当前基线模型中，单纯增加 credit time_step 不会立刻产生新违约；负净资产主要在期末支出和收入重新分配后出现，随后才执行级联清算。
+单位信贷建立本身保持贷款人与借款人的净资产不变。因此，只在每个 credit `time_step` 后做 `check_only` 检查而不做流量结算，理论上不会产生新的违约。若要在 timestep 尺度考察 SOC，必须把流量结算也推进到 timestep 后执行；本轮新增的 `timestep_settle_check` 对照正是这一协议。
 
 需要区分三类量：
 
@@ -386,12 +403,13 @@ critical_event = collapse_fraction >= collapse_threshold_fraction
 
 ### 当前实现需要注意的机制含义
 
-- `c` 不仅提高计划信贷批量，也扩大下一次期末流量结算和 `period_end` 违约检查前形成的总暴露，因此当前 `c` 效应同时包含“更多信贷驱动”和“更大结算/检查批量”；它不是已经分离出的纯速度参数。
+- `c` 在 `period_end` 协议中不仅提高计划信贷批量，也扩大下一次期末流量结算和违约检查前形成的总暴露，因此该协议里的 `c` 效应同时包含“更多信贷驱动”和“更大结算/检查批量”；它不是已经分离出的纯速度参数。
+- 在 `timestep_settle_check` 协议中，`c` 仍决定一个宏观期计划包含多少 credit 微步，但每个微步后都会结算和检查，因此它更接近“给定宏观收入参考下的微步数量/观测窗口长度”参数，而不再把全部 `K_t` 暴露积累到同一个期末检查点。
 - 初始 `initial_income_per_capita` 先按每人四舍五入为整数，再用于构造 `Y_0`、第一期消费参考和第一期 `K_1`，不会向系统额外注入现金。一般公式为 `Y_0 = N * round(initial_income_per_capita)`。
 - 支出后形成的收入会重新加入主体现金，总现金在 run 内守恒。
 - `continue_after_avalanche` 下，违约节点完成清算后不会永久退出，下一期仍可参与借贷和收入分配。
 - 固定 `K` 实验中，`c` 参数保留在元数据里，但不影响模拟。
-- `max_time_steps` 在每个完整 period 结束后才检查，所以它是累计尝试数的期末软上限，最后一期可能使实际值超过该设定。
+- `max_time_steps` 在原 `period_end` 主模拟器中每个完整 period 结束后才检查，所以它是累计尝试数的期末软上限，最后一期可能使实际值超过该设定；在 timestep 对照模拟器中可在每个微步后检查。
 - `validate_accounting` 只决定是否逐期检查现金守恒、资产负债与暴露矩阵一致性，不改变模型机制。
 - `income_bias_floor` 虽按收入偏置命名，但当前代码也在部分偏好借款人选择规则中作为基础权重使用。
 - `collapse_threshold_fraction` 和 `critical_event` 只用于结果分类，不参与违约传播，也不能作为严格临界或 SOC 的证明。
@@ -421,7 +439,7 @@ critical_event = collapse_fraction >= collapse_threshold_fraction
 | `period_length_rule` | `income` 使用 `K_t=round(cY_(t-1))`，`fixed` 使用固定 `K` |
 | `fixed_period_length_steps` | `period_length_rule=fixed` 时的固定计划尝试数 |
 | `avalanche_protocol` | 首次违约后停止，或清算后继续下一期 |
-| `default_check_mode` | 违约检查时间尺度；当前基线为 `period_end` |
+| `default_check_mode` | 违约检查时间尺度；基线为 `period_end`，timestep 对照为 `timestep_settle_check` |
 
 参数是否写入元数据与参数是否实际生效必须分开判断：固定 `K` 协议中的 `investment_income_propensity` 不参与 `K_t` 计算；收入内生协议中的 `fixed_period_length_steps` 也不生效。
 
@@ -437,9 +455,11 @@ critical_event = collapse_fraction >= collapse_threshold_fraction
 | `topology_seed` | 机会图生成随机种子，与主体演化的 `seed` 分离 |
 | `drive_rule` / `fixed_drive_steps` | 第二阶段机制扩展中，宏观期驱动量使用收入内生规则还是固定步数 |
 | `max_drive_steps_per_macro` | 每个宏观期允许执行的最大驱动步数，用于防止收入反馈导致计算量无界增长 |
-| `settlement_mode` | `period_end`、只增加中间检查的 `check_only`，或分批流量结算并检查的 `settle_and_check` |
+| `settlement_mode` | 机制消融扩展中的 `period_end`、只增加中间检查的 `check_only`，或固定批次数的分批流量结算并检查 `settle_and_check` |
 | `settlement_batches` | 一个宏观期内将总驱动拆成多少个结算批次 |
 | `default_check_every_settlements` | 每完成多少次流量结算检查一次违约 |
+| `timestep_settle_check` | 本轮对照实验中的严格微步协议；每个宏观期动态拆成 `K_t` 个批次，每批至多 1 次 credit time_step，随后立即微结算、检查和清算 |
+| `max_period_length_steps` / `max_period_length_steps_cap` | timestep 对照中的计算保护上限；先记录理论 `K_t`，再执行 `min(K_t, cap)` 个微步，避免高 `c` 与高支出反馈导致单个宏观期计算量无界 |
 | `recovery_rate` | 债务人违约时目标回收比例；实际回收还受债务人现金约束 |
 | `default_node_mode` | 违约清算后节点继续参与、永久退出或重置到初始现金 |
 | `actual_recovery_amount` | 债务人实际支付并被债权人回收的现金；可能远低于 `recovery_rate * 债务面值` |
@@ -482,39 +502,64 @@ critical_event = collapse_fraction >= collapse_threshold_fraction
    - 连续执行 `K_t` 个 `time_step`。
    - 每个 `time_step` 至多成功增加 1 个单位信贷；如果没有满足现金约束的贷款人，则本次尝试可能失败。
    - 不能把 `K_t` 个信贷单位理解为一次性同时加入。
-   - 当期所有成功借入资金记为当期累计借贷量，后续在 `period_end` 结算时作为投资支出目标。
+   - 在 `period_end` 协议中，当期所有成功借入资金记为当期累计借贷量，后续在 `period_end` 结算时作为投资支出目标。
+   - 在 `timestep_settle_check` 协议中，不等待期末批量结算；每个 credit `time_step` 后立刻用本微步的成功借入量作为本微步投资支出目标。
 
-4. 执行 `period_end` 期末流量结算
+4. 执行流量结算
 
-   - 投资支出：
-     - 当期成功借入资金在本 `period` 期末作为投资支出目标。
+   - `period_end` 基线：
+     - 在整个 `period` 的 `K_t` 个信贷尝试结束后，统一结算一次。
+     - 当期投资支出目标为该期累计成功借入量。
+     - 消费支出按完整的 `a * 财富量 + b * 上一期收入量` 计划计算。
+     - 结算后统一做一次收入分配和违约检查。
+
+   - `timestep_settle_check` 对照：
+     - 一个宏观期仍由 `K_t` 个计划 credit `time_step` 组成。
+     - 每个 `time_step` 至多成功新增 1 单位信贷后，立即执行一次微结算。
+     - 本微步投资支出目标只使用本微步成功借入量。
+     - 消费支出计划使用上一宏观期收入作为参考，但缩放为 `1/K_t`：
+
+       ```text
+       P_i,step = (1/K_t) * (a * max(W_i,0) + b * max(Y_i,t-1,0))
+       ```
+
+     - 一个宏观期内各微步新收入累加为该期总收入，用于下一期计算 `K_(t+1)`。
+     - 若 `K_t=0`，本轮 timestep 对照不产生 credit 微步，也不会在该期人为制造一个额外检查点。
+     - 快速全景扫描 v2 使用 `max_period_length_steps=500` 作为计算保护：理论 `K_t` 仍记录为 `uncapped_period_length_steps` / `max_uncapped_period_length_steps`，实际微步数为 `min(K_t,500)`。这一设置用于避免高 `c`、高支出机制下收入反馈把单个宏观期推成无界长计算；它是本轮对照实验的协议条件之一。
+
+   - 投资支出共同规则：
+     - 对应结算窗口内成功借入的资金作为该窗口的投资支出目标。
      - 当前实现受现金约束；如果借款人在期内又把现金贷出，实际投资支出可能小于成功借入量。
 
-   - 消费支出：
+   - 消费支出共同规则：
      - 消费支出量为 `a * 财富量 + b * 上一期收入量`。
      - 支出受个体现金约束，不能让现金余额因为支出变为负数。
 
-   - 收入分配：
-     - 总收入等于本 `period` 的总支出。
+   - 收入分配共同规则：
+     - 总收入等于对应结算窗口内的总支出。
      - 收入按照指定规则分配到各个主体，例如随机均匀分配或按净资产偏好分配。
 
-5. 执行 `period_end` 期末违约检查与级联失效
+5. 执行违约检查与级联失效
 
-   - 默认只在 `period_end` 检查个体是否违约，不在每个 `time_step` 之后检查。
+   - `period_end` 基线只在期末检查个体是否违约。
+   - `timestep_settle_check` 对照在每个 credit `time_step` 的微结算后检查个体是否违约。
    - 违约条件由净资产判断：`W_i = cash_i + loan_assets_i - debt_liabilities_i`，当前基线为严格 `W_i < 0`。
-   - 如果出现违约节点，则在本 `period_end` 内完成级联失效分析；级联清算期间不再新增信贷 time_step。
+   - 如果出现违约节点，则在当前检查点内完成级联失效分析；级联清算期间不再新增信贷 time_step。
    - 先记录流量结算后同步出现的初始违约 `initial_default_count`，再沿信贷暴露清算传播新增违约。
    - 债务人违约时，其债权人的贷款资产被减记；若 `wipe_defaulted_assets=True`，违约节点持有的贷款资产也被清除，并解除对应借款人的负债。
    - 队列为空时，本次 avalanche 结束；`collapse_size` 是本次事件中被清算的不同节点数，`propagated_default_count = collapse_size - initial_default_count`。
-   - 级联失效完成后，记录本次崩塌规模、崩塌前存量信贷规模、已经经历的 `period` 数和已经经历的 `time_step` 数。
+   - 级联失效完成后，记录本次崩塌规模、崩塌前存量信贷规模、已经经历的 `period` 数和已经经历的 `time_step` 数；timestep 对照还记录 `micro_step_in_period`、`settlements_completed`、`checks_completed`。
    - 若采用“首次违约即重启”的实验协议，则结束本轮实验，并重新开始新一轮初始化。
-   - 若采用“慢驱动 + avalanche 后继续增长”的实验协议，则清算违约节点后继续下一 `period`，并记录长期 avalanche 序列。
+   - 若采用“慢驱动 + avalanche 后继续增长”的实验协议，则清算违约节点后继续增长；在 `period_end` 协议中继续下一 `period`，在 timestep 对照中继续下一 credit 微步。
 
 6. 记录每一轮实验的关键量
 
    - `period_index`：发生违约或级联时所处的 `period`。
+   - `micro_step_in_period`：timestep 对照中，事件发生在该宏观期第几个 credit 微步之后；`period_end` 基线没有该字段。
    - `period_length_steps`：该 `period` 包含的计划 `time_step` 数量，即 `K_t`。
    - `time_steps_completed`：截至崩塌前累计执行的信贷尝试步数。
+   - `event_timestep_rate`：timestep 对照中的 avalanche 频率，定义为 `avalanche_count / time_steps_completed`。
+   - `event_period_occupancy`：发生过至少一次 avalanche 的宏观 period 占比；在 timestep 对照中，一个 period 可以包含多次 avalanche，因此它不同于事件率。
    - `total_credit_issued`：截至崩塌或 run 结束时累计成功发放的单位信贷数量。
    - `credit_scale_before_cascade`：级联发生前网络中的活跃信贷暴露总量。
    - `collapse_size`：本次级联违约波及的节点数量。
