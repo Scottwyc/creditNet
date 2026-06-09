@@ -793,3 +793,10 @@ P: 有人说，计划投资支出的比例c，刚开始的比例太小了，可�
 
 - 本轮是时间有限下的快速全景对照，不是 3 seed、120 periods、无微步上限的最终长时稳态证明；
 - 原始 `avalanche_events.csv` 约 1.6GB，保留本地但不进入 Git；Git 只跟踪合并摘要、分析表、图和报告。
+
+## 2026-06-09 15:20:44 CST：导出 timestep 对照 Word 报告
+
+- 已由 `docs/credit_soc_timestep_soc_counterfactual_report_20260609_v2.md` 导出 Word：`docs/credit_soc_timestep_soc_counterfactual_report_20260609_v2.docx`。
+- 使用 pandoc 从 `docs/` 目录导出，保持报告中的 `../results/...` 图片相对路径可解析。
+- 验证：`.docx` 约 2.0MB，内部 `word/media/` 嵌入 19 张 PNG，与 Markdown 中 19 张图片引用一致。
+- 更新 `docs/credit_soc_key_results_dashboard.md`，补充 Word 报告入口。
