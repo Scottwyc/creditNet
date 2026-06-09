@@ -191,7 +191,7 @@ def make_specs(args: argparse.Namespace) -> list[RunSpec]:
             f"money-{money}__income-{income_rule}__growth-{growth_rule}"
             f"__spend-{spending_preset.label}__topo-{topology_choice.label}"
         )
-        scenario_id = f"c-{c_value:.2f}__{base_id}".replace(".", "p")
+        scenario_id = f"c-{c_value:.3f}__{base_id}".replace(".", "p")
         scenario_specs.append(
             (
                 scenario_id,

@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-06-09 17:14:47 CST",
+  "input_dir": "results/credit_soc_period_critical_refined_20260609_v1/merged",
+  "output_dir": "results/credit_soc_period_critical_refined_analysis_20260609_v1",
+  "report": "docs/credit_soc_period_critical_refined_report_20260609_v1.md",
+  "figures": [
+    "cascade_phase_by_money.png",
+    "cascade_phase_by_income_rule.png",
+    "cascade_phase_by_spending.png",
+    "cascade_phase_by_topology.png",
+    "cascade_phase_by_growth_rule.png",
+    "large_event_phase_by_money.png",
+    "large_event_phase_by_spending.png",
+    "large_event_phase_by_topology.png",
+    "ccdf_by_c.png",
+    "ccdf_by_money.png",
+    "ccdf_by_income_rule.png",
+    "ccdf_by_spending.png",
+    "ccdf_by_topology.png",
+    "ccdf_by_growth_rule.png",
+    "global_cascade_phase_map.png",
+    "global_soc_screen_phase_map.png",
+    "top_candidate_ccdf_grid.png"
+  ],
+  "min_tail": 30,
+  "bootstrap": 20,
+  "tail_fit_count": 97,
+  "quick_soc_candidate_count": 18
+}

@@ -1,0 +1,101 @@
+{
+  "created_at": "2026-06-09 17:31:02 CST",
+  "input_dirs": [
+    "results/credit_soc_period_critical_stage2_20260609_v1/high_both",
+    "results/credit_soc_period_critical_stage2_20260609_v1/high_wealth"
+  ],
+  "output_dir": "results/credit_soc_period_critical_stage2_20260609_v1/merged_exact_c",
+  "run_count": 4104,
+  "event_count": 555638,
+  "scenario_count": 171,
+  "scenario_base_count": 6,
+  "correction": "Rebuilt scenario_id with 3-decimal c from raw investment_income_propensity to avoid 2-decimal ID collision in run_comprehensive_scenario_scan.py.",
+  "source_metadata": [
+    {
+      "created_at": "2026-06-09 17:28:25 CST",
+      "command_args": {
+        "output_dir": "results/credit_soc_period_critical_stage2_20260609_v1/high_both",
+        "n_nodes": 120,
+        "runs_per_scenario": 24,
+        "max_periods": 240,
+        "max_time_steps": 0,
+        "seed_base": 2026061300,
+        "topology_seed_base": 2026069300,
+        "workers": 8,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.450,0.455,0.460,0.465,0.470,0.475,0.480,0.485,0.490,0.495,0.500,0.505,0.510,0.515,0.520,0.525,0.530,0.535,0.540,0.545,0.550,0.555,0.560,0.565,0.570,0.575,0.580,0.585,0.590,0.595,0.600",
+        "money_distributions": [
+          "equal",
+          "normal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform"
+        ],
+        "growth_rules": [
+          "random"
+        ],
+        "spending_presets": "high_both:0.04:0.40",
+        "topologies": "complete",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0
+      },
+      "run_count": 2232,
+      "event_count": 261818,
+      "scenario_count": 48,
+      "scenario_base_count": 3,
+      "run_summary_csv": "results/credit_soc_period_critical_stage2_20260609_v1/high_both/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_period_critical_stage2_20260609_v1/high_both/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_period_critical_stage2_20260609_v1/high_both/scenario_summary.csv",
+      "note": "Comprehensive factorial screen. It is designed for phase diagrams and candidate selection; strict SOC promotion still requires stationarity and finite-size follow-up."
+    },
+    {
+      "created_at": "2026-06-09 17:29:11 CST",
+      "command_args": {
+        "output_dir": "results/credit_soc_period_critical_stage2_20260609_v1/high_wealth",
+        "n_nodes": 120,
+        "runs_per_scenario": 24,
+        "max_periods": 240,
+        "max_time_steps": 0,
+        "seed_base": 2026062300,
+        "topology_seed_base": 2026070300,
+        "workers": 8,
+        "mean_initial_money": 20.0,
+        "initial_income_per_capita": 5.0,
+        "collapse_threshold_fraction": 0.1,
+        "c_values": "0.675,0.680,0.685,0.690,0.695,0.700,0.705,0.710,0.715,0.720,0.725,0.730,0.735,0.740,0.745,0.750,0.755,0.760,0.765,0.770,0.775,0.780,0.785,0.790,0.795,0.800",
+        "money_distributions": [
+          "equal",
+          "normal",
+          "pareto"
+        ],
+        "income_rules": [
+          "uniform"
+        ],
+        "growth_rules": [
+          "random"
+        ],
+        "spending_presets": "high_wealth:0.04:0.20",
+        "topologies": "complete",
+        "sw_rewire_probability": 0.1,
+        "avalanche_protocol": "continue_after_avalanche",
+        "no_validate_accounting": true,
+        "progress_every": 100,
+        "max_scenarios": 0
+      },
+      "run_count": 1872,
+      "event_count": 293820,
+      "scenario_count": 39,
+      "scenario_base_count": 3,
+      "run_summary_csv": "results/credit_soc_period_critical_stage2_20260609_v1/high_wealth/run_summary.csv",
+      "avalanche_csv": "results/credit_soc_period_critical_stage2_20260609_v1/high_wealth/avalanche_events.csv",
+      "scenario_summary_csv": "results/credit_soc_period_critical_stage2_20260609_v1/high_wealth/scenario_summary.csv",
+      "note": "Comprehensive factorial screen. It is designed for phase diagrams and candidate selection; strict SOC promotion still requires stationarity and finite-size follow-up."
+    }
+  ]
+}

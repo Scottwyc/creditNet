@@ -1,0 +1,3011 @@
+{
+  "generated_at_cst": "2026-06-09T17:23:39+08:00",
+  "script": "scripts/render_creditnet_evolution_animations.py",
+  "scene": {
+    "scene_id": "same_params_period_end",
+    "protocol": "period_end",
+    "description": "Same-parameter comparison branch: high-risk lognormal/biased/preferential_debt/high_both scenario with period_end batch settlement/checking.",
+    "seed": 2009,
+    "params": {
+      "n_nodes": 60,
+      "mean_initial_money": 20.0,
+      "money_distribution": "lognormal",
+      "income_distribution_rule": "biased",
+      "growth_rule": "preferential_debt",
+      "consumption_wealth_propensity": 0.04,
+      "consumption_income_propensity": 0.4,
+      "investment_income_propensity": 0.8,
+      "initial_income_per_capita": 5.0,
+      "collapse_threshold_fraction": 0.1,
+      "max_periods": 8,
+      "max_time_steps": 0,
+      "default_threshold": 0.0,
+      "wipe_defaulted_assets": true,
+      "validate_accounting": true,
+      "period_length_rule": "income",
+      "fixed_period_length_steps": 100,
+      "avalanche_protocol": "continue_after_avalanche",
+      "default_check_mode": "period_end"
+    },
+    "max_period_length_steps_cap": 0,
+    "sample_every_steps": 120,
+    "max_event_frame_events": 18,
+    "event_frame_stride_after_limit": 12,
+    "max_edges_drawn": 500,
+    "max_render_frames": 120
+  },
+  "params": {
+    "n_nodes": 60,
+    "mean_initial_money": 20.0,
+    "money_distribution": "lognormal",
+    "income_distribution_rule": "biased",
+    "growth_rule": "preferential_debt",
+    "consumption_wealth_propensity": 0.04,
+    "consumption_income_propensity": 0.4,
+    "investment_income_propensity": 0.8,
+    "initial_income_per_capita": 5.0,
+    "collapse_threshold_fraction": 0.1,
+    "max_periods": 8,
+    "max_time_steps": 0,
+    "default_threshold": 0.0,
+    "wipe_defaulted_assets": true,
+    "validate_accounting": true,
+    "period_length_rule": "income",
+    "fixed_period_length_steps": 100,
+    "avalanche_protocol": "continue_after_avalanche",
+    "default_check_mode": "period_end"
+  },
+  "summary": {
+    "scene_id": "same_params_period_end",
+    "protocol": "period_end",
+    "seed": 2009,
+    "n_nodes": 60,
+    "periods_completed": 8,
+    "time_steps_completed": 4883,
+    "settlements_completed": 8,
+    "checks_completed": 8,
+    "total_credit_issued": 4883,
+    "failed_credit_events": 0,
+    "initial_total_money": 1292,
+    "final_cash_total": 1292,
+    "final_active_credit": 12,
+    "final_active_directed_pairs": 7,
+    "initial_money_gini": 0.5916150670794633,
+    "final_net_worth_gini": 0.952373581011352,
+    "avalanche_count": 8,
+    "max_collapse_size": 49,
+    "total_collapse_size": 249,
+    "max_collapse_fraction": 0.8166666666666667,
+    "large_cascade_threshold_nodes": 6,
+    "large_cascade_event_count": 8,
+    "first_cascade_period": 1,
+    "first_cascade_time_steps": 240,
+    "credit_scale_before_cascade": 240,
+    "critical_event": true,
+    "ended_by_default": true,
+    "frame_count_before_padding": 582,
+    "frame_count_raw": 582,
+    "frame_count_after_thinning": 118,
+    "frame_count": 118
+  },
+  "outputs": {
+    "gif": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end.gif",
+    "keyframes_png": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end_keyframes.png",
+    "trace_summary_csv": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end_trace_summary.csv",
+    "metadata_json": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end_metadata.json"
+  },
+  "rendering": {
+    "fps": 6,
+    "duration_seconds": 19.667,
+    "max_edges_drawn": 500,
+    "layout_seed": 2026,
+    "node_color": "net worth color scale; current/default nodes override to red/orange",
+    "node_size": "debt pressure relative to cash plus loan assets",
+    "edge_width": "sqrt(active directed exposure weight)",
+    "cascade_highlight": "incoming exposures to the node being cleared are red",
+    "legend": "drawn in the lower-right corner of each frame and keyframe panel"
+  },
+  "period_history": [
+    {
+      "period": 1,
+      "period_length_steps": 240,
+      "time_steps_completed": 240,
+      "issued_credit": 240,
+      "failed_credit_events": 0,
+      "attempted": 240,
+      "active_credit": 116,
+      "active_directed_pairs": 109,
+      "investment_spending": 240,
+      "consumption_spending": 164,
+      "total_income": 404,
+      "avalanche_count": 1,
+      "min_net_worth": -13.0,
+      "negative_net_worth_nodes": 13
+    },
+    {
+      "period": 2,
+      "period_length_steps": 323,
+      "time_steps_completed": 563,
+      "issued_credit": 323,
+      "failed_credit_events": 0,
+      "attempted": 323,
+      "active_credit": 162,
+      "active_directed_pairs": 120,
+      "investment_spending": 320,
+      "consumption_spending": 215,
+      "total_income": 535,
+      "avalanche_count": 1,
+      "min_net_worth": -20.0,
+      "negative_net_worth_nodes": 16
+    },
+    {
+      "period": 3,
+      "period_length_steps": 428,
+      "time_steps_completed": 991,
+      "issued_credit": 428,
+      "failed_credit_events": 0,
+      "attempted": 428,
+      "active_credit": 143,
+      "active_directed_pairs": 91,
+      "investment_spending": 427,
+      "consumption_spending": 261,
+      "total_income": 688,
+      "avalanche_count": 1,
+      "min_net_worth": -49.0,
+      "negative_net_worth_nodes": 20
+    },
+    {
+      "period": 4,
+      "period_length_steps": 550,
+      "time_steps_completed": 1541,
+      "issued_credit": 550,
+      "failed_credit_events": 0,
+      "attempted": 550,
+      "active_credit": 214,
+      "active_directed_pairs": 94,
+      "investment_spending": 540,
+      "consumption_spending": 320,
+      "total_income": 860,
+      "avalanche_count": 1,
+      "min_net_worth": -87.0,
+      "negative_net_worth_nodes": 19
+    },
+    {
+      "period": 5,
+      "period_length_steps": 688,
+      "time_steps_completed": 2229,
+      "issued_credit": 688,
+      "failed_credit_events": 0,
+      "attempted": 688,
+      "active_credit": 37,
+      "active_directed_pairs": 28,
+      "investment_spending": 644,
+      "consumption_spending": 363,
+      "total_income": 1007,
+      "avalanche_count": 1,
+      "min_net_worth": -149.0,
+      "negative_net_worth_nodes": 24
+    },
+    {
+      "period": 6,
+      "period_length_steps": 806,
+      "time_steps_completed": 3035,
+      "issued_credit": 806,
+      "failed_credit_events": 0,
+      "attempted": 806,
+      "active_credit": 36,
+      "active_directed_pairs": 14,
+      "investment_spending": 713,
+      "consumption_spending": 412,
+      "total_income": 1125,
+      "avalanche_count": 1,
+      "min_net_worth": -34.0,
+      "negative_net_worth_nodes": 38
+    },
+    {
+      "period": 7,
+      "period_length_steps": 900,
+      "time_steps_completed": 3935,
+      "issued_credit": 900,
+      "failed_credit_events": 0,
+      "attempted": 900,
+      "active_credit": 18,
+      "active_directed_pairs": 9,
+      "investment_spending": 763,
+      "consumption_spending": 422,
+      "total_income": 1185,
+      "avalanche_count": 1,
+      "min_net_worth": -29.0,
+      "negative_net_worth_nodes": 48
+    },
+    {
+      "period": 8,
+      "period_length_steps": 948,
+      "time_steps_completed": 4883,
+      "issued_credit": 948,
+      "failed_credit_events": 0,
+      "attempted": 948,
+      "active_credit": 12,
+      "active_directed_pairs": 7,
+      "investment_spending": 730,
+      "consumption_spending": 491,
+      "total_income": 1221,
+      "avalanche_count": 1,
+      "min_net_worth": -135.0,
+      "negative_net_worth_nodes": 41
+    }
+  ],
+  "event_history": [
+    {
+      "event_index": 1,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 1,
+      "period_length_steps": 240,
+      "micro_step_in_period": 240,
+      "time_steps_completed": 240,
+      "settlements_completed": 1,
+      "checks_completed": 1,
+      "credit_scale_before_cascade": 240,
+      "directed_pairs_before_cascade": 209,
+      "active_credit_after_cascade": 116,
+      "initial_default_count": 13,
+      "collapse_size": 13,
+      "collapse_fraction": 0.21666666666666667,
+      "critical_event": true,
+      "propagated_default_count": 0,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 1,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 229,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 8,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 225,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 14,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 212,
+          "min_net_worth_after_wave": -12.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 19,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 208,
+          "min_net_worth_after_wave": -12.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 24,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 198,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 27,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 196,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 28,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 190,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 30,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 177,
+          "min_net_worth_after_wave": -14.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 41,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 160,
+          "min_net_worth_after_wave": -14.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 48,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 150,
+          "min_net_worth_after_wave": -14.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 52,
+          "incoming_loss": 26,
+          "impacted_creditor_count": 16,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 124,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 55,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 120,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 57,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 116,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 2,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 2,
+      "period_length_steps": 323,
+      "micro_step_in_period": 323,
+      "time_steps_completed": 563,
+      "settlements_completed": 2,
+      "checks_completed": 2,
+      "credit_scale_before_cascade": 439,
+      "directed_pairs_before_cascade": 316,
+      "active_credit_after_cascade": 162,
+      "initial_default_count": 16,
+      "collapse_size": 20,
+      "collapse_fraction": 0.3333333333333333,
+      "critical_event": true,
+      "propagated_default_count": 4,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 4,
+          "incoming_loss": 16,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 419,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 7,
+          "incoming_loss": 20,
+          "impacted_creditor_count": 12,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 393,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 9,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 385,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 14,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 377,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 16,
+          "incoming_loss": 26,
+          "impacted_creditor_count": 17,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 347,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 20,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 326,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 25,
+          "incoming_loss": 21,
+          "impacted_creditor_count": 12,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 298,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 26,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [
+            27
+          ],
+          "active_credit_after_wave": 292,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 28,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 290,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 29,
+          "incoming_loss": 23,
+          "impacted_creditor_count": 12,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [
+            43
+          ],
+          "active_credit_after_wave": 265,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 33,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 246,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 35,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 245,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 36,
+          "incoming_loss": 15,
+          "impacted_creditor_count": 13,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [
+            3
+          ],
+          "active_credit_after_wave": 228,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 46,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 220,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 50,
+          "incoming_loss": 14,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [
+            19
+          ],
+          "active_credit_after_wave": 204,
+          "min_net_worth_after_wave": -20.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 51,
+          "incoming_loss": 26,
+          "impacted_creditor_count": 14,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 178,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 27,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 176,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 43,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 167,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 3,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 163,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 19,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 162,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 3,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 3,
+      "period_length_steps": 428,
+      "micro_step_in_period": 428,
+      "time_steps_completed": 991,
+      "settlements_completed": 3,
+      "checks_completed": 3,
+      "credit_scale_before_cascade": 590,
+      "directed_pairs_before_cascade": 330,
+      "active_credit_after_cascade": 143,
+      "initial_default_count": 20,
+      "collapse_size": 23,
+      "collapse_fraction": 0.38333333333333336,
+      "critical_event": true,
+      "propagated_default_count": 3,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 1,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 585,
+          "min_net_worth_after_wave": -49.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 2,
+          "incoming_loss": 50,
+          "impacted_creditor_count": 21,
+          "wiped_outgoing_credit": 15,
+          "new_default_nodes": [
+            47
+          ],
+          "active_credit_after_wave": 520,
+          "min_net_worth_after_wave": -50.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 3,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 515,
+          "min_net_worth_after_wave": -50.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 6,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 500,
+          "min_net_worth_after_wave": -51.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 8,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 499,
+          "min_net_worth_after_wave": -51.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 11,
+          "incoming_loss": 23,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 471,
+          "min_net_worth_after_wave": -53.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 12,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 459,
+          "min_net_worth_after_wave": -55.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 14,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 457,
+          "min_net_worth_after_wave": -55.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 17,
+          "incoming_loss": 44,
+          "impacted_creditor_count": 19,
+          "wiped_outgoing_credit": 12,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 401,
+          "min_net_worth_after_wave": -57.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 18,
+          "incoming_loss": 20,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 13,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 368,
+          "min_net_worth_after_wave": -56.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 22,
+          "incoming_loss": 23,
+          "impacted_creditor_count": 18,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 339,
+          "min_net_worth_after_wave": -54.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 23,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 335,
+          "min_net_worth_after_wave": -55.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 28,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 332,
+          "min_net_worth_after_wave": -55.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 31,
+          "incoming_loss": 93,
+          "impacted_creditor_count": 26,
+          "wiped_outgoing_credit": 21,
+          "new_default_nodes": [
+            50
+          ],
+          "active_credit_after_wave": 218,
+          "min_net_worth_after_wave": -16.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 32,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 204,
+          "min_net_worth_after_wave": -15.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 39,
+          "incoming_loss": 18,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [
+            52
+          ],
+          "active_credit_after_wave": 184,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 41,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 176,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 46,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 175,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 57,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 172,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 59,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 162,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 21,
+          "cleared_node": 47,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 160,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 22,
+          "cleared_node": 50,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 154,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 23,
+          "cleared_node": 52,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 143,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 4,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 4,
+      "period_length_steps": 550,
+      "micro_step_in_period": 550,
+      "time_steps_completed": 1541,
+      "settlements_completed": 4,
+      "checks_completed": 4,
+      "credit_scale_before_cascade": 693,
+      "directed_pairs_before_cascade": 328,
+      "active_credit_after_cascade": 214,
+      "initial_default_count": 19,
+      "collapse_size": 24,
+      "collapse_fraction": 0.4,
+      "critical_event": true,
+      "propagated_default_count": 5,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 5,
+          "incoming_loss": 22,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 17,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 654,
+          "min_net_worth_after_wave": -83.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 7,
+          "incoming_loss": 14,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [
+            34
+          ],
+          "active_credit_after_wave": 636,
+          "min_net_worth_after_wave": -83.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 14,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 633,
+          "min_net_worth_after_wave": -84.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 20,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 625,
+          "min_net_worth_after_wave": -84.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 24,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [
+            29
+          ],
+          "active_credit_after_wave": 613,
+          "min_net_worth_after_wave": -84.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 33,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 605,
+          "min_net_worth_after_wave": -85.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 36,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 590,
+          "min_net_worth_after_wave": -85.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 38,
+          "incoming_loss": 110,
+          "impacted_creditor_count": 26,
+          "wiped_outgoing_credit": 25,
+          "new_default_nodes": [
+            19,
+            41
+          ],
+          "active_credit_after_wave": 455,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 40,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 431,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 46,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 428,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 48,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 418,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 50,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 406,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 51,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 391,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 53,
+          "incoming_loss": 30,
+          "impacted_creditor_count": 15,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 356,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 55,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 338,
+          "min_net_worth_after_wave": -13.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 56,
+          "incoming_loss": 22,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 311,
+          "min_net_worth_after_wave": -11.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 57,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 305,
+          "min_net_worth_after_wave": -11.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 58,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 301,
+          "min_net_worth_after_wave": -11.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 59,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 290,
+          "min_net_worth_after_wave": -11.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 34,
+          "incoming_loss": 45,
+          "impacted_creditor_count": 13,
+          "wiped_outgoing_credit": 16,
+          "new_default_nodes": [
+            27
+          ],
+          "active_credit_after_wave": 229,
+          "min_net_worth_after_wave": -3.0
+        },
+        {
+          "wave_index": 21,
+          "cleared_node": 29,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 223,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 22,
+          "cleared_node": 19,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 219,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 23,
+          "cleared_node": 41,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 218,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 24,
+          "cleared_node": 27,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 214,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 5,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 5,
+      "period_length_steps": 688,
+      "micro_step_in_period": 688,
+      "time_steps_completed": 2229,
+      "settlements_completed": 5,
+      "checks_completed": 5,
+      "credit_scale_before_cascade": 902,
+      "directed_pairs_before_cascade": 350,
+      "active_credit_after_cascade": 37,
+      "initial_default_count": 24,
+      "collapse_size": 30,
+      "collapse_fraction": 0.5,
+      "critical_event": true,
+      "propagated_default_count": 6,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 0,
+          "incoming_loss": 105,
+          "impacted_creditor_count": 24,
+          "wiped_outgoing_credit": 45,
+          "new_default_nodes": [
+            33
+          ],
+          "active_credit_after_wave": 752,
+          "min_net_worth_after_wave": -146.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 4,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 742,
+          "min_net_worth_after_wave": -146.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 5,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 730,
+          "min_net_worth_after_wave": -145.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 6,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 723,
+          "min_net_worth_after_wave": -145.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 10,
+          "incoming_loss": 56,
+          "impacted_creditor_count": 20,
+          "wiped_outgoing_credit": 21,
+          "new_default_nodes": [
+            3,
+            26
+          ],
+          "active_credit_after_wave": 646,
+          "min_net_worth_after_wave": -146.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 12,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 642,
+          "min_net_worth_after_wave": -146.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 17,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [
+            8
+          ],
+          "active_credit_after_wave": 624,
+          "min_net_worth_after_wave": -143.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 20,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 612,
+          "min_net_worth_after_wave": -140.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 21,
+          "incoming_loss": 31,
+          "impacted_creditor_count": 14,
+          "wiped_outgoing_credit": 17,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 564,
+          "min_net_worth_after_wave": -137.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 24,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 558,
+          "min_net_worth_after_wave": -137.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 27,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 545,
+          "min_net_worth_after_wave": -138.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 28,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 540,
+          "min_net_worth_after_wave": -138.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 32,
+          "incoming_loss": 26,
+          "impacted_creditor_count": 13,
+          "wiped_outgoing_credit": 8,
+          "new_default_nodes": [
+            36
+          ],
+          "active_credit_after_wave": 506,
+          "min_net_worth_after_wave": -139.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 37,
+          "incoming_loss": 188,
+          "impacted_creditor_count": 27,
+          "wiped_outgoing_credit": 46,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 272,
+          "min_net_worth_after_wave": -45.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 39,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 266,
+          "min_net_worth_after_wave": -45.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 40,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 261,
+          "min_net_worth_after_wave": -44.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 41,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 259,
+          "min_net_worth_after_wave": -44.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 42,
+          "incoming_loss": 81,
+          "impacted_creditor_count": 19,
+          "wiped_outgoing_credit": 24,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 154,
+          "min_net_worth_after_wave": -29.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 43,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 147,
+          "min_net_worth_after_wave": -29.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 44,
+          "incoming_loss": 37,
+          "impacted_creditor_count": 14,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 105,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 21,
+          "cleared_node": 45,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 93,
+          "min_net_worth_after_wave": -19.0
+        },
+        {
+          "wave_index": 22,
+          "cleared_node": 49,
+          "incoming_loss": 25,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [
+            46
+          ],
+          "active_credit_after_wave": 63,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 23,
+          "cleared_node": 50,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 57,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 24,
+          "cleared_node": 57,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 54,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 25,
+          "cleared_node": 33,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 52,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 26,
+          "cleared_node": 3,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 49,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 27,
+          "cleared_node": 26,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 46,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 28,
+          "cleared_node": 8,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 43,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 29,
+          "cleared_node": 36,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 39,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 30,
+          "cleared_node": 46,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 37,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 6,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 6,
+      "period_length_steps": 806,
+      "micro_step_in_period": 806,
+      "time_steps_completed": 3035,
+      "settlements_completed": 6,
+      "checks_completed": 6,
+      "credit_scale_before_cascade": 843,
+      "directed_pairs_before_cascade": 387,
+      "active_credit_after_cascade": 36,
+      "initial_default_count": 38,
+      "collapse_size": 42,
+      "collapse_fraction": 0.7,
+      "critical_event": true,
+      "propagated_default_count": 4,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 1,
+          "incoming_loss": 23,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 8,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 812,
+          "min_net_worth_after_wave": -32.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 4,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 801,
+          "min_net_worth_after_wave": -32.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 5,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 795,
+          "min_net_worth_after_wave": -31.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 6,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 788,
+          "min_net_worth_after_wave": -31.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 7,
+          "incoming_loss": 14,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 8,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 766,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 8,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 761,
+          "min_net_worth_after_wave": -31.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 9,
+          "incoming_loss": 35,
+          "impacted_creditor_count": 14,
+          "wiped_outgoing_credit": 16,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 710,
+          "min_net_worth_after_wave": -31.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 10,
+          "incoming_loss": 36,
+          "impacted_creditor_count": 15,
+          "wiped_outgoing_credit": 8,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 666,
+          "min_net_worth_after_wave": -31.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 11,
+          "incoming_loss": 38,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 16,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 612,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 12,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 607,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 13,
+          "incoming_loss": 62,
+          "impacted_creditor_count": 14,
+          "wiped_outgoing_credit": 47,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 498,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 14,
+          "incoming_loss": 32,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 9,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 457,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 16,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 443,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 17,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 429,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 18,
+          "incoming_loss": 38,
+          "impacted_creditor_count": 13,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [
+            2,
+            25
+          ],
+          "active_credit_after_wave": 384,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 20,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 378,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 22,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 363,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 24,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 359,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 26,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 348,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 27,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 334,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 21,
+          "cleared_node": 28,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 327,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 22,
+          "cleared_node": 29,
+          "incoming_loss": 20,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 306,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 23,
+          "cleared_node": 30,
+          "incoming_loss": 12,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 9,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 285,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 24,
+          "cleared_node": 31,
+          "incoming_loss": 29,
+          "impacted_creditor_count": 14,
+          "wiped_outgoing_credit": 12,
+          "new_default_nodes": [
+            34
+          ],
+          "active_credit_after_wave": 244,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 25,
+          "cleared_node": 32,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 232,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 26,
+          "cleared_node": 35,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 229,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 27,
+          "cleared_node": 36,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 218,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 28,
+          "cleared_node": 38,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 206,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 29,
+          "cleared_node": 40,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 203,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 30,
+          "cleared_node": 43,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 201,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 31,
+          "cleared_node": 44,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 194,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 32,
+          "cleared_node": 46,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 189,
+          "min_net_worth_after_wave": -21.0
+        },
+        {
+          "wave_index": 33,
+          "cleared_node": 47,
+          "incoming_loss": 28,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 155,
+          "min_net_worth_after_wave": -15.0
+        },
+        {
+          "wave_index": 34,
+          "cleared_node": 50,
+          "incoming_loss": 16,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 139,
+          "min_net_worth_after_wave": -14.0
+        },
+        {
+          "wave_index": 35,
+          "cleared_node": 53,
+          "incoming_loss": 18,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 114,
+          "min_net_worth_after_wave": -12.0
+        },
+        {
+          "wave_index": 36,
+          "cleared_node": 55,
+          "incoming_loss": 14,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 100,
+          "min_net_worth_after_wave": -11.0
+        },
+        {
+          "wave_index": 37,
+          "cleared_node": 56,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 87,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 38,
+          "cleared_node": 58,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 84,
+          "min_net_worth_after_wave": -6.0
+        },
+        {
+          "wave_index": 39,
+          "cleared_node": 2,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 67,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 40,
+          "cleared_node": 25,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [
+            33
+          ],
+          "active_credit_after_wave": 55,
+          "min_net_worth_after_wave": -3.0
+        },
+        {
+          "wave_index": 41,
+          "cleared_node": 34,
+          "incoming_loss": 14,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 39,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 42,
+          "cleared_node": 33,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 36,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 7,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 7,
+      "period_length_steps": 900,
+      "micro_step_in_period": 900,
+      "time_steps_completed": 3935,
+      "settlements_completed": 7,
+      "checks_completed": 7,
+      "credit_scale_before_cascade": 936,
+      "directed_pairs_before_cascade": 361,
+      "active_credit_after_cascade": 18,
+      "initial_default_count": 48,
+      "collapse_size": 49,
+      "collapse_fraction": 0.8166666666666667,
+      "critical_event": true,
+      "propagated_default_count": 1,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 0,
+          "incoming_loss": 15,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 914,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 1,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 900,
+          "min_net_worth_after_wave": -30.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 2,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 10,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 877,
+          "min_net_worth_after_wave": -34.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 3,
+          "incoming_loss": 24,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 849,
+          "min_net_worth_after_wave": -35.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 4,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 843,
+          "min_net_worth_after_wave": -36.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 5,
+          "incoming_loss": 31,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 8,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 804,
+          "min_net_worth_after_wave": -40.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 6,
+          "incoming_loss": 27,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 770,
+          "min_net_worth_after_wave": -44.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 7,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 750,
+          "min_net_worth_after_wave": -47.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 8,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 746,
+          "min_net_worth_after_wave": -47.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 9,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 734,
+          "min_net_worth_after_wave": -49.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 10,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 714,
+          "min_net_worth_after_wave": -52.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 11,
+          "incoming_loss": 31,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 9,
+          "new_default_nodes": [
+            17
+          ],
+          "active_credit_after_wave": 674,
+          "min_net_worth_after_wave": -54.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 12,
+          "incoming_loss": 15,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 656,
+          "min_net_worth_after_wave": -56.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 15,
+          "incoming_loss": 152,
+          "impacted_creditor_count": 28,
+          "wiped_outgoing_credit": 94,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 410,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 16,
+          "incoming_loss": 14,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 396,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 18,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 390,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 20,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 380,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 21,
+          "incoming_loss": 19,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 10,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 351,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 22,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 346,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 23,
+          "incoming_loss": 23,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 317,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 21,
+          "cleared_node": 24,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 311,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 22,
+          "cleared_node": 27,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 300,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 23,
+          "cleared_node": 28,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 289,
+          "min_net_worth_after_wave": -26.0
+        },
+        {
+          "wave_index": 24,
+          "cleared_node": 29,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 283,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 25,
+          "cleared_node": 30,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 267,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 26,
+          "cleared_node": 31,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 259,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 27,
+          "cleared_node": 32,
+          "incoming_loss": 20,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 237,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 28,
+          "cleared_node": 33,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 213,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 29,
+          "cleared_node": 36,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 205,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 30,
+          "cleared_node": 37,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 194,
+          "min_net_worth_after_wave": -25.0
+        },
+        {
+          "wave_index": 31,
+          "cleared_node": 38,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 180,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 32,
+          "cleared_node": 39,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 167,
+          "min_net_worth_after_wave": -24.0
+        },
+        {
+          "wave_index": 33,
+          "cleared_node": 40,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 155,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 34,
+          "cleared_node": 41,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 140,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 35,
+          "cleared_node": 42,
+          "incoming_loss": 18,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 121,
+          "min_net_worth_after_wave": -22.0
+        },
+        {
+          "wave_index": 36,
+          "cleared_node": 44,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 113,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 37,
+          "cleared_node": 45,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 107,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 38,
+          "cleared_node": 46,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 101,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 39,
+          "cleared_node": 48,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 86,
+          "min_net_worth_after_wave": -23.0
+        },
+        {
+          "wave_index": 40,
+          "cleared_node": 49,
+          "incoming_loss": 27,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 59,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 41,
+          "cleared_node": 50,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 54,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 42,
+          "cleared_node": 51,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 50,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 43,
+          "cleared_node": 53,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 42,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 44,
+          "cleared_node": 55,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 35,
+          "min_net_worth_after_wave": -4.0
+        },
+        {
+          "wave_index": 45,
+          "cleared_node": 56,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 28,
+          "min_net_worth_after_wave": -3.0
+        },
+        {
+          "wave_index": 46,
+          "cleared_node": 57,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 26,
+          "min_net_worth_after_wave": -3.0
+        },
+        {
+          "wave_index": 47,
+          "cleared_node": 58,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 22,
+          "min_net_worth_after_wave": -3.0
+        },
+        {
+          "wave_index": 48,
+          "cleared_node": 59,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 18,
+          "min_net_worth_after_wave": 0.0
+        },
+        {
+          "wave_index": 49,
+          "cleared_node": 17,
+          "incoming_loss": 0,
+          "impacted_creditor_count": 0,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 18,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    },
+    {
+      "event_index": 8,
+      "protocol": "period_end",
+      "check_kind": "period_end",
+      "period": 8,
+      "period_length_steps": 948,
+      "micro_step_in_period": 948,
+      "time_steps_completed": 4883,
+      "settlements_completed": 8,
+      "checks_completed": 8,
+      "credit_scale_before_cascade": 966,
+      "directed_pairs_before_cascade": 299,
+      "active_credit_after_cascade": 12,
+      "initial_default_count": 41,
+      "collapse_size": 48,
+      "collapse_fraction": 0.8,
+      "critical_event": true,
+      "propagated_default_count": 7,
+      "rendered_in_gif": true,
+      "waves": [
+        {
+          "wave_index": 1,
+          "cleared_node": 0,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 954,
+          "min_net_worth_after_wave": -135.0
+        },
+        {
+          "wave_index": 2,
+          "cleared_node": 1,
+          "incoming_loss": 15,
+          "impacted_creditor_count": 6,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 935,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 3,
+          "cleared_node": 2,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 928,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 4,
+          "cleared_node": 4,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 918,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 5,
+          "cleared_node": 5,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 910,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 6,
+          "cleared_node": 8,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 893,
+          "min_net_worth_after_wave": -135.0
+        },
+        {
+          "wave_index": 7,
+          "cleared_node": 9,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 882,
+          "min_net_worth_after_wave": -135.0
+        },
+        {
+          "wave_index": 8,
+          "cleared_node": 14,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 7,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 866,
+          "min_net_worth_after_wave": -133.0
+        },
+        {
+          "wave_index": 9,
+          "cleared_node": 15,
+          "incoming_loss": 20,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [
+            6
+          ],
+          "active_credit_after_wave": 839,
+          "min_net_worth_after_wave": -135.0
+        },
+        {
+          "wave_index": 10,
+          "cleared_node": 16,
+          "incoming_loss": 36,
+          "impacted_creditor_count": 10,
+          "wiped_outgoing_credit": 10,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 793,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 11,
+          "cleared_node": 17,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 782,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 12,
+          "cleared_node": 19,
+          "incoming_loss": 83,
+          "impacted_creditor_count": 15,
+          "wiped_outgoing_credit": 16,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 683,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 13,
+          "cleared_node": 20,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 670,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 14,
+          "cleared_node": 22,
+          "incoming_loss": 53,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 15,
+          "new_default_nodes": [
+            10
+          ],
+          "active_credit_after_wave": 602,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 15,
+          "cleared_node": 24,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 590,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 16,
+          "cleared_node": 25,
+          "incoming_loss": 50,
+          "impacted_creditor_count": 9,
+          "wiped_outgoing_credit": 12,
+          "new_default_nodes": [
+            23
+          ],
+          "active_credit_after_wave": 528,
+          "min_net_worth_after_wave": -133.0
+        },
+        {
+          "wave_index": 17,
+          "cleared_node": 26,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 523,
+          "min_net_worth_after_wave": -134.0
+        },
+        {
+          "wave_index": 18,
+          "cleared_node": 27,
+          "incoming_loss": 39,
+          "impacted_creditor_count": 11,
+          "wiped_outgoing_credit": 13,
+          "new_default_nodes": [
+            7
+          ],
+          "active_credit_after_wave": 471,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 19,
+          "cleared_node": 28,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 468,
+          "min_net_worth_after_wave": -128.0
+        },
+        {
+          "wave_index": 20,
+          "cleared_node": 29,
+          "incoming_loss": 10,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 456,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 21,
+          "cleared_node": 31,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 451,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 22,
+          "cleared_node": 32,
+          "incoming_loss": 25,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 6,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 420,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 23,
+          "cleared_node": 33,
+          "incoming_loss": 11,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 407,
+          "min_net_worth_after_wave": -132.0
+        },
+        {
+          "wave_index": 24,
+          "cleared_node": 35,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 401,
+          "min_net_worth_after_wave": -131.0
+        },
+        {
+          "wave_index": 25,
+          "cleared_node": 36,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 4,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 395,
+          "min_net_worth_after_wave": -132.0
+        },
+        {
+          "wave_index": 26,
+          "cleared_node": 40,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 390,
+          "min_net_worth_after_wave": -133.0
+        },
+        {
+          "wave_index": 27,
+          "cleared_node": 41,
+          "incoming_loss": 28,
+          "impacted_creditor_count": 5,
+          "wiped_outgoing_credit": 7,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 355,
+          "min_net_worth_after_wave": -132.0
+        },
+        {
+          "wave_index": 28,
+          "cleared_node": 42,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 345,
+          "min_net_worth_after_wave": -131.0
+        },
+        {
+          "wave_index": 29,
+          "cleared_node": 43,
+          "incoming_loss": 52,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 8,
+          "new_default_nodes": [
+            37
+          ],
+          "active_credit_after_wave": 285,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 30,
+          "cleared_node": 45,
+          "incoming_loss": 7,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 1,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 277,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 31,
+          "cleared_node": 46,
+          "incoming_loss": 15,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 259,
+          "min_net_worth_after_wave": -129.0
+        },
+        {
+          "wave_index": 32,
+          "cleared_node": 47,
+          "incoming_loss": 13,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 3,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 243,
+          "min_net_worth_after_wave": -128.0
+        },
+        {
+          "wave_index": 33,
+          "cleared_node": 48,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 237,
+          "min_net_worth_after_wave": -128.0
+        },
+        {
+          "wave_index": 34,
+          "cleared_node": 49,
+          "incoming_loss": 20,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 5,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 212,
+          "min_net_worth_after_wave": -124.0
+        },
+        {
+          "wave_index": 35,
+          "cleared_node": 50,
+          "incoming_loss": 4,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 2,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 206,
+          "min_net_worth_after_wave": -124.0
+        },
+        {
+          "wave_index": 36,
+          "cleared_node": 52,
+          "incoming_loss": 129,
+          "impacted_creditor_count": 8,
+          "wiped_outgoing_credit": 4,
+          "new_default_nodes": [
+            13
+          ],
+          "active_credit_after_wave": 73,
+          "min_net_worth_after_wave": -16.0
+        },
+        {
+          "wave_index": 37,
+          "cleared_node": 53,
+          "incoming_loss": 8,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 65,
+          "min_net_worth_after_wave": -16.0
+        },
+        {
+          "wave_index": 38,
+          "cleared_node": 55,
+          "incoming_loss": 17,
+          "impacted_creditor_count": 3,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 48,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 39,
+          "cleared_node": 56,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 43,
+          "min_net_worth_after_wave": -7.0
+        },
+        {
+          "wave_index": 40,
+          "cleared_node": 57,
+          "incoming_loss": 9,
+          "impacted_creditor_count": 2,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [
+            39
+          ],
+          "active_credit_after_wave": 34,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 41,
+          "cleared_node": 59,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 32,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 42,
+          "cleared_node": 6,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 31,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 43,
+          "cleared_node": 10,
+          "incoming_loss": 5,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 26,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 44,
+          "cleared_node": 23,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 24,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 45,
+          "cleared_node": 7,
+          "incoming_loss": 2,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 22,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 46,
+          "cleared_node": 37,
+          "incoming_loss": 3,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 19,
+          "min_net_worth_after_wave": -2.0
+        },
+        {
+          "wave_index": 47,
+          "cleared_node": 13,
+          "incoming_loss": 6,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 13,
+          "min_net_worth_after_wave": -1.0
+        },
+        {
+          "wave_index": 48,
+          "cleared_node": 39,
+          "incoming_loss": 1,
+          "impacted_creditor_count": 1,
+          "wiped_outgoing_credit": 0,
+          "new_default_nodes": [],
+          "active_credit_after_wave": 12,
+          "min_net_worth_after_wave": 0.0
+        }
+      ]
+    }
+  ],
+  "same_params_comparison": {
+    "shared_seed": 2009,
+    "shared_layout_seed": 2026,
+    "same_params_base": {
+      "n_nodes": 60,
+      "mean_initial_money": 20.0,
+      "money_distribution": "lognormal",
+      "income_distribution_rule": "biased",
+      "growth_rule": "preferential_debt",
+      "consumption_wealth_propensity": 0.04,
+      "consumption_income_propensity": 0.4,
+      "investment_income_propensity": 0.8,
+      "initial_income_per_capita": 5.0,
+      "collapse_threshold_fraction": 0.1,
+      "max_periods": 8,
+      "max_time_steps": 0,
+      "default_threshold": 0.0,
+      "wipe_defaulted_assets": true,
+      "validate_accounting": true,
+      "period_length_rule": "income",
+      "fixed_period_length_steps": 100,
+      "avalanche_protocol": "continue_after_avalanche"
+    },
+    "seed_selection": {
+      "candidate_seed_range": "2000..2039",
+      "selected_seed": 2009,
+      "criterion": "Choose a visual demonstration seed, within the fixed high-risk same-parameter scenario, where period_end reaches the 10%N large-event threshold and timestep_settle_check remains below that threshold. This is not a global statistical conclusion.",
+      "selected_seed_probe": {
+        "period_end": {
+          "avalanche_count": 8,
+          "max_collapse_size": 49,
+          "max_collapse_fraction": 0.8166666666666667,
+          "time_steps_completed": 4883
+        },
+        "timestep_settle_check": {
+          "avalanche_count": 343,
+          "max_collapse_size": 3,
+          "max_collapse_fraction": 0.05,
+          "time_steps_completed": 5972
+        }
+      }
+    },
+    "initial_cash_vectors_identical": true,
+    "initial_cash_sha256": "acba651e8419afc88edcddb0ffbd500dd4f120a5e244397e6c8ef542aed04131",
+    "common_layout": "shared spring layout built from both protocol traces",
+    "common_color_scale": "shared scale built from both protocol traces",
+    "only_intended_protocol_difference": "default_check_mode and resulting settlement/check granularity: period_end versus timestep_settle_check"
+  }
+}

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import math
 import sys
@@ -50,6 +51,12 @@ from creditnet.timestep import spend_and_distribute_income_scaled  # noqa: E402
 
 CST = timezone(timedelta(hours=8))
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "results" / "credit_soc_visual_evolution_20260609_v1"
+DEFAULT_SAME_PARAMS_OUTPUT_DIR = (
+    PROJECT_ROOT / "results" / "credit_soc_visual_evolution_same_params_20260609_v1"
+)
+DEFAULT_SAME_PARAMS_V3_OUTPUT_DIR = (
+    PROJECT_ROOT / "results" / "credit_soc_visual_evolution_same_params_20260609_v3"
+)
 DEFAULT_FPS = 6
 
 
@@ -208,6 +215,91 @@ SCENES = [
         },
         sample_every_steps=1,
         max_edges_drawn=260,
+    ),
+]
+
+
+SAME_PARAMS_BASE_PARAMS = {
+    "n_nodes": 60,
+    "mean_initial_money": 20.0,
+    "money_distribution": "lognormal",
+    "income_distribution_rule": "biased",
+    "growth_rule": "preferential_debt",
+    "consumption_wealth_propensity": 0.04,
+    "consumption_income_propensity": 0.40,
+    "investment_income_propensity": 0.80,
+    "initial_income_per_capita": 5.0,
+    "collapse_threshold_fraction": 0.10,
+    "max_periods": 8,
+    "max_time_steps": 0,
+    "default_threshold": 0.0,
+    "wipe_defaulted_assets": True,
+    "validate_accounting": True,
+    "period_length_rule": "income",
+    "fixed_period_length_steps": 100,
+    "avalanche_protocol": "continue_after_avalanche",
+}
+SAME_PARAMS_SEED = 2009
+SAME_PARAMS_LAYOUT_SEED = SAME_PARAMS_SEED + 17
+SAME_PARAMS_SEED_SELECTION = {
+    "candidate_seed_range": "2000..2039",
+    "selected_seed": SAME_PARAMS_SEED,
+    "criterion": (
+        "Choose a visual demonstration seed, within the fixed high-risk "
+        "same-parameter scenario, where period_end reaches the 10%N large-event "
+        "threshold and timestep_settle_check remains below that threshold. This "
+        "is not a global statistical conclusion."
+    ),
+    "selected_seed_probe": {
+        "period_end": {
+            "avalanche_count": 8,
+            "max_collapse_size": 49,
+            "max_collapse_fraction": 49 / 60,
+            "time_steps_completed": 4883,
+        },
+        "timestep_settle_check": {
+            "avalanche_count": 343,
+            "max_collapse_size": 3,
+            "max_collapse_fraction": 3 / 60,
+            "time_steps_completed": 5972,
+        },
+    },
+}
+
+
+SAME_PARAM_SCENES = [
+    SceneSpec(
+        scene_id="same_params_period_end",
+        protocol="period_end",
+        description=(
+            "Same-parameter comparison branch: high-risk lognormal/biased/"
+            "preferential_debt/high_both scenario with period_end batch "
+            "settlement/checking."
+        ),
+        seed=SAME_PARAMS_SEED,
+        params=SAME_PARAMS_BASE_PARAMS | {"default_check_mode": "period_end"},
+        sample_every_steps=120,
+        max_event_frame_events=18,
+        event_frame_stride_after_limit=12,
+        max_edges_drawn=500,
+        max_render_frames=120,
+    ),
+    SceneSpec(
+        scene_id="same_params_timestep",
+        protocol="timestep_settle_check",
+        description=(
+            "Same-parameter comparison branch: identical high-risk scenario "
+            "with timestep-level micro-settlement/checking after every unit "
+            "credit step."
+        ),
+        seed=SAME_PARAMS_SEED,
+        params=SAME_PARAMS_BASE_PARAMS | {"default_check_mode": "timestep_settle_check"},
+        max_period_length_steps_cap=0,
+        sample_every_steps=180,
+        max_event_frame_events=24,
+        event_frame_stride_after_limit=18,
+        max_edges_drawn=500,
+        max_render_frames=120,
     ),
 ]
 
@@ -880,32 +972,62 @@ def thin_frames(frames: list[TraceFrame], max_frames: int) -> None:
     if max_frames <= 0 or len(frames) <= max_frames:
         return
 
-    protected: set[int] = {0, len(frames) - 1}
-    for index, frame in enumerate(frames):
-        if frame.stage in {"period_end_settlement", "initial_defaults"} and frame.highlight_nodes:
-            protected.add(index)
-        if frame.event_index and frame.event_index <= 3 and frame.stage.startswith("cascade_"):
-            protected.add(index)
+    def sampled_indices(indices: list[int], budget: int) -> set[int]:
+        if budget <= 0 or not indices:
+            return set()
+        if len(indices) <= budget:
+            return set(indices)
+        positions = np.linspace(0, len(indices) - 1, budget, dtype=int)
+        return {indices[int(pos)] for pos in positions}
 
-    if len(protected) >= max_frames:
-        keep = sorted(protected)
-        sample_positions = np.linspace(0, len(keep) - 1, max_frames, dtype=int)
-        selected = {keep[int(pos)] for pos in sample_positions}
-        selected.add(0)
-        selected.add(len(frames) - 1)
-    else:
-        remaining = max_frames - len(protected)
-        sampled = set(
-            int(pos)
-            for pos in np.linspace(0, len(frames) - 1, remaining + 2, dtype=int)[1:-1]
+    selected: set[int] = {0, len(frames) - 1}
+    growth_stages = {
+        "period_start",
+        "credit_growth",
+        "period_end_settlement",
+        "timestep_settlement_check",
+    }
+    growth_indices = [
+        index for index, frame in enumerate(frames) if frame.stage in growth_stages
+    ]
+    event_indices = [
+        index
+        for index, frame in enumerate(frames)
+        if frame.stage in {"initial_defaults", "cascade_wave_start", "cascade_wave_done", "cascade_event_done"}
+    ]
+
+    growth_budget = min(max_frames // 2, 58)
+    selected |= sampled_indices(growth_indices, growth_budget)
+
+    remaining = max_frames - len(selected)
+    event_budget = max(0, remaining - max(8, max_frames // 10))
+    selected |= sampled_indices(event_indices, event_budget)
+
+    remaining = max_frames - len(selected)
+    if remaining > 0:
+        selected |= sampled_indices(list(range(len(frames))), remaining)
+
+    if len(selected) > max_frames:
+        priority = {
+            "initial_state": 0,
+            "credit_growth": 1,
+            "timestep_settlement_check": 1,
+            "period_start": 1,
+            "period_end_settlement": 2,
+            "initial_defaults": 3,
+            "cascade_wave_start": 4,
+            "cascade_wave_done": 4,
+            "cascade_event_done": 4,
+        }
+        removable = sorted(
+            (idx for idx in selected if idx not in {0, len(frames) - 1}),
+            key=lambda idx: (priority.get(frames[idx].stage, 9), idx),
+            reverse=True,
         )
-        selected = protected | sampled
-        if len(selected) > max_frames:
-            removable = [idx for idx in sorted(selected) if idx not in protected]
-            for idx in removable:
-                if len(selected) <= max_frames:
-                    break
-                selected.remove(idx)
+        for idx in removable:
+            if len(selected) <= max_frames:
+                break
+            selected.remove(idx)
 
     thinned = [frames[idx] for idx in sorted(selected)]
     frames[:] = thinned
@@ -965,6 +1087,7 @@ def write_metadata(
     gif_path: Path,
     keyframes_path: Path,
     trace_csv_path: Path,
+    extra_metadata: dict[str, Any] | None = None,
 ) -> Path:
     metadata_path = output_dir / f"{trace.spec.scene_id}_metadata.json"
     metadata = {
@@ -993,6 +1116,8 @@ def write_metadata(
         "period_history": trace.period_history,
         "event_history": trace.event_history,
     }
+    if extra_metadata:
+        metadata.update(extra_metadata)
     with metadata_path.open("w", encoding="utf-8") as handle:
         json.dump(to_builtin(metadata), handle, ensure_ascii=False, indent=2)
     return metadata_path
@@ -1410,10 +1535,16 @@ def draw_frame(
     ax.margins(0.10)
 
 
-def render_gif(trace: TraceResult, output_dir: Path, fps: int) -> Path:
+def render_gif(
+    trace: TraceResult,
+    output_dir: Path,
+    fps: int,
+    pos: dict[int, np.ndarray] | None = None,
+    scale: dict[str, float] | None = None,
+) -> Path:
     gif_path = output_dir / f"{trace.spec.scene_id}.gif"
-    pos = build_layout(trace.frames, seed=trace.spec.seed + 17)
-    scale = compute_render_scale(trace.frames)
+    pos = build_layout(trace.frames, seed=trace.spec.seed + 17) if pos is None else pos
+    scale = compute_render_scale(trace.frames) if scale is None else scale
     fig, ax = plt.subplots(figsize=(9.6, 7.2), dpi=110)
 
     def update(index: int) -> None:
@@ -1440,10 +1571,15 @@ def render_gif(trace: TraceResult, output_dir: Path, fps: int) -> Path:
     return gif_path
 
 
-def render_keyframes(trace: TraceResult, output_dir: Path) -> Path:
+def render_keyframes(
+    trace: TraceResult,
+    output_dir: Path,
+    pos: dict[int, np.ndarray] | None = None,
+    scale: dict[str, float] | None = None,
+) -> Path:
     keyframes_path = output_dir / f"{trace.spec.scene_id}_keyframes.png"
-    pos = build_layout(trace.frames, seed=trace.spec.seed + 17)
-    scale = compute_render_scale(trace.frames)
+    pos = build_layout(trace.frames, seed=trace.spec.seed + 17) if pos is None else pos
+    scale = compute_render_scale(trace.frames) if scale is None else scale
     indices = sorted(
         {
             0,
@@ -1474,9 +1610,16 @@ def render_keyframes(trace: TraceResult, output_dir: Path) -> Path:
     return keyframes_path
 
 
-def render_scene(trace: TraceResult, output_dir: Path, fps: int) -> dict[str, Path]:
-    gif_path = render_gif(trace, output_dir, fps)
-    keyframes_path = render_keyframes(trace, output_dir)
+def render_scene(
+    trace: TraceResult,
+    output_dir: Path,
+    fps: int,
+    pos: dict[int, np.ndarray] | None = None,
+    scale: dict[str, float] | None = None,
+    extra_metadata: dict[str, Any] | None = None,
+) -> dict[str, Path]:
+    gif_path = render_gif(trace, output_dir, fps, pos=pos, scale=scale)
+    keyframes_path = render_keyframes(trace, output_dir, pos=pos, scale=scale)
     trace_csv_path = write_trace_summary(trace, output_dir)
     metadata_path = write_metadata(
         trace,
@@ -1485,6 +1628,7 @@ def render_scene(trace: TraceResult, output_dir: Path, fps: int) -> dict[str, Pa
         gif_path,
         keyframes_path,
         trace_csv_path,
+        extra_metadata=extra_metadata,
     )
     return {
         "gif": gif_path,
@@ -1492,6 +1636,398 @@ def render_scene(trace: TraceResult, output_dir: Path, fps: int) -> dict[str, Pa
         "trace_summary_csv": trace_csv_path,
         "metadata_json": metadata_path,
     }
+
+
+def cash_vector_hash(cash: np.ndarray) -> str:
+    return hashlib.sha256(np.asarray(cash, dtype=np.int64).tobytes()).hexdigest()
+
+
+def combined_frames(traces: Iterable[TraceResult]) -> list[TraceFrame]:
+    frames: list[TraceFrame] = []
+    for trace in traces:
+        frames.extend(trace.frames)
+    return frames
+
+
+def mapped_frame_index(index: int, source_len: int, target_len: int) -> int:
+    if source_len <= 1 or target_len <= 1:
+        return 0
+    return int(round(index * (source_len - 1) / (target_len - 1)))
+
+
+def side_by_side_csv_row(
+    index: int,
+    left_index: int,
+    right_index: int,
+    left: TraceFrame,
+    right: TraceFrame,
+) -> dict[str, Any]:
+    return {
+        "side_by_side_frame_index": index,
+        "left_frame_index": left_index,
+        "right_frame_index": right_index,
+        "left_protocol": left.protocol,
+        "right_protocol": right.protocol,
+        "left_period": left.period,
+        "right_period": right.period,
+        "left_micro_step": left.micro_step_in_period,
+        "right_micro_step": right.micro_step_in_period,
+        "left_time_steps_completed": left.time_steps_completed,
+        "right_time_steps_completed": right.time_steps_completed,
+        "left_active_credit": left.active_credit,
+        "right_active_credit": right.active_credit,
+        "left_avalanche_count_so_far": left.avalanche_count_so_far,
+        "right_avalanche_count_so_far": right.avalanche_count_so_far,
+        "left_event_index": left.event_index,
+        "right_event_index": right.event_index,
+    }
+
+
+def write_side_by_side_trace_summary(
+    left: TraceResult,
+    right: TraceResult,
+    output_dir: Path,
+    total_frames: int,
+) -> Path:
+    path = output_dir / "same_params_period_vs_timestep_side_by_side_trace_summary.csv"
+    rows = []
+    for index in range(total_frames):
+        left_index = mapped_frame_index(index, len(left.frames), total_frames)
+        right_index = mapped_frame_index(index, len(right.frames), total_frames)
+        rows.append(
+            side_by_side_csv_row(
+                index,
+                left_index,
+                right_index,
+                left.frames[left_index],
+                right.frames[right_index],
+            )
+        )
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    return path
+
+
+def render_side_by_side_gif(
+    left: TraceResult,
+    right: TraceResult,
+    output_dir: Path,
+    fps: int,
+    pos: dict[int, np.ndarray],
+    scale: dict[str, float],
+) -> Path:
+    gif_path = output_dir / "same_params_period_vs_timestep_side_by_side.gif"
+    total_frames = max(len(left.frames), len(right.frames))
+    fig, axes = plt.subplots(1, 2, figsize=(17.8, 7.4), dpi=110)
+    fig.suptitle(
+        "Same parameters, same seed/layout; only settlement/check granularity differs",
+        fontsize=12,
+        fontweight="bold",
+    )
+
+    def update(index: int) -> None:
+        left_index = mapped_frame_index(index, len(left.frames), total_frames)
+        right_index = mapped_frame_index(index, len(right.frames), total_frames)
+        draw_frame(
+            axes[0],
+            left.frames[left_index],
+            pos,
+            scale,
+            left_index,
+            len(left.frames),
+            left.spec.max_edges_drawn,
+        )
+        draw_frame(
+            axes[1],
+            right.frames[right_index],
+            pos,
+            scale,
+            right_index,
+            len(right.frames),
+            right.spec.max_edges_drawn,
+        )
+        axes[0].set_title("period_end: batch settlement/check", fontsize=10)
+        axes[1].set_title("timestep_settle_check: micro settlement/check", fontsize=10)
+
+    anim = animation.FuncAnimation(
+        fig,
+        update,
+        frames=total_frames,
+        interval=1000 / fps,
+        repeat=False,
+    )
+    writer = animation.PillowWriter(fps=fps)
+    anim.save(gif_path, writer=writer)
+    plt.close(fig)
+    return gif_path
+
+
+def render_side_by_side_keyframes(
+    left: TraceResult,
+    right: TraceResult,
+    output_dir: Path,
+    pos: dict[int, np.ndarray],
+    scale: dict[str, float],
+) -> Path:
+    keyframes_path = output_dir / "same_params_period_vs_timestep_side_by_side_keyframes.png"
+    total_frames = max(len(left.frames), len(right.frames))
+    indices = sorted({0, total_frames // 3, (2 * total_frames) // 3, total_frames - 1})
+    fig, axes = plt.subplots(4, 2, figsize=(15.2, 21.0), dpi=120)
+    for row, index in enumerate(indices):
+        left_index = mapped_frame_index(index, len(left.frames), total_frames)
+        right_index = mapped_frame_index(index, len(right.frames), total_frames)
+        draw_frame(
+            axes[row, 0],
+            left.frames[left_index],
+            pos,
+            scale,
+            left_index,
+            len(left.frames),
+            left.spec.max_edges_drawn,
+        )
+        draw_frame(
+            axes[row, 1],
+            right.frames[right_index],
+            pos,
+            scale,
+            right_index,
+            len(right.frames),
+            right.spec.max_edges_drawn,
+        )
+        axes[row, 0].set_title("period_end", fontsize=9)
+        axes[row, 1].set_title("timestep_settle_check", fontsize=9)
+    fig.suptitle(
+        "Same-parameter protocol comparison keyframes",
+        fontsize=13,
+        fontweight="bold",
+    )
+    fig.tight_layout(rect=(0, 0, 1, 0.985))
+    fig.savefig(keyframes_path)
+    plt.close(fig)
+    return keyframes_path
+
+
+def write_side_by_side_metadata(
+    left: TraceResult,
+    right: TraceResult,
+    output_dir: Path,
+    fps: int,
+    gif_path: Path,
+    keyframes_path: Path,
+    trace_csv_path: Path,
+) -> Path:
+    metadata_path = output_dir / "same_params_period_vs_timestep_side_by_side_metadata.json"
+    payload = {
+        "generated_at_cst": cst_now_iso(),
+        "script": str(Path(__file__).relative_to(PROJECT_ROOT)),
+        "description": "Side-by-side same-parameter protocol comparison.",
+        "left_scene_id": left.spec.scene_id,
+        "right_scene_id": right.spec.scene_id,
+        "same_params_base": SAME_PARAMS_BASE_PARAMS,
+        "seed_selection": SAME_PARAMS_SEED_SELECTION,
+        "shared_seed": SAME_PARAMS_SEED,
+        "shared_layout_seed": SAME_PARAMS_LAYOUT_SEED,
+        "initial_cash_vectors_identical": bool(
+            np.array_equal(left.frames[0].cash, right.frames[0].cash)
+        ),
+        "initial_cash_sha256": cash_vector_hash(left.frames[0].cash),
+        "outputs": {
+            "gif": str(gif_path.relative_to(PROJECT_ROOT)),
+            "keyframes_png": str(keyframes_path.relative_to(PROJECT_ROOT)),
+            "trace_summary_csv": str(trace_csv_path.relative_to(PROJECT_ROOT)),
+            "metadata_json": str(metadata_path.relative_to(PROJECT_ROOT)),
+        },
+        "rendering": {
+            "fps": int(fps),
+            "duration_seconds": round(max(len(left.frames), len(right.frames)) / fps, 3),
+            "layout": "shared spring layout built from both protocol traces",
+            "color_scale": "shared net-worth/debt-pressure scale built from both protocol traces",
+            "legend": "drawn in each panel",
+        },
+        "left_summary": left.summary,
+        "right_summary": right.summary,
+    }
+    with metadata_path.open("w", encoding="utf-8") as handle:
+        json.dump(to_builtin(payload), handle, ensure_ascii=False, indent=2)
+    return metadata_path
+
+
+def summary_for_comparison(trace: TraceResult) -> dict[str, Any]:
+    time_steps = int(trace.summary["time_steps_completed"])
+    event_count = int(trace.summary["avalanche_count"])
+    periods = int(trace.summary["periods_completed"])
+    avalanche_period_count = len({int(event["period"]) for event in trace.event_history})
+    large_threshold = int(trace.summary["large_cascade_threshold_nodes"])
+    return {
+        "scene_id": trace.spec.scene_id,
+        "protocol": trace.spec.protocol,
+        "seed": int(trace.spec.seed),
+        "n_nodes": int(trace.summary["n_nodes"]),
+        "periods_completed": periods,
+        "time_steps_completed": time_steps,
+        "event_count": event_count,
+        "event_timestep_rate": event_count / time_steps if time_steps else 0.0,
+        "event_period_occupancy": avalanche_period_count / periods if periods else 0.0,
+        "total_credit_issued": int(trace.summary["total_credit_issued"]),
+        "final_active_credit": int(trace.summary["final_active_credit"]),
+        "max_collapse_size": int(trace.summary["max_collapse_size"]),
+        "max_collapse_fraction": float(trace.summary["max_collapse_fraction"]),
+        "large_cascade_threshold_nodes": large_threshold,
+        "reached_10pct_n": bool(trace.summary["max_collapse_size"] >= large_threshold),
+        "large_cascade_event_count": int(trace.summary["large_cascade_event_count"]),
+        "initial_money_gini": float(trace.summary["initial_money_gini"]),
+        "final_net_worth_gini": float(trace.summary["final_net_worth_gini"]),
+        "first_cascade_period": int(trace.summary["first_cascade_period"]),
+        "first_cascade_time_steps": int(trace.summary["first_cascade_time_steps"]),
+        "critical_event": bool(trace.summary["critical_event"]),
+    }
+
+
+def write_same_params_comparison_summary(
+    left: TraceResult,
+    right: TraceResult,
+    output_dir: Path,
+    paths: dict[str, dict[str, Path] | Path],
+) -> Path:
+    summary_path = output_dir / "same_params_comparison_summary.json"
+    initial_identical = bool(np.array_equal(left.frames[0].cash, right.frames[0].cash))
+    payload = {
+        "generated_at_cst": cst_now_iso(),
+        "script": str(Path(__file__).relative_to(PROJECT_ROOT)),
+        "comparison": "same parameters; only default_check_mode/settlement-check granularity differs",
+        "same_params_base": SAME_PARAMS_BASE_PARAMS,
+        "shared_seed": SAME_PARAMS_SEED,
+        "shared_layout_seed": SAME_PARAMS_LAYOUT_SEED,
+        "seed_selection": SAME_PARAMS_SEED_SELECTION,
+        "initial_cash_vectors_identical": initial_identical,
+        "initial_cash_reproducibility_note": (
+            "Both traces call sample_initial_money with the same seed and identical "
+            "parameters before protocol-specific dynamics diverge, so the initial "
+            "cash vectors are identical in this renderer."
+        ),
+        "initial_cash_sha256": cash_vector_hash(left.frames[0].cash),
+        "period_end": summary_for_comparison(left),
+        "timestep_settle_check": summary_for_comparison(right),
+        "outputs": {
+            key: (
+                {subkey: str(path.relative_to(PROJECT_ROOT)) for subkey, path in value.items()}
+                if isinstance(value, dict)
+                else str(value.relative_to(PROJECT_ROOT))
+            )
+            for key, value in paths.items()
+        },
+    }
+    with summary_path.open("w", encoding="utf-8") as handle:
+        json.dump(to_builtin(payload), handle, ensure_ascii=False, indent=2)
+    return summary_path
+
+
+def render_same_params_suite(output_dir: Path, fps: int) -> tuple[list[tuple[TraceResult, dict[str, Path]]], dict[str, Path]]:
+    traces: list[TraceResult] = []
+    for spec in SAME_PARAM_SCENES:
+        print(f"[{cst_now_iso()}] tracing {spec.scene_id} ({spec.protocol})")
+        trace = run_trace(spec)
+        traces.append(trace)
+        print(
+            f"[{cst_now_iso()}] traced {spec.scene_id}: "
+            f"frames={len(trace.frames)} events={len(trace.event_history)} "
+            f"max_collapse={trace.summary['max_collapse_size']}"
+        )
+
+    period_trace, timestep_trace = traces
+    shared_pos = build_layout(combined_frames(traces), seed=SAME_PARAMS_LAYOUT_SEED)
+    shared_scale = compute_render_scale(combined_frames(traces))
+    initial_cash_identical = bool(
+        np.array_equal(period_trace.frames[0].cash, timestep_trace.frames[0].cash)
+    )
+    common_metadata = {
+        "same_params_comparison": {
+            "shared_seed": SAME_PARAMS_SEED,
+            "shared_layout_seed": SAME_PARAMS_LAYOUT_SEED,
+            "same_params_base": SAME_PARAMS_BASE_PARAMS,
+            "seed_selection": SAME_PARAMS_SEED_SELECTION,
+            "initial_cash_vectors_identical": initial_cash_identical,
+            "initial_cash_sha256": cash_vector_hash(period_trace.frames[0].cash),
+            "common_layout": "shared spring layout built from both protocol traces",
+            "common_color_scale": "shared scale built from both protocol traces",
+            "only_intended_protocol_difference": (
+                "default_check_mode and resulting settlement/check granularity: "
+                "period_end versus timestep_settle_check"
+            ),
+        }
+    }
+
+    rendered: list[tuple[TraceResult, dict[str, Path]]] = []
+    for trace in traces:
+        print(f"[{cst_now_iso()}] rendering {trace.spec.scene_id}")
+        paths = render_scene(
+            trace,
+            output_dir,
+            fps=fps,
+            pos=shared_pos,
+            scale=shared_scale,
+            extra_metadata=common_metadata,
+        )
+        rendered.append((trace, paths))
+        print(
+            f"[{cst_now_iso()}] done {trace.spec.scene_id}: "
+            f"gif={paths['gif']} metadata={paths['metadata_json']}"
+        )
+
+    print(f"[{cst_now_iso()}] rendering side-by-side comparison")
+    side_gif = render_side_by_side_gif(
+        period_trace,
+        timestep_trace,
+        output_dir,
+        fps=fps,
+        pos=shared_pos,
+        scale=shared_scale,
+    )
+    side_keyframes = render_side_by_side_keyframes(
+        period_trace,
+        timestep_trace,
+        output_dir,
+        pos=shared_pos,
+        scale=shared_scale,
+    )
+    side_csv = write_side_by_side_trace_summary(
+        period_trace,
+        timestep_trace,
+        output_dir,
+        total_frames=max(len(period_trace.frames), len(timestep_trace.frames)),
+    )
+    side_metadata = write_side_by_side_metadata(
+        period_trace,
+        timestep_trace,
+        output_dir,
+        fps=fps,
+        gif_path=side_gif,
+        keyframes_path=side_keyframes,
+        trace_csv_path=side_csv,
+    )
+    side_paths = {
+        "gif": side_gif,
+        "keyframes_png": side_keyframes,
+        "trace_summary_csv": side_csv,
+        "metadata_json": side_metadata,
+    }
+    summary_path = write_same_params_comparison_summary(
+        period_trace,
+        timestep_trace,
+        output_dir,
+        paths={
+            "same_params_period_end": rendered[0][1],
+            "same_params_timestep": rendered[1][1],
+            "side_by_side": side_paths,
+        },
+    )
+    print(
+        f"[{cst_now_iso()}] done side-by-side: gif={side_gif} "
+        f"summary={summary_path}"
+    )
+    return rendered, side_paths | {"comparison_summary_json": summary_path}
 
 
 def write_index(
@@ -1527,17 +2063,23 @@ def write_index(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--suite",
+        choices=["original", "same_params", "same_params_v3"],
+        default="original",
+        help="Render the original visual scenes or the same-parameter protocol comparison.",
+    )
+    parser.add_argument(
         "--output-dir",
         type=Path,
-        default=DEFAULT_OUTPUT_DIR,
+        default=None,
         help="Directory for GIFs, keyframes, metadata, and trace summaries.",
     )
     parser.add_argument("--fps", type=int, default=DEFAULT_FPS)
     parser.add_argument(
         "--scene",
         action="append",
-        choices=[scene.scene_id for scene in SCENES],
-        help="Render only selected scene(s). Defaults to all.",
+        choices=[scene.scene_id for scene in SCENES + SAME_PARAM_SCENES],
+        help="Render only selected scene(s) in the selected suite. Defaults to all.",
     )
     return parser.parse_args()
 
@@ -1545,7 +2087,34 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     output_dir = args.output_dir
+    if output_dir is None:
+        output_dir = (
+            DEFAULT_SAME_PARAMS_V3_OUTPUT_DIR
+            if args.suite == "same_params_v3"
+            else DEFAULT_SAME_PARAMS_OUTPUT_DIR
+            if args.suite == "same_params"
+            else DEFAULT_OUTPUT_DIR
+        )
     output_dir.mkdir(parents=True, exist_ok=True)
+    fps = max(args.fps, 1)
+
+    if args.suite in {"same_params", "same_params_v3"}:
+        if args.scene:
+            invalid = set(args.scene) - {scene.scene_id for scene in SAME_PARAM_SCENES}
+            if invalid:
+                raise ValueError(
+                    f"scene(s) not in same_params suite: {sorted(invalid)}"
+                )
+        print(f"[{cst_now_iso()}] output_dir={output_dir}")
+        rendered, side_paths = render_same_params_suite(output_dir, fps=fps)
+        index_path = write_index(output_dir, rendered, fps=fps)
+        print(f"[{cst_now_iso()}] wrote index={index_path}")
+        print(
+            f"[{cst_now_iso()}] side-by-side outputs="
+            f"{', '.join(str(path) for path in side_paths.values())}"
+        )
+        return 0
+
     selected = set(args.scene or [scene.scene_id for scene in SCENES])
     rendered: list[tuple[TraceResult, dict[str, Path]]] = []
 
@@ -1560,14 +2129,14 @@ def main() -> int:
             f"frames={len(trace.frames)} events={len(trace.event_history)} "
             f"max_collapse={trace.summary['max_collapse_size']}"
         )
-        paths = render_scene(trace, output_dir, fps=max(args.fps, 1))
+        paths = render_scene(trace, output_dir, fps=fps)
         rendered.append((trace, paths))
         print(
             f"[{cst_now_iso()}] done {spec.scene_id}: "
             f"gif={paths['gif']} metadata={paths['metadata_json']}"
         )
 
-    index_path = write_index(output_dir, rendered, fps=max(args.fps, 1))
+    index_path = write_index(output_dir, rendered, fps=fps)
     print(f"[{cst_now_iso()}] wrote index={index_path}")
     return 0
 

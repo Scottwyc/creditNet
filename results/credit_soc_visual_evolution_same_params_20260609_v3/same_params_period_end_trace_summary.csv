@@ -1,0 +1,119 @@
+frame_index,scene_id,protocol,stage,period,period_length_steps,micro_step_in_period,time_steps_completed,settlements_completed,checks_completed,total_credit_issued,failed_credit_events,avalanche_count_so_far,event_index,active_credit,active_directed_pairs,min_net_worth,median_net_worth,max_debt_pressure,highlight_nodes,new_default_nodes,note
+0,same_params_period_end,period_end,initial_state,0,0,0,0,0,0,0,0,0,0,0,0,1.0,11.0,0.0,,,initial balances
+1,same_params_period_end,period_end,period_start,1,240,0,0,0,0,0,0,0,0,0,0,1.0,11.0,0.0,,,
+2,same_params_period_end,period_end,credit_growth,1,240,1,1,0,0,1,0,0,0,1,1,1.0,11.0,0.08333333333333333,,,credit 51->20
+3,same_params_period_end,period_end,credit_growth,1,240,120,120,0,0,120,0,0,0,120,110,1.0,11.0,0.75,,,credit 42->52
+4,same_params_period_end,period_end,credit_growth,1,240,240,240,0,0,240,0,0,0,240,209,1.0,11.0,0.8571428571428571,,,credit 50->32
+5,same_params_period_end,period_end,period_end_settlement,1,240,240,240,1,1,240,0,0,0,240,209,-13.0,5.0,10.0,1 8 14 19 24 27 28 30 41 48 52 55 57,,"investment=240, consumption=164, initial defaults=13"
+6,same_params_period_end,period_end,initial_defaults,1,240,240,240,1,1,240,0,0,1,240,209,-13.0,5.0,10.0,1 8 14 19 24 27 28 30 41 48 52 55 57,,period_end: initial defaults=13
+7,same_params_period_end,period_end,cascade_wave_done,1,240,240,240,1,1,240,0,0,1,198,174,-13.0,5.0,6.0,24,,new defaults=0
+8,same_params_period_end,period_end,cascade_wave_start,1,240,240,240,1,1,240,0,0,1,150,132,-14.0,5.0,2.1666666666666665,52,,clearing node 52
+9,same_params_period_end,period_end,period_start,2,323,0,240,1,1,240,0,1,0,116,109,0.0,5.5,1.0,,,
+10,same_params_period_end,period_end,credit_growth,2,323,1,241,1,1,241,0,1,0,117,109,0.0,5.5,1.0,,,credit 54->50
+11,same_params_period_end,period_end,credit_growth,2,323,240,480,1,1,480,0,1,0,356,270,0.0,5.5,1.0,,,credit 37->17
+12,same_params_period_end,period_end,credit_growth,2,323,323,563,1,1,563,0,1,0,439,316,0.0,5.5,1.0,,,credit 37->18
+13,same_params_period_end,period_end,period_end_settlement,2,323,323,563,2,2,563,0,1,0,439,316,-20.0,4.0,4.0,4 7 9 14 16 20 25 26 28 29 33 35 36 46 50 51,,"investment=320, consumption=215, initial defaults=16"
+14,same_params_period_end,period_end,cascade_wave_done,2,323,323,563,2,2,563,0,1,2,393,283,-19.0,4.0,3.6,7,,new defaults=0
+15,same_params_period_end,period_end,cascade_wave_done,2,323,323,563,2,2,563,0,1,2,377,270,-19.0,4.0,3.6,14,,new defaults=0
+16,same_params_period_end,period_end,cascade_wave_start,2,323,323,563,2,2,563,0,1,2,298,217,-20.0,4.5,4.333333333333333,26,,clearing node 26
+17,same_params_period_end,period_end,cascade_wave_done,2,323,323,563,2,2,563,0,1,2,228,169,-20.0,4.0,4.333333333333333,36,3,new defaults=1
+18,same_params_period_end,period_end,cascade_wave_start,2,323,323,563,2,2,563,0,1,2,167,125,-1.0,5.5,1.5,3,,clearing node 3
+19,same_params_period_end,period_end,period_start,3,428,0,563,2,2,563,0,2,0,162,120,0.0,5.5,0.8333333333333334,,,
+20,same_params_period_end,period_end,credit_growth,3,428,1,564,2,2,564,0,2,0,163,121,0.0,5.5,0.8333333333333334,,,credit 21->37
+21,same_params_period_end,period_end,credit_growth,3,428,120,683,2,2,683,0,2,0,282,192,0.0,5.5,1.0,,,credit 42->31
+22,same_params_period_end,period_end,credit_growth,3,428,360,923,2,2,923,0,2,0,522,298,0.0,5.5,1.0,,,credit 34->31
+23,same_params_period_end,period_end,credit_growth,3,428,428,991,2,2,991,0,2,0,590,330,0.0,5.5,1.0,,,credit 49->31
+24,same_params_period_end,period_end,period_end_settlement,3,428,428,991,3,3,991,0,2,0,590,330,-49.0,3.0,5.0,1 2 3 6 8 11 12 14 17 18 22 23 28 31 32 39 41 46 57 59,,"investment=427, consumption=261, initial defaults=20"
+25,same_params_period_end,period_end,cascade_wave_done,3,428,428,991,3,3,991,0,2,3,515,289,-50.0,4.0,3.25,3,,new defaults=0
+26,same_params_period_end,period_end,cascade_wave_start,3,428,428,991,3,3,991,0,2,3,515,289,-50.0,4.0,3.25,6,,clearing node 6
+27,same_params_period_end,period_end,cascade_wave_start,3,428,428,991,3,3,991,0,2,3,457,252,-55.0,4.5,3.6666666666666665,17,,clearing node 17
+28,same_params_period_end,period_end,cascade_wave_done,3,428,428,991,3,3,991,0,2,3,218,137,-16.0,4.0,6.333333333333333,31,50,new defaults=1
+29,same_params_period_end,period_end,cascade_wave_start,3,428,428,991,3,3,991,0,2,3,172,109,-6.0,4.0,2.5,59,,clearing node 59
+30,same_params_period_end,period_end,period_start,4,550,0,991,3,3,991,0,3,0,143,91,0.0,4.0,1.0,,,
+31,same_params_period_end,period_end,credit_growth,4,550,1,992,3,3,992,0,3,0,144,91,0.0,4.0,1.0,,,credit 21->37
+32,same_params_period_end,period_end,credit_growth,4,550,120,1111,3,3,1111,0,3,0,263,157,0.0,4.0,1.0,,,credit 13->49
+33,same_params_period_end,period_end,credit_growth,4,550,360,1351,3,3,1351,0,3,0,503,271,0.0,4.0,1.0,,,credit 54->5
+34,same_params_period_end,period_end,credit_growth,4,550,480,1471,3,3,1471,0,3,0,623,308,0.0,4.0,1.0,,,credit 0->38
+35,same_params_period_end,period_end,credit_growth,4,550,550,1541,3,3,1541,0,3,0,693,328,0.0,4.0,1.0,,,credit 38->50
+36,same_params_period_end,period_end,period_end_settlement,4,550,550,1541,4,4,1541,0,3,0,693,328,-87.0,2.0,4.222222222222222,5 7 14 20 24 33 36 38 40 46 48 50 51 53 55 56 57 58 59,,"investment=540, consumption=320, initial defaults=19"
+37,same_params_period_end,period_end,initial_defaults,4,550,550,1541,4,4,1541,0,3,4,693,328,-87.0,2.0,4.222222222222222,5 7 14 20 24 33 36 38 40 46 48 50 51 53 55 56 57 58 59,,period_end: initial defaults=19
+38,same_params_period_end,period_end,cascade_wave_done,4,550,550,1541,4,4,1541,0,3,4,654,309,-83.0,2.0,4.074074074074074,5,,new defaults=0
+39,same_params_period_end,period_end,cascade_wave_done,4,550,550,1541,4,4,1541,0,3,4,605,273,-85.0,3.0,4.4,33,,new defaults=0
+40,same_params_period_end,period_end,cascade_wave_start,4,550,550,1541,4,4,1541,0,3,4,418,204,-22.0,3.0,5.5,50,,clearing node 50
+41,same_params_period_end,period_end,cascade_wave_done,4,550,550,1541,4,4,1541,0,3,4,305,136,-11.0,3.5,11.0,57,,new defaults=0
+42,same_params_period_end,period_end,cascade_wave_start,4,550,550,1541,4,4,1541,0,3,4,219,99,-1.0,4.0,1.3333333333333333,41,,clearing node 41
+43,same_params_period_end,period_end,cascade_wave_done,4,550,550,1541,4,4,1541,0,3,4,214,94,0.0,3.5,1.0,27,,new defaults=0
+44,same_params_period_end,period_end,period_start,5,688,0,1541,4,4,1541,0,4,0,214,94,0.0,3.5,1.0,,,
+45,same_params_period_end,period_end,credit_growth,5,688,1,1542,4,4,1542,0,4,0,215,95,0.0,3.5,1.0,,,credit 44->5
+46,same_params_period_end,period_end,credit_growth,5,688,120,1661,4,4,1661,0,4,0,334,152,0.0,3.5,1.0,,,credit 18->45
+47,same_params_period_end,period_end,credit_growth,5,688,360,1901,4,4,1901,0,4,0,574,238,0.0,3.5,1.0,,,credit 54->42
+48,same_params_period_end,period_end,credit_growth,5,688,480,2021,4,4,2021,0,4,0,694,281,0.0,3.5,1.0,,,credit 0->37
+49,same_params_period_end,period_end,credit_growth,5,688,600,2141,4,4,2141,0,4,0,814,323,0.0,3.5,1.0,,,credit 37->4
+50,same_params_period_end,period_end,credit_growth,5,688,688,2229,4,4,2229,0,4,0,902,350,0.0,3.5,1.0,,,credit 42->25
+51,same_params_period_end,period_end,period_end_settlement,5,688,688,2229,5,5,2229,0,4,0,902,350,-149.0,1.0,3.0,0 4 5 6 10 12 17 20 21 24 27 28 32 37 39 40 41 42 43 44 45 49 50 57,,"investment=644, consumption=363, initial defaults=24"
+52,same_params_period_end,period_end,cascade_wave_done,5,688,688,2229,5,5,2229,0,4,5,730,290,-145.0,1.0,3.196969696969697,5,,new defaults=0
+53,same_params_period_end,period_end,cascade_wave_start,5,688,688,2229,5,5,2229,0,4,5,612,234,-140.0,2.0,4.5,21,,clearing node 21
+54,same_params_period_end,period_end,cascade_wave_done,5,688,688,2229,5,5,2229,0,4,5,272,127,-45.0,2.0,7.0,37,,new defaults=0
+55,same_params_period_end,period_end,cascade_wave_done,5,688,688,2229,5,5,2229,0,4,5,147,85,-29.0,2.0,7.0,43,,new defaults=0
+56,same_params_period_end,period_end,cascade_wave_start,5,688,688,2229,5,5,2229,0,4,5,147,85,-29.0,2.0,7.0,44,,clearing node 44
+57,same_params_period_end,period_end,cascade_wave_done,5,688,688,2229,5,5,2229,0,4,5,52,40,-2.0,2.0,2.0,33,,new defaults=0
+58,same_params_period_end,period_end,cascade_event_done,5,688,688,2229,5,5,2229,0,5,5,37,28,0.0,2.5,0.8,0 3 4 5 6 8 10 12 17 20 21 24 26 27 28 32 33 36 37 39 40 41 42 43 44 45 46 49 50 57,,collapse size=30
+59,same_params_period_end,period_end,period_start,6,806,0,2229,5,5,2229,0,5,0,37,28,0.0,2.5,0.8,,,
+60,same_params_period_end,period_end,credit_growth,6,806,120,2349,5,5,2349,0,5,0,157,95,0.0,2.5,1.0,,,credit 15->34
+61,same_params_period_end,period_end,credit_growth,6,806,240,2469,5,5,2469,0,5,0,277,149,0.0,2.5,1.0,,,credit 22->30
+62,same_params_period_end,period_end,credit_growth,6,806,360,2589,5,5,2589,0,5,0,397,200,0.0,2.5,1.0,,,credit 54->10
+63,same_params_period_end,period_end,credit_growth,6,806,480,2709,5,5,2709,0,5,0,517,248,0.0,2.5,1.0,,,credit 54->27
+64,same_params_period_end,period_end,credit_growth,6,806,600,2829,5,5,2829,0,5,0,637,309,0.0,2.5,1.0,,,credit 54->50
+65,same_params_period_end,period_end,credit_growth,6,806,720,2949,5,5,2949,0,5,0,757,358,0.0,2.5,1.0,,,credit 31->27
+66,same_params_period_end,period_end,period_end_settlement,6,806,806,3035,6,6,3035,0,5,0,843,387,-34.0,-3.0,11.0,1 4 5 6 7 8 9 10 11 12 13 14 16 17 18 20 22 24 26 27 28 29 30 31 32 35 36 38 40 43 44 46 47 50 53 55 56 58,,"investment=713, consumption=412, initial defaults=38"
+67,same_params_period_end,period_end,cascade_wave_done,6,806,806,3035,6,6,3035,0,5,6,766,336,-30.0,-1.0,11.0,7,,new defaults=0
+68,same_params_period_end,period_end,cascade_wave_done,6,806,806,3035,6,6,3035,0,5,6,710,305,-31.0,-0.5,11.0,9,,new defaults=0
+69,same_params_period_end,period_end,cascade_wave_start,6,806,806,3035,6,6,3035,0,5,6,607,256,-30.0,0.0,11.0,13,,clearing node 13
+70,same_params_period_end,period_end,cascade_wave_start,6,806,806,3035,6,6,3035,0,5,6,384,167,-23.0,1.0,20.0,20,,clearing node 20
+71,same_params_period_end,period_end,cascade_wave_done,6,806,806,3035,6,6,3035,0,5,6,327,140,-22.0,1.0,20.0,28,,new defaults=0
+72,same_params_period_end,period_end,cascade_wave_start,6,806,806,3035,6,6,3035,0,5,6,229,93,-21.0,1.0,18.0,36,,clearing node 36
+73,same_params_period_end,period_end,cascade_wave_done,6,806,806,3035,6,6,3035,0,5,6,194,74,-21.0,1.5,18.0,44,,new defaults=0
+74,same_params_period_end,period_end,cascade_wave_done,6,806,806,3035,6,6,3035,0,5,6,189,71,-21.0,1.5,18.0,46,,new defaults=0
+75,same_params_period_end,period_end,cascade_wave_start,6,806,806,3035,6,6,3035,0,5,6,87,35,-6.0,2.0,2.2,58,,clearing node 58
+76,same_params_period_end,period_end,period_start,7,900,0,3035,6,6,3035,0,6,0,36,14,0.0,2.0,1.0,,,
+77,same_params_period_end,period_end,credit_growth,7,900,1,3036,6,6,3036,0,6,0,37,15,0.0,2.0,1.0,,,credit 54->5
+78,same_params_period_end,period_end,credit_growth,7,900,120,3155,6,6,3155,0,6,0,156,78,0.0,2.0,1.0,,,credit 54->4
+79,same_params_period_end,period_end,credit_growth,7,900,240,3275,6,6,3275,0,6,0,276,122,0.0,2.0,1.0,,,credit 54->12
+80,same_params_period_end,period_end,credit_growth,7,900,360,3395,6,6,3395,0,6,0,396,164,0.0,2.0,1.0,,,credit 52->15
+81,same_params_period_end,period_end,credit_growth,7,900,480,3515,6,6,3515,0,6,0,516,200,0.0,2.0,1.0,,,credit 15->41
+82,same_params_period_end,period_end,credit_growth,7,900,720,3755,6,6,3755,0,6,0,756,289,0.0,2.0,1.0,,,credit 54->48
+83,same_params_period_end,period_end,credit_growth,7,900,840,3875,6,6,3875,0,6,0,876,341,0.0,2.0,1.0,,,credit 54->46
+84,same_params_period_end,period_end,credit_growth,7,900,900,3935,6,6,3935,0,6,0,936,361,0.0,2.0,1.0,,,credit 23->38
+85,same_params_period_end,period_end,period_end_settlement,7,900,900,3935,7,7,3935,0,6,0,936,361,-29.0,-5.0,6.0,0 1 2 3 4 5 6 7 8 9 10 11 12 15 16 18 20 21 22 23 24 27 28 29 30 31 32 33 36 37 38 39 40 41 42 44 45 46 48 49 50 51 53 55 56 57 58 59,,"investment=763, consumption=422, initial defaults=48"
+86,same_params_period_end,period_end,initial_defaults,7,900,900,3935,7,7,3935,0,6,7,936,361,-29.0,-5.0,6.0,0 1 2 3 4 5 6 7 8 9 10 11 12 15 16 18 20 21 22 23 24 27 28 29 30 31 32 33 36 37 38 39 40 41 42 44 45 46 48 49 50 51 53 55 56 57 58 59,,period_end: initial defaults=48
+87,same_params_period_end,period_end,cascade_wave_start,7,900,900,3935,7,7,3935,0,6,7,843,305,-36.0,-4.0,6.0,5,,clearing node 5
+88,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,770,274,-44.0,-4.0,6.0,6,,new defaults=0
+89,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,714,249,-52.0,-2.5,9.0,10,,new defaults=0
+90,same_params_period_end,period_end,cascade_wave_start,7,900,900,3935,7,7,3935,0,6,7,390,154,-24.0,-1.0,7.0,20,,clearing node 20
+91,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,300,112,-25.0,0.0,11.0,27,,new defaults=0
+92,same_params_period_end,period_end,cascade_wave_start,7,900,900,3935,7,7,3935,0,6,7,237,92,-25.0,1.0,9.0,33,,clearing node 33
+93,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,180,66,-24.0,1.0,7.0,38,,new defaults=0
+94,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,155,53,-23.0,1.0,7.0,40,,new defaults=0
+95,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,101,33,-23.0,1.0,7.0,46,,new defaults=0
+96,same_params_period_end,period_end,cascade_wave_start,7,900,900,3935,7,7,3935,0,6,7,42,19,-7.0,1.0,7.0,55,,clearing node 55
+97,same_params_period_end,period_end,cascade_wave_done,7,900,900,3935,7,7,3935,0,6,7,18,9,0.0,1.5,1.0,17,,new defaults=0
+98,same_params_period_end,period_end,period_start,8,948,0,3935,7,7,3935,0,7,0,18,9,0.0,1.5,1.0,,,
+99,same_params_period_end,period_end,credit_growth,8,948,1,3936,7,7,3936,0,7,0,19,10,0.0,1.5,1.0,,,credit 54->32
+100,same_params_period_end,period_end,credit_growth,8,948,240,4175,7,7,4175,0,7,0,258,81,0.0,1.5,1.0,,,credit 12->27
+101,same_params_period_end,period_end,credit_growth,8,948,360,4295,7,7,4295,0,7,0,378,113,0.0,1.5,1.0,,,credit 54->41
+102,same_params_period_end,period_end,credit_growth,8,948,480,4415,7,7,4415,0,7,0,498,150,0.0,1.5,1.0,,,credit 54->19
+103,same_params_period_end,period_end,credit_growth,8,948,600,4535,7,7,4535,0,7,0,618,188,0.0,1.5,1.0,,,credit 54->55
+104,same_params_period_end,period_end,credit_growth,8,948,720,4655,7,7,4655,0,7,0,738,229,0.0,1.5,1.0,,,credit 54->49
+105,same_params_period_end,period_end,credit_growth,8,948,840,4775,7,7,4775,0,7,0,858,271,0.0,1.5,1.0,,,credit 54->13
+106,same_params_period_end,period_end,period_end_settlement,8,948,948,4883,8,8,4883,0,7,0,966,299,-135.0,-3.5,7.5,0 1 2 4 5 8 9 14 15 16 17 19 20 22 24 25 26 27 28 29 31 32 33 35 36 40 41 42 43 45 46 47 48 49 50 52 53 55 56 57 59,,"investment=730, consumption=491, initial defaults=41"
+107,same_params_period_end,period_end,initial_defaults,8,948,948,4883,8,8,4883,0,7,8,966,299,-135.0,-3.5,7.5,0 1 2 4 5 8 9 14 15 16 17 19 20 22 24 25 26 27 28 29 31 32 33 35 36 40 41 42 43 45 46 47 48 49 50 52 53 55 56 57 59,,period_end: initial defaults=41
+108,same_params_period_end,period_end,cascade_wave_start,8,948,948,4883,8,8,4883,0,7,8,918,271,-134.0,-2.5,7.5,5,,clearing node 5
+109,same_params_period_end,period_end,cascade_wave_done,8,948,948,4883,8,8,4883,0,7,8,793,208,-134.0,-1.0,7.0,16,,new defaults=0
+110,same_params_period_end,period_end,cascade_wave_start,8,948,948,4883,8,8,4883,0,7,8,590,151,-134.0,0.0,6.36,25,,clearing node 25
+111,same_params_period_end,period_end,cascade_wave_done,8,948,948,4883,8,8,4883,0,7,8,451,106,-129.0,0.0,8.5,31,,new defaults=0
+112,same_params_period_end,period_end,cascade_wave_done,8,948,948,4883,8,8,4883,0,7,8,401,91,-131.0,0.0,17.0,35,,new defaults=0
+113,same_params_period_end,period_end,cascade_wave_start,8,948,948,4883,8,8,4883,0,7,8,390,83,-133.0,0.0,17.0,41,,clearing node 41
+114,same_params_period_end,period_end,cascade_wave_done,8,948,948,4883,8,8,4883,0,7,8,243,44,-128.0,0.0,19.285714285714285,47,,new defaults=0
+115,same_params_period_end,period_end,cascade_wave_start,8,948,948,4883,8,8,4883,0,7,8,65,21,-16.0,1.0,17.0,55,,clearing node 55
+116,same_params_period_end,period_end,cascade_wave_done,8,948,948,4883,8,8,4883,0,7,8,26,12,-2.0,1.0,2.0,10,,new defaults=0
+117,same_params_period_end,period_end,cascade_event_done,8,948,948,4883,8,8,4883,0,8,8,12,7,0.0,1.0,1.0,0 1 2 4 5 6 7 8 9 10 13 14 15 16 17 19 20 22 23 24 25 26 27 28 29 31 32 33 35 36 37 39 40 41 42 43 45 46 47 48 49 50 52 53 55 56 57 59,,collapse size=48

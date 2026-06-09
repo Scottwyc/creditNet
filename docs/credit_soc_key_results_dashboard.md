@@ -1,6 +1,6 @@
 # 信贷网络 SOC 关键结果看板
 
-- 更新时间：2026-06-09 13:30:00 CST
+- 更新时间：2026-06-09 17:45:00 CST
 - 项目目标：确认当前信贷网络约束下是否存在严格自组织临界，并量化 `project.md` 各关注因素对级联的影响。
 - 权威状态依据：[第二阶段关键总结](credit_soc_phase2_summary_20260604_v1.md)与[持续跟进日志](credit_soc_autonomous_followup_20260604_v2.md)
 - 状态词：已完成 / 边界完成 / 进行中 / 待推进
@@ -16,8 +16,9 @@
 | 严格尾部与有限尺寸 SOC 证据 | 已完成 | 最终 v5 中无界离散幂律 26/39 不拒绝、13/39 拒绝，但指数不普适、替代分布常更优，且有限尺寸增长主要由同步初始违约的广延增长主导。 | [严格 SOC 报告 v1](credit_soc_phase2_strict_soc_report_20260604_v1.md) | [严格 SOC v5](../results/credit_soc_phase2_strict_soc_20260604_v1/analysis_final_v5/) | 无 | 已纳入最终判定 |
 | 低驱动长期平稳性候选搜索 | 已完成 | 42 场景、504 runs、100.8 万 periods 中没有场景通过 SOC 候选门槛；6 个低驱动场景稀疏但非平稳，36 个场景漂移或持续失败。 | [长期平稳性报告](credit_soc_phase2_stationarity_search_report_20260604_v1.md) | [长期平稳性结果](../results/credit_soc_phase2_stationarity_search_20260604_v1/) | 无 | `candidate_count=0`，无需追加有限尺寸候选验证 |
 | 完备场景扫描与相图 | 已完成 | 覆盖本金、支出、收入分配、增长规则、显式拓扑和 `c=0.10..0.80` 的 8000 scenarios/24000 runs。级联失效相图显示清楚过载转变；SOC 快筛候选数为 0。 | [完备场景扫描报告 v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.md) / [Word v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.docx) | [相图分析结果](../results/credit_soc_comprehensive_scan_analysis_20260608_v1/) | 无 | 若需推进，只对边界高分场景做有限尺寸和长时复核 |
+| period 临界带细扫 | 已完成 | 粗网格 SOC 候选为 0，但临界区域细扫发现 period 粒度候选带：`high_both, c≈0.56..0.59` 与 `high_wealth, c≈0.74..0.78`。3 个点达到自动快筛 6/6；仍属调参临界候选，尚非严格 SOC 证明。 | [period 临界带报告 v1](credit_soc_period_critical_band_report_20260609_v1.md) / [Word v1](credit_soc_period_critical_band_report_20260609_v1.docx) | [二阶段精确分析](../results/credit_soc_period_critical_stage2_exact_analysis_20260609_v1/) | 无 | 若继续推进，优先做 `N=60/120/240/480` 有限尺寸缩放 |
 | timestep 尺度 SOC 对照 | 已完成 | 同一 8000 场景轴改为每个 credit time_step 后微结算/检查/清算；v2 为 `1 seed × 20 periods`、每宏观期最多 500 微步。4,539,260 个事件中无 10%N 大级联，最大事件 10/120；严格 SOC 快候选数为 0，仅有 28 个小尺度尾部候选。 | [timestep SOC 对照报告 v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.md) / [Word v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.docx) | [timestep 对照分析结果](../results/credit_soc_timestep_scan_analysis_20260609_v2/) | 无 | 若需严格确认，需对少数小尺度尾部候选做多 seed、长时、无/高 cap 与有限尺寸复核 |
-| 完整实验报告与动画 | 已完成 | 基于 `project.md` 框架整合 period_end 完备扫描、timestep 对照扫描、固定参数基线、拓扑机会图口径、相图/CCDF/SOC gate 和 3 个 GIF 动画。结论：存在级联失效/过载转变和 timestep 小尺度重尾，但不支持严格 SOC。 | [完整实验报告 v1](credit_soc_complete_experiment_report_20260609_v1.md) / [Word v1](credit_soc_complete_experiment_report_20260609_v1.docx) / [动画支线报告](credit_soc_visual_evolution_report_20260609_v1.md) | [动画结果](../results/credit_soc_visual_evolution_20260609_v1/) | 无 | 若继续推进，应做 timestep 小尺度候选的多 seed、长时、有限尺寸复核 |
+| 完整实验报告与动画 | 已完成 | v3 整合 period 粗扫、period 临界带细扫、timestep 对照、模型机制、固定参数基线、拓扑机会图口径、相图/CCDF/SOC gate 和 GIF 动画。结论：period 存在窄临界候选带，timestep 有小尺度重尾；严格 SOC 尚未证明。 | [完整实验报告 v3](credit_soc_complete_experiment_report_20260609_v3.md) / [Word v3](credit_soc_complete_experiment_report_20260609_v3.docx) / [动画支线报告 v3](credit_soc_visual_evolution_report_20260609_v3.md) | [同参数动画对照 v3](../results/credit_soc_visual_evolution_same_params_20260609_v3/) | 无 | 优先 period 候选带有限尺寸复核 |
 | 当前约束下最终 SOC 判定 | 已完成 | 当前已实现 baseline、已扫描参数邻域和已测机制下，严格 SOC 不存在（经验判定）；存在级联交叉和机制敏感重尾，高风险状态是非平稳持续失败/过载吸引子。 | [最终综合报告](credit_soc_phase2_comprehensive_report_20260604_v1.md) / [最终 Word](credit_soc_phase2_comprehensive_report_20260604_v1.docx) / [完成性审计](credit_soc_phase2_completion_audit_20260604_v1.md) | [最终综合结果](../results/credit_soc_phase2_comprehensive_20260604_v1/) | 无 | 当前项目目标已完成 |
 
 ## 正在进行
@@ -38,12 +39,14 @@
 
 ### 面向外部读者的报告
 
+- [完整实验报告 v3](credit_soc_complete_experiment_report_20260609_v3.md) / [Word v3](credit_soc_complete_experiment_report_20260609_v3.docx)
+- [period 粒度临界带细扫与 SOC 候选报告 v1](credit_soc_period_critical_band_report_20260609_v1.md) / [Word v1](credit_soc_period_critical_band_report_20260609_v1.docx)
 - [完整实验报告 v1](credit_soc_complete_experiment_report_20260609_v1.md) / [Word v1](credit_soc_complete_experiment_report_20260609_v1.docx)
 - [最终综合证据报告 v1](credit_soc_phase2_comprehensive_report_20260604_v1.md)
 - [timestep尺度 SOC 对照实验报告 v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.md) / [Word v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.docx)
 - [完备场景扫描与 SOC 相图报告 v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.md)
 - [完备场景扫描与 SOC 相图 Word v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.docx)
-- [信贷网络演化动画可视化支线报告 v1](credit_soc_visual_evolution_report_20260609_v1.md)
+- [信贷网络演化动画可视化支线报告 v3](credit_soc_visual_evolution_report_20260609_v3.md)
 - [级联失效与 SOC 判定口径说明 v1](credit_soc_cascade_soc_definitions_20260608.md)
 - [最终综合证据 Word v1](credit_soc_phase2_comprehensive_report_20260604_v1.docx)
 - [最终完成性审计 v1](credit_soc_phase2_completion_audit_20260604_v1.md)
@@ -63,7 +66,9 @@
 - [机制稳健性结果](../results/credit_soc_phase2_mechanism_20260604_v1/longrun_20260604_1244_r2/)
 - [因素与显式拓扑结果](../results/credit_soc_phase2_factors_topology_20260604_v1/)
 - [完备场景扫描相图分析结果](../results/credit_soc_comprehensive_scan_analysis_20260608_v1/)
+- [period 临界带二阶段精确分析结果](../results/credit_soc_period_critical_stage2_exact_analysis_20260609_v1/)
 - [timestep SOC 对照分析结果](../results/credit_soc_timestep_scan_analysis_20260609_v2/)
+- [信贷网络同参数 period/timestep GIF 对照结果 v3](../results/credit_soc_visual_evolution_same_params_20260609_v3/)
 - [信贷网络演化动画 GIF 结果](../results/credit_soc_visual_evolution_20260609_v1/)
 
 ## 阻塞与结论边界
@@ -72,6 +77,6 @@
 - “当前约束下不存在严格 SOC”是对已实现 baseline、已扫描参数邻域和已测机制的经验判定，不是对所有可能信贷网络模型的数学不可能性证明。
 - 10% 大 avalanche 是人工分类标签；检查频率会改变事件聚合窗口，因此其发生率不能单独证明临界。
 - 稳健大级联只说明级联转变或过载区稳健存在，不自动推出 SOC；需要继续拆分初始同步违约、传播新增违约和重复违约。
-- 完备场景扫描报告中的 SOC 快筛是候选筛选，不替代有限尺寸和长时平稳性复核；本轮筛选没有发现值得直接提升为严格 SOC 的候选带。
+- 完备场景扫描报告中的 SOC 快筛是候选筛选，不替代有限尺寸和长时平稳性复核；粗网格未发现 SOC 候选，但 2026-06-09 的临界带细扫已发现 period 粒度候选带，仍需有限尺寸和长时复核后才能提升。
 - timestep 对照 v2 是快速全景筛查：使用 `1 seed × 20 periods` 与 `max_period_length_steps=500`，不能替代长时稳态最终证明；但它清楚显示 period_end 大崩塌在微步结算下被碎片化，未出现达到 10%N 的尺度候选。
 - pooled event 的 KS bootstrap 和 Vuong p 值在强序列相关下仅作描述性诊断；最终判定必须同时使用时间分离、非平稳性、有限尺寸和机制证据。

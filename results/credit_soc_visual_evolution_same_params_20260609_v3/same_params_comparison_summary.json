@@ -1,0 +1,115 @@
+{
+  "generated_at_cst": "2026-06-09T17:24:52+08:00",
+  "script": "scripts/render_creditnet_evolution_animations.py",
+  "comparison": "same parameters; only default_check_mode/settlement-check granularity differs",
+  "same_params_base": {
+    "n_nodes": 60,
+    "mean_initial_money": 20.0,
+    "money_distribution": "lognormal",
+    "income_distribution_rule": "biased",
+    "growth_rule": "preferential_debt",
+    "consumption_wealth_propensity": 0.04,
+    "consumption_income_propensity": 0.4,
+    "investment_income_propensity": 0.8,
+    "initial_income_per_capita": 5.0,
+    "collapse_threshold_fraction": 0.1,
+    "max_periods": 8,
+    "max_time_steps": 0,
+    "default_threshold": 0.0,
+    "wipe_defaulted_assets": true,
+    "validate_accounting": true,
+    "period_length_rule": "income",
+    "fixed_period_length_steps": 100,
+    "avalanche_protocol": "continue_after_avalanche"
+  },
+  "shared_seed": 2009,
+  "shared_layout_seed": 2026,
+  "seed_selection": {
+    "candidate_seed_range": "2000..2039",
+    "selected_seed": 2009,
+    "criterion": "Choose a visual demonstration seed, within the fixed high-risk same-parameter scenario, where period_end reaches the 10%N large-event threshold and timestep_settle_check remains below that threshold. This is not a global statistical conclusion.",
+    "selected_seed_probe": {
+      "period_end": {
+        "avalanche_count": 8,
+        "max_collapse_size": 49,
+        "max_collapse_fraction": 0.8166666666666667,
+        "time_steps_completed": 4883
+      },
+      "timestep_settle_check": {
+        "avalanche_count": 343,
+        "max_collapse_size": 3,
+        "max_collapse_fraction": 0.05,
+        "time_steps_completed": 5972
+      }
+    }
+  },
+  "initial_cash_vectors_identical": true,
+  "initial_cash_reproducibility_note": "Both traces call sample_initial_money with the same seed and identical parameters before protocol-specific dynamics diverge, so the initial cash vectors are identical in this renderer.",
+  "initial_cash_sha256": "acba651e8419afc88edcddb0ffbd500dd4f120a5e244397e6c8ef542aed04131",
+  "period_end": {
+    "scene_id": "same_params_period_end",
+    "protocol": "period_end",
+    "seed": 2009,
+    "n_nodes": 60,
+    "periods_completed": 8,
+    "time_steps_completed": 4883,
+    "event_count": 8,
+    "event_timestep_rate": 0.0016383370878558263,
+    "event_period_occupancy": 1.0,
+    "total_credit_issued": 4883,
+    "final_active_credit": 12,
+    "max_collapse_size": 49,
+    "max_collapse_fraction": 0.8166666666666667,
+    "large_cascade_threshold_nodes": 6,
+    "reached_10pct_n": true,
+    "large_cascade_event_count": 8,
+    "initial_money_gini": 0.5916150670794633,
+    "final_net_worth_gini": 0.952373581011352,
+    "first_cascade_period": 1,
+    "first_cascade_time_steps": 240,
+    "critical_event": true
+  },
+  "timestep_settle_check": {
+    "scene_id": "same_params_timestep",
+    "protocol": "timestep_settle_check",
+    "seed": 2009,
+    "n_nodes": 60,
+    "periods_completed": 8,
+    "time_steps_completed": 5972,
+    "event_count": 343,
+    "event_timestep_rate": 0.05743469524447421,
+    "event_period_occupancy": 1.0,
+    "total_credit_issued": 5972,
+    "final_active_credit": 318,
+    "max_collapse_size": 3,
+    "max_collapse_fraction": 0.05,
+    "large_cascade_threshold_nodes": 6,
+    "reached_10pct_n": false,
+    "large_cascade_event_count": 0,
+    "initial_money_gini": 0.5916150670794633,
+    "final_net_worth_gini": 0.7658668730650156,
+    "first_cascade_period": 1,
+    "first_cascade_time_steps": 45,
+    "critical_event": false
+  },
+  "outputs": {
+    "same_params_period_end": {
+      "gif": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end.gif",
+      "keyframes_png": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end_keyframes.png",
+      "trace_summary_csv": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end_trace_summary.csv",
+      "metadata_json": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_end_metadata.json"
+    },
+    "same_params_timestep": {
+      "gif": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_timestep.gif",
+      "keyframes_png": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_timestep_keyframes.png",
+      "trace_summary_csv": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_timestep_trace_summary.csv",
+      "metadata_json": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_timestep_metadata.json"
+    },
+    "side_by_side": {
+      "gif": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_vs_timestep_side_by_side.gif",
+      "keyframes_png": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_vs_timestep_side_by_side_keyframes.png",
+      "trace_summary_csv": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_vs_timestep_side_by_side_trace_summary.csv",
+      "metadata_json": "results/credit_soc_visual_evolution_same_params_20260609_v3/same_params_period_vs_timestep_side_by_side_metadata.json"
+    }
+  }
+}
