@@ -1,0 +1,115 @@
+frame_index,scene_id,protocol,stage,period,period_length_steps,micro_step_in_period,time_steps_completed,settlements_completed,checks_completed,total_credit_issued,failed_credit_events,avalanche_count_so_far,event_index,active_credit,active_directed_pairs,min_net_worth,median_net_worth,max_debt_pressure,highlight_nodes,new_default_nodes,note
+0,timestep_micro_tail,timestep_settle_check,initial_state,0,0,0,0,0,0,0,0,0,0,0,0,1.0,6.5,0.0,,,initial balances
+1,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,16,16,16,16,16,0,0,1,16,16,-1.0,7.0,2.0,51,,timestep_settle_check: initial defaults=1
+2,timestep_micro_tail,timestep_settle_check,cascade_wave_start,1,120,16,16,16,16,16,0,0,1,16,16,-1.0,7.0,2.0,51,,clearing node 51
+3,timestep_micro_tail,timestep_settle_check,cascade_wave_done,1,120,16,16,16,16,16,0,0,1,14,14,0.0,7.0,1.0,51,,new defaults=0
+4,timestep_micro_tail,timestep_settle_check,cascade_event_done,1,120,16,16,16,16,16,0,1,1,14,14,0.0,7.0,1.0,51,,collapse size=1
+5,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,31,31,31,31,31,0,1,2,29,29,-1.0,6.5,1.0,21,,timestep_settle_check: initial defaults=1
+6,timestep_micro_tail,timestep_settle_check,cascade_wave_start,1,120,31,31,31,31,31,0,1,2,29,29,-1.0,6.5,1.0,21,,clearing node 21
+7,timestep_micro_tail,timestep_settle_check,cascade_wave_done,1,120,31,31,31,31,31,0,1,2,28,28,0.0,6.5,1.0,21,,new defaults=0
+8,timestep_micro_tail,timestep_settle_check,cascade_event_done,1,120,31,31,31,31,31,0,2,2,28,28,0.0,6.5,1.0,21,,collapse size=1
+9,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,1,120,33,33,33,33,33,0,2,0,30,30,-1.0,6.0,2.0,18,,credit 26->18; micro settlement
+10,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,33,33,33,33,33,0,2,3,30,30,-1.0,6.0,2.0,18,,timestep_settle_check: initial defaults=1
+11,timestep_micro_tail,timestep_settle_check,cascade_wave_start,1,120,33,33,33,33,33,0,2,3,30,30,-1.0,6.0,2.0,18,,clearing node 18
+12,timestep_micro_tail,timestep_settle_check,cascade_wave_done,1,120,33,33,33,33,33,0,2,3,28,28,0.0,6.0,0.5555555555555556,18,,new defaults=0
+13,timestep_micro_tail,timestep_settle_check,cascade_event_done,1,120,33,33,33,33,33,0,3,3,28,28,0.0,6.0,0.5555555555555556,18,,collapse size=1
+14,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,64,64,64,64,64,0,3,4,59,58,-1.0,5.5,1.1428571428571428,45,,timestep_settle_check: initial defaults=1
+15,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,65,65,65,65,65,0,4,5,49,48,-1.0,6.0,2.0,52,,timestep_settle_check: initial defaults=1
+16,timestep_micro_tail,timestep_settle_check,cascade_wave_start,1,120,65,65,65,65,65,0,4,5,49,48,-1.0,6.0,2.0,52,,clearing node 52
+17,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,83,83,83,83,83,0,5,6,65,63,-1.0,5.0,1.0,42,,timestep_settle_check: initial defaults=1
+18,timestep_micro_tail,timestep_settle_check,cascade_event_done,1,120,83,83,83,83,83,0,6,6,64,62,0.0,5.0,1.0,42,,collapse size=1
+19,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,93,93,93,93,93,0,6,7,74,71,-1.0,5.0,1.0,42,,timestep_settle_check: initial defaults=1
+20,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,1,120,95,95,95,95,95,0,7,0,75,72,-1.0,5.0,1.5,50,,credit 10->50; micro settlement
+21,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,95,95,95,95,95,0,7,8,75,72,-1.0,5.0,1.5,50,,timestep_settle_check: initial defaults=1
+22,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,98,98,98,98,98,0,8,9,75,72,-1.0,5.0,1.3333333333333333,40 51,,timestep_settle_check: initial defaults=2
+23,timestep_micro_tail,timestep_settle_check,cascade_wave_done,1,120,98,98,98,98,98,0,8,9,71,68,-1.0,5.0,1.0,40,,new defaults=0
+24,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,103,103,103,103,103,0,9,10,75,71,-1.0,5.0,1.3333333333333333,6,,timestep_settle_check: initial defaults=1
+25,timestep_micro_tail,timestep_settle_check,cascade_wave_done,1,120,103,103,103,103,103,0,9,10,71,67,0.0,5.0,1.0,6,,new defaults=0
+26,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,106,106,106,106,106,0,10,11,74,69,-1.0,5.0,1.1666666666666667,43,,timestep_settle_check: initial defaults=1
+27,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,1,120,109,109,109,109,109,0,11,0,69,64,-1.0,5.0,1.5,4,,credit 49->41; micro settlement
+28,timestep_micro_tail,timestep_settle_check,initial_defaults,1,120,109,109,109,109,109,0,11,12,69,64,-1.0,5.0,1.5,4,,timestep_settle_check: initial defaults=1
+29,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,2,120,9,129,129,129,129,0,12,0,86,80,-1.0,5.0,1.25,29,,credit 35->29; micro settlement
+30,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,9,129,129,129,129,0,12,13,86,80,-1.0,5.0,1.25,29,,timestep_settle_check: initial defaults=1
+31,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,17,137,137,137,137,0,13,14,89,83,-1.0,4.0,1.0,17,,timestep_settle_check: initial defaults=1
+32,timestep_micro_tail,timestep_settle_check,cascade_wave_start,2,120,17,137,137,137,137,0,13,14,89,83,-1.0,4.0,1.0,17,,clearing node 17
+33,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,18,138,138,138,138,0,14,15,89,83,-1.0,4.0,1.25,24,,timestep_settle_check: initial defaults=1
+34,timestep_micro_tail,timestep_settle_check,cascade_event_done,2,120,18,138,138,138,138,0,15,15,83,77,0.0,4.0,1.0,24,,collapse size=1
+35,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,19,139,139,139,139,0,15,16,84,78,-1.0,4.0,2.0,22,,timestep_settle_check: initial defaults=1
+36,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,26,146,146,146,146,0,16,17,89,83,-1.0,4.0,2.0,47,,timestep_settle_check: initial defaults=1
+37,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,44,164,164,164,164,0,17,18,105,98,-1.0,4.0,1.25,56,,timestep_settle_check: initial defaults=1
+38,timestep_micro_tail,timestep_settle_check,cascade_wave_done,2,120,44,164,164,164,164,0,17,18,99,92,0.0,4.0,1.0,56,,new defaults=0
+39,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,50,170,170,170,170,0,18,19,105,98,-1.0,4.0,1.0,18,,timestep_settle_check: initial defaults=1
+40,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,2,120,51,171,171,171,171,0,19,0,105,98,-1.0,4.0,1.0,18,,credit 10->18; micro settlement
+41,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,51,171,171,171,171,0,19,20,105,98,-1.0,4.0,1.0,18,,timestep_settle_check: initial defaults=1
+42,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,63,183,183,183,183,0,20,21,116,106,-1.0,4.0,1.1666666666666667,39,,timestep_settle_check: initial defaults=1
+43,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,67,187,187,187,187,0,21,22,112,101,-1.0,4.5,1.0,17,,timestep_settle_check: initial defaults=1
+44,timestep_micro_tail,timestep_settle_check,cascade_event_done,2,120,67,187,187,187,187,0,22,22,111,100,0.0,4.5,1.0,17,,collapse size=1
+45,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,70,190,190,190,190,0,22,23,114,103,-1.0,4.0,1.1666666666666667,20,,timestep_settle_check: initial defaults=1
+46,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,74,194,194,194,194,0,23,24,110,100,-1.0,4.0,1.0,18,,timestep_settle_check: initial defaults=1
+47,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,83,203,203,203,203,0,24,25,118,107,-1.0,4.0,2.0,33,,timestep_settle_check: initial defaults=1
+48,timestep_micro_tail,timestep_settle_check,cascade_wave_done,2,120,83,203,203,203,203,0,24,25,116,105,0.0,4.0,1.0,33,,new defaults=0
+49,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,93,213,213,213,213,0,25,26,126,112,-1.0,4.0,1.5,59,,timestep_settle_check: initial defaults=1
+50,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,2,120,94,214,214,214,214,0,26,0,124,110,-1.0,4.0,2.0,33,,credit 10->33; micro settlement
+51,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,94,214,214,214,214,0,26,27,124,110,-1.0,4.0,2.0,33,,timestep_settle_check: initial defaults=1
+52,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,97,217,217,217,217,0,27,28,125,112,-1.0,4.0,1.1666666666666667,8,,timestep_settle_check: initial defaults=1
+53,timestep_micro_tail,timestep_settle_check,cascade_wave_start,2,120,97,217,217,217,217,0,27,28,125,112,-1.0,4.0,1.1666666666666667,8,,clearing node 8
+54,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,100,220,220,220,220,0,28,29,119,107,-1.0,4.0,1.0,17,,timestep_settle_check: initial defaults=1
+55,timestep_micro_tail,timestep_settle_check,cascade_event_done,2,120,100,220,220,220,220,0,29,29,118,106,0.0,4.0,1.0,17,,collapse size=1
+56,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,111,231,231,231,231,0,29,30,129,115,-1.0,4.0,1.1666666666666667,15,,timestep_settle_check: initial defaults=1
+57,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,114,234,234,234,234,0,30,31,123,110,-1.0,4.0,1.0,51,,timestep_settle_check: initial defaults=1
+58,timestep_micro_tail,timestep_settle_check,cascade_wave_start,2,120,114,234,234,234,234,0,30,31,123,110,-1.0,4.0,1.0,51,,clearing node 51
+59,timestep_micro_tail,timestep_settle_check,initial_defaults,2,120,116,236,236,236,236,0,31,32,124,111,-1.0,4.0,1.0,3,,timestep_settle_check: initial defaults=1
+60,timestep_micro_tail,timestep_settle_check,cascade_event_done,2,120,116,236,236,236,236,0,32,32,123,110,0.0,4.0,1.0,3,,collapse size=1
+61,timestep_micro_tail,timestep_settle_check,initial_defaults,3,120,8,248,248,248,248,0,32,33,135,117,-1.0,4.0,2.0,37,,timestep_settle_check: initial defaults=1
+62,timestep_micro_tail,timestep_settle_check,cascade_wave_done,3,120,8,248,248,248,248,0,32,33,133,115,0.0,4.0,1.0,37,,new defaults=0
+63,timestep_micro_tail,timestep_settle_check,initial_defaults,3,120,14,254,254,254,254,0,33,34,139,121,-1.0,4.0,1.0,21,,timestep_settle_check: initial defaults=1
+64,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,3,120,19,259,259,259,259,0,34,0,143,124,-1.0,4.5,1.0,17,,credit 54->17; micro settlement
+65,timestep_micro_tail,timestep_settle_check,initial_defaults,3,120,19,259,259,259,259,0,34,35,143,124,-1.0,4.5,1.0,17,,timestep_settle_check: initial defaults=1
+66,timestep_micro_tail,timestep_settle_check,initial_defaults,3,120,22,262,262,262,262,0,35,36,145,126,-1.0,4.0,1.0,17,,timestep_settle_check: initial defaults=1
+67,timestep_micro_tail,timestep_settle_check,cascade_wave_done,3,120,22,262,262,262,262,0,35,36,144,125,0.0,4.0,1.0,17,,new defaults=0
+68,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,3,120,70,310,310,310,310,0,40,0,162,132,-1.0,4.0,1.125,28,,credit 1->28; micro settlement
+69,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,3,120,113,353,353,353,353,0,46,0,133,107,-1.0,4.0,1.5,47,,credit 10->47; micro settlement
+70,timestep_micro_tail,timestep_settle_check,initial_defaults,3,120,114,354,354,354,354,0,47,48,131,105,-1.0,4.0,1.0,21,,timestep_settle_check: initial defaults=1
+71,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,4,120,1,361,361,361,361,0,48,0,137,109,0.0,4.0,1.0,,,credit 28->41; micro settlement
+72,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,4,120,45,405,405,405,405,0,53,0,147,111,-1.0,5.0,1.0,51,,credit 10->51; micro settlement
+73,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,4,120,75,435,435,435,435,0,59,0,116,97,-1.0,4.5,1.0,3,,credit 7->35; micro settlement
+74,timestep_micro_tail,timestep_settle_check,initial_defaults,4,120,75,435,435,435,435,0,59,60,116,97,-1.0,4.5,1.0,3,,timestep_settle_check: initial defaults=1
+75,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,4,120,94,454,454,454,454,0,62,0,127,107,-1.0,4.0,1.0,6,,credit 22->6; micro settlement
+76,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,5,120,21,501,501,501,501,0,66,0,110,88,-1.0,4.0,1.0434782608695652,46,,credit 49->46; micro settlement
+77,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,5,120,72,552,552,552,552,0,71,0,99,90,-1.0,3.5,1.0,18,,credit 10->18; micro settlement
+78,timestep_micro_tail,timestep_settle_check,initial_defaults,5,120,72,552,552,552,552,0,71,72,99,90,-1.0,3.5,1.0,18,,timestep_settle_check: initial defaults=1
+79,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,5,120,104,584,584,584,584,0,74,0,116,101,-1.0,3.0,1.5,27,,credit 58->27; micro settlement
+80,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,6,120,4,604,604,604,604,0,78,0,116,100,-1.0,3.0,1.1111111111111112,28,,credit 48->28; micro settlement
+81,timestep_micro_tail,timestep_settle_check,initial_defaults,6,120,19,619,619,619,619,0,83,84,114,99,-1.0,3.5,1.5,9,,timestep_settle_check: initial defaults=1
+82,timestep_micro_tail,timestep_settle_check,cascade_wave_start,6,120,19,619,619,619,619,0,83,84,114,99,-1.0,3.5,1.5,9,,clearing node 9
+83,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,6,120,47,647,647,647,647,0,88,0,115,96,-1.0,3.0,1.2,22,,credit 12->22; micro settlement
+84,timestep_micro_tail,timestep_settle_check,initial_defaults,6,120,90,690,690,690,690,0,95,96,88,71,-1.0,3.5,1.0,9,,timestep_settle_check: initial defaults=1
+85,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,6,120,120,720,720,720,720,0,99,0,109,88,0.0,2.0,1.0,,,credit 11->23; micro settlement
+86,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,7,120,29,749,749,749,749,0,104,0,107,86,-1.0,3.0,1.5,7 18,,credit 55->18; micro settlement
+87,timestep_micro_tail,timestep_settle_check,initial_defaults,7,120,46,766,766,766,766,0,107,108,91,72,-1.0,4.0,1.25,38,,timestep_settle_check: initial defaults=1
+88,timestep_micro_tail,timestep_settle_check,cascade_event_done,7,120,46,766,766,766,766,0,108,108,84,65,0.0,4.0,1.0,38,,collapse size=1
+89,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,7,120,120,840,840,840,840,0,112,0,133,108,0.0,3.5,1.0,,,credit 41->59; micro settlement
+90,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,8,120,36,876,876,876,876,0,115,0,164,128,-1.0,3.5,1.5,37,,credit 57->12; micro settlement
+91,timestep_micro_tail,timestep_settle_check,initial_defaults,8,120,63,903,903,903,903,0,119,120,147,113,-1.0,4.0,1.0,6,,timestep_settle_check: initial defaults=1
+92,timestep_micro_tail,timestep_settle_check,cascade_wave_done,8,120,63,903,903,903,903,0,119,120,146,112,0.0,4.0,1.0,6,,new defaults=0
+93,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,8,120,85,925,925,925,925,0,125,0,154,114,-1.0,4.0,1.0,5,,credit 13->5; micro settlement
+94,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,9,120,7,967,967,967,967,0,128,0,161,114,-1.0,4.0,1.0,6,,credit 10->6; micro settlement
+95,timestep_micro_tail,timestep_settle_check,initial_defaults,9,120,25,985,985,985,985,0,131,132,124,91,-1.0,3.5,1.5,56,,timestep_settle_check: initial defaults=1
+96,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,9,120,29,989,989,989,989,0,132,0,125,90,-1.0,3.5,1.25,40,,credit 50->40; micro settlement
+97,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,9,120,69,1029,1029,1029,1029,0,137,0,151,108,-1.0,2.0,1.0588235294117647,26,,credit 10->32; micro settlement
+98,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,9,120,109,1069,1069,1069,1069,0,143,0,80,68,-1.0,3.0,2.0,20,,credit 42->20; micro settlement
+99,timestep_micro_tail,timestep_settle_check,initial_defaults,9,120,109,1069,1069,1069,1069,0,143,144,80,68,-1.0,3.0,2.0,20,,timestep_settle_check: initial defaults=1
+100,timestep_micro_tail,timestep_settle_check,period_start,10,120,0,1080,1080,1080,1080,0,145,0,84,71,0.0,3.0,1.0,,,
+101,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,10,120,80,1160,1160,1160,1160,0,149,0,149,125,-1.0,2.0,1.25,31 36,,credit 19->36; micro settlement
+102,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,10,120,104,1184,1184,1184,1184,0,155,0,112,93,-1.0,3.0,1.5,0,,credit 10->0; micro settlement
+103,timestep_micro_tail,timestep_settle_check,initial_defaults,10,120,104,1184,1184,1184,1184,0,155,156,112,93,-1.0,3.0,1.5,0,,timestep_settle_check: initial defaults=1
+104,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,10,120,115,1195,1195,1195,1195,0,158,0,112,92,-1.0,3.0,1.5,38,,credit 49->38; micro settlement
+105,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,11,120,22,1222,1222,1222,1222,0,163,0,125,96,-1.0,3.0,1.25,48,,credit 34->46; micro settlement
+106,timestep_micro_tail,timestep_settle_check,initial_defaults,11,120,55,1255,1255,1255,1255,0,167,168,124,95,-1.0,2.0,1.0,6,,timestep_settle_check: initial defaults=1
+107,timestep_micro_tail,timestep_settle_check,cascade_wave_start,11,120,55,1255,1255,1255,1255,0,167,168,124,95,-1.0,2.0,1.0,6,,clearing node 6
+108,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,11,120,103,1303,1303,1303,1303,0,171,0,147,112,-1.0,2.0,2.0,20,,credit 10->20; micro settlement
+109,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,12,120,23,1343,1343,1343,1343,0,176,0,161,117,-1.0,2.0,1.125,21,,credit 49->21; micro settlement
+110,timestep_micro_tail,timestep_settle_check,initial_defaults,12,120,54,1374,1374,1374,1374,0,179,180,172,122,-1.0,3.0,1.1666666666666667,15,,timestep_settle_check: initial defaults=1
+111,timestep_micro_tail,timestep_settle_check,cascade_wave_done,12,120,54,1374,1374,1374,1374,0,179,180,163,114,0.0,3.0,1.0,15,,new defaults=0
+112,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,12,120,87,1407,1407,1407,1407,0,184,0,175,114,-1.0,3.0,1.0,37,,credit 10->37; micro settlement
+113,timestep_micro_tail,timestep_settle_check,timestep_settlement_check,12,120,120,1440,1440,1440,1440,0,191,0,175,105,0.0,3.0,1.0,,,credit 30->49; micro settlement

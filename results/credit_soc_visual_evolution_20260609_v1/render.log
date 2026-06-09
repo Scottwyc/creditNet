@@ -1,0 +1,11 @@
+[2026-06-09T16:14:08+08:00] output_dir=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1
+[2026-06-09T16:14:08+08:00] tracing period_end_overload (period_end)
+[2026-06-09T16:14:08+08:00] rendering period_end_overload: frames=100 events=1 max_collapse=20
+[2026-06-09T16:14:25+08:00] done period_end_overload: gif=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/period_end_overload.gif metadata=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/period_end_overload_metadata.json
+[2026-06-09T16:14:25+08:00] tracing timestep_micro_tail (timestep_settle_check)
+[2026-06-09T16:14:25+08:00] rendering timestep_micro_tail: frames=114 events=191 max_collapse=4
+[2026-06-09T16:14:45+08:00] done timestep_micro_tail: gif=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/timestep_micro_tail.gif metadata=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/timestep_micro_tail_metadata.json
+[2026-06-09T16:14:45+08:00] tracing quiet_low_drive (period_end)
+[2026-06-09T16:14:45+08:00] rendering quiet_low_drive: frames=81 events=0 max_collapse=0
+[2026-06-09T16:14:55+08:00] done quiet_low_drive: gif=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/quiet_low_drive.gif metadata=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/quiet_low_drive_metadata.json
+[2026-06-09T16:14:55+08:00] wrote index=/data/WYC/class/creditNet/results/credit_soc_visual_evolution_20260609_v1/visual_evolution_index.json

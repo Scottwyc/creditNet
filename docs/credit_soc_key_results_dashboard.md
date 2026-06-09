@@ -17,6 +17,7 @@
 | 低驱动长期平稳性候选搜索 | 已完成 | 42 场景、504 runs、100.8 万 periods 中没有场景通过 SOC 候选门槛；6 个低驱动场景稀疏但非平稳，36 个场景漂移或持续失败。 | [长期平稳性报告](credit_soc_phase2_stationarity_search_report_20260604_v1.md) | [长期平稳性结果](../results/credit_soc_phase2_stationarity_search_20260604_v1/) | 无 | `candidate_count=0`，无需追加有限尺寸候选验证 |
 | 完备场景扫描与相图 | 已完成 | 覆盖本金、支出、收入分配、增长规则、显式拓扑和 `c=0.10..0.80` 的 8000 scenarios/24000 runs。级联失效相图显示清楚过载转变；SOC 快筛候选数为 0。 | [完备场景扫描报告 v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.md) / [Word v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.docx) | [相图分析结果](../results/credit_soc_comprehensive_scan_analysis_20260608_v1/) | 无 | 若需推进，只对边界高分场景做有限尺寸和长时复核 |
 | timestep 尺度 SOC 对照 | 已完成 | 同一 8000 场景轴改为每个 credit time_step 后微结算/检查/清算；v2 为 `1 seed × 20 periods`、每宏观期最多 500 微步。4,539,260 个事件中无 10%N 大级联，最大事件 10/120；严格 SOC 快候选数为 0，仅有 28 个小尺度尾部候选。 | [timestep SOC 对照报告 v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.md) / [Word v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.docx) | [timestep 对照分析结果](../results/credit_soc_timestep_scan_analysis_20260609_v2/) | 无 | 若需严格确认，需对少数小尺度尾部候选做多 seed、长时、无/高 cap 与有限尺寸复核 |
+| 完整实验报告与动画 | 已完成 | 基于 `project.md` 框架整合 period_end 完备扫描、timestep 对照扫描、固定参数基线、拓扑机会图口径、相图/CCDF/SOC gate 和 3 个 GIF 动画。结论：存在级联失效/过载转变和 timestep 小尺度重尾，但不支持严格 SOC。 | [完整实验报告 v1](credit_soc_complete_experiment_report_20260609_v1.md) / [Word v1](credit_soc_complete_experiment_report_20260609_v1.docx) / [动画支线报告](credit_soc_visual_evolution_report_20260609_v1.md) | [动画结果](../results/credit_soc_visual_evolution_20260609_v1/) | 无 | 若继续推进，应做 timestep 小尺度候选的多 seed、长时、有限尺寸复核 |
 | 当前约束下最终 SOC 判定 | 已完成 | 当前已实现 baseline、已扫描参数邻域和已测机制下，严格 SOC 不存在（经验判定）；存在级联交叉和机制敏感重尾，高风险状态是非平稳持续失败/过载吸引子。 | [最终综合报告](credit_soc_phase2_comprehensive_report_20260604_v1.md) / [最终 Word](credit_soc_phase2_comprehensive_report_20260604_v1.docx) / [完成性审计](credit_soc_phase2_completion_audit_20260604_v1.md) | [最终综合结果](../results/credit_soc_phase2_comprehensive_20260604_v1/) | 无 | 当前项目目标已完成 |
 
 ## 正在进行
@@ -37,10 +38,12 @@
 
 ### 面向外部读者的报告
 
+- [完整实验报告 v1](credit_soc_complete_experiment_report_20260609_v1.md) / [Word v1](credit_soc_complete_experiment_report_20260609_v1.docx)
 - [最终综合证据报告 v1](credit_soc_phase2_comprehensive_report_20260604_v1.md)
 - [timestep尺度 SOC 对照实验报告 v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.md) / [Word v2](credit_soc_timestep_soc_counterfactual_report_20260609_v2.docx)
 - [完备场景扫描与 SOC 相图报告 v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.md)
 - [完备场景扫描与 SOC 相图 Word v1](credit_soc_comprehensive_parameter_scan_report_20260608_v1.docx)
+- [信贷网络演化动画可视化支线报告 v1](credit_soc_visual_evolution_report_20260609_v1.md)
 - [级联失效与 SOC 判定口径说明 v1](credit_soc_cascade_soc_definitions_20260608.md)
 - [最终综合证据 Word v1](credit_soc_phase2_comprehensive_report_20260604_v1.docx)
 - [最终完成性审计 v1](credit_soc_phase2_completion_audit_20260604_v1.md)
@@ -61,6 +64,7 @@
 - [因素与显式拓扑结果](../results/credit_soc_phase2_factors_topology_20260604_v1/)
 - [完备场景扫描相图分析结果](../results/credit_soc_comprehensive_scan_analysis_20260608_v1/)
 - [timestep SOC 对照分析结果](../results/credit_soc_timestep_scan_analysis_20260609_v2/)
+- [信贷网络演化动画 GIF 结果](../results/credit_soc_visual_evolution_20260609_v1/)
 
 ## 阻塞与结论边界
 
